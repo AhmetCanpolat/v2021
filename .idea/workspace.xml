@@ -4,8 +4,12 @@
     <list default="true" id="5a72f7fd-5148-443b-b004-55762d7282bf" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/IyzicoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/IyzicoController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/eski en.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/tr.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/payment_select.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/payment_select.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,11 +194,17 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\public" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\resources\lang\en" />
+      <recent name="C:\xampp\htdocs\resources" />
+      <recent name="C:\xampp\htdocs\resources\lang" />
     </key>
   </component>
   <component name="RunManager">
@@ -216,7 +226,9 @@
       <workItem from="1610539021355" duration="51000" />
       <workItem from="1610539073450" duration="8274000" />
       <workItem from="1610610704859" duration="4366000" />
-      <workItem from="1610695532168" duration="4877000" />
+      <workItem from="1610695532168" duration="17905000" />
+      <workItem from="1610954372851" duration="598000" />
+      <workItem from="1610956044207" duration="3575000" />
     </task>
     <servers />
   </component>
