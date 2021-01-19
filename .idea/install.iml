@@ -134,7 +134,6 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/lcobucci/jwt" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/markbaker/complex" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/nunomaduro/collision" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/iyzico/iyzipay-php" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/rmccue/requests" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/markbaker/matrix" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/paypal/rest-api-sdk-php" />

@@ -31,6 +31,7 @@
                                         <input type="text" class="form-control" name="name" placeholder="{{ translate('Product Name') }}" onchange="update_sku()" required>
                                     </div>
                                 </div>
+
                                 <div class="form-group row" id="category">
                                     <label class="col-md-3 col-from-label">{{translate('Category')}}</label>
                                     <div class="col-md-8">
@@ -44,6 +45,7 @@
                                         </select>
                                     </div>
                                 </div>
+
                                 <div class="form-group row" id="brand">
                                     <label class="col-md-3 col-from-label">{{translate('Brand')}}</label>
                                     <div class="col-md-8">
