@@ -53,7 +53,7 @@
                             <div class="row gutters-5 d-none d-lg-flex border-bottom mb-3 pb-3">
                                 <div class="col-md-5 fw-600">{{ translate('Product')}}</div>
                                 <div class="col fw-600">{{ translate('Price')}}</div>
-                                <div class="col fw-600">{{ translate('Tax')}}</div>
+
                                 <div class="col fw-600">{{ translate('Quantity')}}</div>
                                 <div class="col fw-600">{{ translate('Total')}}</div>
                                 <div class="col-auto fw-600">{{ translate('Remove')}}</div>
@@ -87,10 +87,6 @@
                                             <div class="col-lg col-4 order-1 order-lg-0 my-3 my-lg-0">
                                                 <span class="opacity-60 fs-12 d-block d-lg-none">{{ translate('Price')}}</span>
                                                 <span class="fw-600 fs-16">{{ single_price($cartItem['price']) }}</span>
-                                            </div>
-                                            <div class="col-lg col-4 order-2 order-lg-0 my-3 my-lg-0">
-                                                <span class="opacity-60 fs-12 d-block d-lg-none">{{ translate('Tax')}}</span>
-                                                <span class="fw-600 fs-16">{{ single_price($cartItem['tax']) }}</span>
                                             </div>
 
                                             <div class="col-lg col-6 order-4 order-lg-0">

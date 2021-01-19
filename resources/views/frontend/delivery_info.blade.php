@@ -261,7 +261,7 @@
                                     @endif
                                 </div>
                                 <div class="card-footer justify-content-end">
-                                    <button type="submit" name="owner_id" value="{{ $key }}" class="btn fw-600 btn-primary">{{ translate('Continue to Payment')}}</a>
+                                    <a type="submit" name="owner_id" value="{{ $key }}" class="btn fw-600 btn-primary">{{ translate('Continue to Payment')}}</a>
                                 </div>
                             </div>
                         @endforeach

@@ -42,82 +42,9 @@ class CheckoutController extends Controller
             $request->session()->put('payment_type', 'cart_payment');
 
             if ($request->session()->get('order_id') != null) {
-                if ($request->payment_option == 'paypal') {
-                    $paypal = new PaypalController;
-                    return $paypal->getCheckout();
-                } elseif ($request->payment_option == 'stripe') {
-                    $stripe = new StripePaymentController;
-                    return $stripe->stripe();
-                } elseif ($request->payment_option == 'sslcommerz') {
-                    $sslcommerz = new PublicSslCommerzPaymentController;
-                    return $sslcommerz->index($request);
-                } elseif ($request->payment_option == 'instamojo') {
-                    $instamojo = new InstamojoController;
-                    return $instamojo->pay($request);
-                } elseif ($request->payment_option == 'razorpay') {
-                    $razorpay = new RazorpayController;
-                    return $razorpay->payWithRazorpay($request);
-                } elseif ($request->payment_option == 'paystack') {
-                    $paystack = new PaystackController;
-                    return $paystack->redirectToGateway($request);
-                } elseif ($request->payment_option == 'voguepay') {
-                    $voguePay = new VoguePayController;
-                    return $voguePay->customer_showForm();
-                } elseif ($request->payment_option == 'twocheckout') {
-                    $twocheckout = new TwoCheckoutController;
-                    return $twocheckout->index($request);
-                } elseif ($request->payment_option == 'payhere') {
-                    $order = Order::findOrFail($request->session()->get('order_id'));
-
-                    $order_id = $order->id;
-                    $amount = $order->grand_total;
-                    $first_name = json_decode($order->shipping_address)->name;
-                    $last_name = 'X';
-                    $phone = json_decode($order->shipping_address)->phone;
-                    $email = json_decode($order->shipping_address)->email;
-                    $address = json_decode($order->shipping_address)->address;
-                    $city = json_decode($order->shipping_address)->city;
-
-                    return PayhereUtility::create_checkout_form($order_id, $amount, $first_name, $last_name, $phone, $email, $address, $city);
-                } elseif ($request->payment_option == 'payfast') {
-                    $order = Order::findOrFail($request->session()->get('order_id'));
-
-                    $order_id = $order->id;
-                    $amount = $order->grand_total;
-
-                    return PayfastUtility::create_checkout_form($order_id, $amount);
-                } else if ($request->payment_option == 'ngenius') {
-                    $ngenius = new NgeniusController();
-                    return $ngenius->pay();
-                } else if ($request->payment_option == 'iyzico') {
+                if ($request->payment_option == 'iyzico') {
                     $iyzico = new IyzicoController();
                     return $iyzico->pay();
-                } else if ($request->payment_option == 'flutterwave') {
-                    $flutterwave = new FlutterwaveController();
-                    return $flutterwave->pay();
-                } else if ($request->payment_option == 'mpesa') {
-                    $mpesa = new MpesaController();
-                    return $mpesa->pay();
-                } elseif ($request->payment_option == 'paytm') {
-                    $paytm = new PaytmController;
-                    return $paytm->index();
-                } elseif ($request->payment_option == 'cash_on_delivery') {
-                    $request->session()->put('cart', Session::get('cart')->where('owner_id', '!=', Session::get('owner_id')));
-                    $request->session()->forget('owner_id');
-                    $request->session()->forget('delivery_info');
-                    $request->session()->forget('coupon_id');
-                    $request->session()->forget('coupon_discount');
-
-                    flash(translate("Your order has been placed successfully"))->success();
-                    return redirect()->route('order_confirmed');
-                } elseif ($request->payment_option == 'wallet') {
-                    $user = Auth::user();
-                    $order = Order::findOrFail($request->session()->get('order_id'));
-                    if ($user->balance >= $order->grand_total) {
-                        $user->balance -= $order->grand_total;
-                        $user->save();
-                        return $this->checkout_done($request->session()->get('order_id'), null);
-                    }
                 } else {
                     $order = Order::findOrFail($request->session()->get('order_id'));
                     $order->manual_payment = 1;
@@ -129,12 +56,12 @@ class CheckoutController extends Controller
                     $request->session()->forget('coupon_id');
                     $request->session()->forget('coupon_discount');
 
-                    flash(translate('Your order has been placed successfully. Please submit payment information from purchase history'))->success();
+                    flash(translate('Siparişiniz başarıyla verildi'))->success();
                     return redirect()->route('order_confirmed');
                 }
             }
         } else {
-            flash(translate('Select Payment Option.'))->warning();
+            flash(translate('Ödeme yöntemini seçin'))->warning();
             return back();
         }
     }
