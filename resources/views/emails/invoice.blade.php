@@ -1,7 +1,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Laravel</title>
+    <title>Esosyete</title>
     <meta http-equiv="Content-Type" content="text/html;"/>
     <meta charset="UTF-8">
 	<style media="all">
@@ -85,12 +85,12 @@
 					<td class="text-right"></td>
 				</tr>
 				<tr>
-					<td class="gry-color small">{{  translate('Email') }}: {{ get_setting('contact_email') }}</td>
-					<td class="text-right small"><span class="gry-color small">{{  translate('Order ID') }}:</span> <span class="strong">{{ $order->code }}</span></td>
+					<td class="gry-color small">Eposta: {{ get_setting('contact_email') }}</td>
+					<td class="text-right small"><span class="gry-color small">Sipariş numarası:</span> <span class="strong">{{ $order->code }}</span></td>
 				</tr>
 				<tr>
-					<td class="gry-color small">{{  translate('Phone') }}: {{ get_setting('contact_phone') }}</td>
-					<td class="text-right small"><span class="gry-color small">{{  translate('Order Date') }}:</span> <span class=" strong">{{ date('d-m-Y', $order->date) }}</span></td>
+					<td class="gry-color small">Telefon: {{ get_setting('contact_phone') }}</td>
+					<td class="text-right small"><span class="gry-color small">Sipariş Tarihi:</span> <span class=" strong">{{ date('d-m-Y', $order->date) }}</span></td>
 				</tr>
 			</table>
 
@@ -101,11 +101,11 @@
 				@php
 					$shipping_address = json_decode($order->shipping_address);
 				@endphp
-				<tr><td class="strong small gry-color">{{ translate('Bill to') }}:</td></tr>
+				<tr><td class="strong small gry-color">Fatura sahibi:</td></tr>
 				<tr><td class="strong">{{ $shipping_address->name }}</td></tr>
 				<tr><td class="gry-color small">{{ $shipping_address->address }}, {{ $shipping_address->city }}, {{ $shipping_address->country }}</td></tr>
-				<tr><td class="gry-color small">{{ translate('Email') }}: {{ $shipping_address->email }}</td></tr>
-				<tr><td class="gry-color small">{{ translate('Phone') }}: {{ $shipping_address->phone }}</td></tr>
+				<tr><td class="gry-color small">Eposta: {{ $shipping_address->email }}</td></tr>
+				<tr><td class="gry-color small">Telefon: {{ $shipping_address->phone }}</td></tr>
 			</table>
 		</div>
 
@@ -113,12 +113,11 @@
 			<table class="padding text-left small border-bottom">
 				<thead>
 	                <tr class="gry-color" style="background: #eceff4;">
-	                    <th width="35%">{{ translate('Product Name') }}</th>
-						<th width="15%">{{ translate('Delivery Type') }}</th>
-	                    <th width="10%">{{ translate('Qty') }}</th>
-	                    <th width="15%">{{ translate('Unit Price') }}</th>
-	                    <th width="10%">{{ translate('Tax') }}</th>
-	                    <th width="15%" class="text-right">{{ translate('Total') }}</th>
+	                    <th width="35%">Ürün Adı</th>
+						<th width="15%">Teslimat Tipi</th>
+	                    <th width="10%">Adet</th>
+	                    <th width="15%">Birim fiyat</th>
+	                    <th width="15%" class="text-right">Toplam</th>
 	                </tr>
 				</thead>
 				<tbody class="strong">
@@ -128,10 +127,10 @@
 								<td>{{ $orderDetail->product->getTranslation('name') }} @if($orderDetail->variation != null) ({{ $orderDetail->variation }}) @endif</td>
 								<td>
 									@if ($orderDetail->shipping_type != null && $orderDetail->shipping_type == 'home_delivery')
-										{{ translate('Home Delivery') }}
+										Adrese Teslim
 									@elseif ($orderDetail->shipping_type == 'pickup_point')
 										@if ($orderDetail->pickup_point != null)
-											{{ $orderDetail->pickup_point->getTranslation('name') }} ({{ translate('Pickip Point') }})
+											{{ $orderDetail->pickup_point->getTranslation('name') }} (Alış Noktası)
 										@endif
 									@endif
 								</td>

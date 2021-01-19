@@ -156,7 +156,7 @@
                             @endif
                         </div>
                         <div class="card-footer justify-content-end">
-                            <button type="submit" name="owner_id" value="{{ App\User::where('user_type', 'admin')->first()->id }}" class="btn fw-600 btn-primary">{{ translate('Continue to Payment')}}</a>
+                            <button type="submit" name="owner_id" value="{{ App\User::where('user_type', 'admin')->first()->id }}" class="btn fw-600 btn-primary">{{ translate('Continue to Payment')}}</button>
                         </div>
                     </div>
                 </form>
@@ -261,7 +261,7 @@
                                     @endif
                                 </div>
                                 <div class="card-footer justify-content-end">
-                                    <a type="submit" name="owner_id" value="{{ $key }}" class="btn fw-600 btn-primary">{{ translate('Continue to Payment')}}</a>
+                                    <button type="submit" name="owner_id" value="{{ $key }}" class="btn fw-600 btn-primary">{{ translate('Continue to Payment')}}</button>
                                 </div>
                             </div>
                         @endforeach

@@ -8,13 +8,13 @@
         <div class="row">
             <div class="col-lg-6 col-xl-4 mx-auto">
                 <div class="card text-left">
-                    <div class="card-header">{{ translate('Create a New Account') }}</div>
+                    <div class="card-header">Yeni hesap oluşturun</div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
 
                             <div class="form-group">
-                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus placeholder="{{ translate('Full Name') }}">
+                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus placeholder="Ad Soyad">
 
                                 @if ($errors->has('name'))
                                     <span class="invalid-feedback" role="alert">
@@ -23,7 +23,7 @@
                                 @endif
                             </div>
                             <div class="form-group">
-                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required placeholder="{{ translate('password') }}">
+                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required placeholder="Şifre">
 
                                 @if ($errors->has('password'))
                                     <span class="invalid-feedback" role="alert">
@@ -32,7 +32,7 @@
                                 @endif
                             </div>
                             <div class="form-group">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required placeholder="{{ translate('Email') }}">
+                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required placeholder="Eposta">
 
                                 @if ($errors->has('email'))
                                     <span class="invalid-feedback" role="alert">
@@ -41,18 +41,15 @@
                                 @endif
                             </div>
                             <div class="form-group">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required placeholder="{{ translate('Confrim Password') }}">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required placeholder="Şifreyi onayla">
                             </div>
                             <div class="checkbox pad-btm text-left">
                                 <input id="demo-form-checkbox" class="magic-checkbox" type="checkbox" required>
-                                <label for="demo-form-checkbox">{{translate('I agree with the Terms and Conditions')}}</label>
+                                <label for="demo-form-checkbox">Şartlar ve Koşullar ve diğer politikalarımızı kabul ediniz.</label>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-lg btn-block">
-                                {{ translate('Register') }}
-                            </button>
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">Kaydol</button>
                         </form>
-                        <div class="mt-3">
-                            {{translate('Already have an account')}} ? <a href="{{route('login')}}" class="btn-link mar-rgt text-bold">{{translate('Sign In')}}</a>
+                        <div class="mt-3">Zaten hesabınız var mı?<a href="{{route('login')}}" class="btn-link mar-rgt text-bold">Giriş Yap</a>
                         </div>
                     </div>
                 </div>

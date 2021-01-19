@@ -5,17 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5a72f7fd-5148-443b-b004-55762d7282bf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/frontend/payment/iyzico.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/frontend/sozlesme.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/IyzicoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/IyzicoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/verify.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/verify.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/emails/conversation.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/emails/conversation.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/emails/invoice.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/emails/invoice.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/emails/support.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/emails/support.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/emails/verification.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/emails/verification.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/errors/404.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/errors/404.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/errors/500.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/errors/500.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/errors/503.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/errors/503.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/frontend/delivery_info.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/delivery_info.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/view_cart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/view_cart.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/iyzico/iyzipay-php/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/iyzico/iyzipay-php/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/iyzico/iyzipay-php/src/Iyzipay/DefaultHttpClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/iyzico/iyzipay-php/src/Iyzipay/DefaultHttpClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/inc/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/inc/footer.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/inc/nav.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/inc/nav.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/user/seller/products.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/user/seller/products.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

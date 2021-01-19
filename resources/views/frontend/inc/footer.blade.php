@@ -4,25 +4,25 @@
             <div class="col-lg-3 col-md-6">
                 <a class="text-reset border-left text-center p-4 d-block" href="{{ route('terms') }}">
                     <i class="la la-file-text la-3x text-primary mb-2"></i>
-                    <h4 class="h6">{{ translate('Terms & conditions') }}</h4>
+                    <h4 class="h6">Şartlar ve koşullar</h4>
                 </a>
             </div>
             <div class="col-lg-3 col-md-6">
                 <a class="text-reset border-left text-center p-4 d-block" href="{{ route('returnpolicy') }}">
                     <i class="la la-mail-reply la-3x text-primary mb-2"></i>
-                    <h4 class="h6">{{ translate('Return Policy') }}</h4>
+                    <h4 class="h6">İade politikasi</h4>
                 </a>
             </div>
             <div class="col-lg-3 col-md-6">
                 <a class="text-reset border-left text-center p-4 d-block" href="{{ route('supportpolicy') }}">
                     <i class="la la-support la-3x text-primary mb-2"></i>
-                    <h4 class="h6">{{ translate('Support Policy') }}</h4>
+                    <h4 class="h6">Destek Politikası</h4>
                 </a>
             </div>
             <div class="col-lg-3 col-md-6">
                 <a class="text-reset border-left border-right text-center p-4 d-block" href="{{ route('privacypolicy') }}">
                     <i class="las la-exclamation-circle la-3x text-primary mb-2"></i>
-                    <h4 class="h6">{{ translate('Privacy Policy') }}</h4>
+                    <h4 class="h6">Gizlilik Politikası</h4>
                 </a>
             </div>
         </div>
@@ -50,31 +50,27 @@
                         <form class="form-inline" method="POST" action="{{ route('subscribers.store') }}">
                             @csrf
                             <div class="form-group mb-0">
-                                <input type="email" class="form-control" placeholder="{{ translate('Your Email Address') }}" name="email" required>
+                                <input type="email" class="form-control" placeholder="E-posta adresiniz" name="email" required>
                             </div>
-                            <button type="submit" class="btn btn-primary">
-                                {{ translate('Subscribe') }}
-                            </button>
+                            <button type="submit" class="btn btn-primary">Subscribe</button>
                         </form>
                     </div>
                 </div>
             </div>
             <div class="col-lg-3 ml-xl-auto col-md-4 mr-0">
                 <div class="text-center text-md-left mt-4">
-                    <h4 class="fs-13 text-uppercase fw-600 border-bottom border-gray-900 pb-2 mb-4">
-                        {{ translate('Contact Info') }}
-                    </h4>
+                    <h4 class="fs-13 text-uppercase fw-600 border-bottom border-gray-900 pb-2 mb-4">İletişim bilgileri</h4>
                     <ul class="list-unstyled">
                         <li class="mb-2">
-                           <span class="d-block opacity-30">{{ translate('Address') }}:</span>
+                           <span class="d-block opacity-30">Adres:</span>
                            <span class="d-block opacity-70">{{ get_setting('contact_address') }}</span>
                         </li>
                         <li class="mb-2">
-                           <span class="d-block opacity-30">{{translate('Phone')}}:</span>
+                           <span class="d-block opacity-30">Telefon:</span>
                            <span class="d-block opacity-70">{{ get_setting('contact_phone') }}</span>
                         </li>
                         <li class="mb-2">
-                           <span class="d-block opacity-30">{{translate('Email')}}:</span>
+                           <span class="d-block opacity-30">E-posta:</span>
                            <span class="d-block opacity-70">
                                <a href="mailto:{{ get_setting('contact_email') }}" class="text-reset">{{ get_setting('contact_email')  }}</a>
                             </span>
@@ -103,53 +99,37 @@
 
             <div class="col-md-4 col-lg-2">
                 <div class="text-center text-md-left mt-4">
-                    <h4 class="fs-13 text-uppercase fw-600 border-bottom border-gray-900 pb-2 mb-4">
-                        {{ translate('My Account') }}
-                    </h4>
+                    <h4 class="fs-13 text-uppercase fw-600 border-bottom border-gray-900 pb-2 mb-4">Hesabım</h4>
                     <ul class="list-unstyled">
                         @if (Auth::check())
                             <li class="mb-2">
-                                <a class="opacity-50 hov-opacity-100 text-reset" href="{{ route('logout') }}">
-                                    {{ translate('Logout') }}
-                                </a>
+                                <a class="opacity-50 hov-opacity-100 text-reset" href="{{ route('logout') }}">Çıkış Yap</a>
                             </li>
                         @else
                             <li class="mb-2">
-                                <a class="opacity-50 hov-opacity-100 text-reset" href="{{ route('user.login') }}">
-                                    {{ translate('Login') }}
-                                </a>
+                                <a class="opacity-50 hov-opacity-100 text-reset" href="{{ route('user.login') }}">Giriş Yap</a>
                             </li>
                         @endif
                         <li class="mb-2">
-                            <a class="opacity-50 hov-opacity-100 text-reset" href="{{ route('purchase_history.index') }}">
-                                {{ translate('Order History') }}
-                            </a>
+                            <a class="opacity-50 hov-opacity-100 text-reset" href="{{ route('purchase_history.index') }}">Sipariş Geçmişi</a>
                         </li>
                         <li class="mb-2">
-                            <a class="opacity-50 hov-opacity-100 text-reset" href="{{ route('wishlists.index') }}">
-                                {{ translate('My Wishlist') }}
-                            </a>
+                            <a class="opacity-50 hov-opacity-100 text-reset" href="{{ route('wishlists.index') }}">Favorilerim</a>
                         </li>
                         <li class="mb-2">
-                            <a class="opacity-50 hov-opacity-100 text-reset" href="{{ route('orders.track') }}">
-                                {{ translate('Track Order') }}
-                            </a>
+                            <a class="opacity-50 hov-opacity-100 text-reset" href="{{ route('orders.track') }}">Sipariş Takibi</a>
                         </li>
                         @if (\App\Addon::where('unique_identifier', 'affiliate_system')->first() != null && \App\Addon::where('unique_identifier', 'affiliate_system')->first()->activated)
                             <li class="mb-2">
-                                <a class="opacity-50 hov-opacity-100 text-light" href="{{ route('affiliate.apply') }}">{{ translate('Be an affiliate partner')}}</a>
+                                <a class="opacity-50 hov-opacity-100 text-light" href="{{ route('affiliate.apply') }}">Satış ortağı olun</a>
                             </li>
                         @endif
                     </ul>
                 </div>
                 @if (get_setting('vendor_system_activation') == 1)
                     <div class="text-center text-md-left mt-4">
-                        <h4 class="fs-13 text-uppercase fw-600 border-bottom border-gray-900 pb-2 mb-4">
-                            {{ translate('Be a Seller') }}
-                        </h4>
-                        <a href="{{ route('shops.create') }}" class="btn btn-primary btn-sm shadow-md">
-                            {{ translate('Apply Now') }}
-                        </a>
+                        <h4 class="fs-13 text-uppercase fw-600 border-bottom border-gray-900 pb-2 mb-4">Satıcı Olun</h4>
+                        <a href="{{ route('shops.create') }}" class="btn btn-primary btn-sm shadow-md">Şimdi yap</a>
                     </div>
                 @endif
             </div>
