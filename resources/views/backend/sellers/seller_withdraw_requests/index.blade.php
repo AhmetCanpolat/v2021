@@ -2,20 +2,20 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            <h5 class="mb-0 h6">{{translate('Seller Withdraw Request')}}</h5>
+            <h5 class="mb-0 h6">Satıcı Para Çekme İsteği</h5>
         </div>
         <div class="card-body">
             <table class="table aiz-table mb-0">
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>{{translate('Date')}}</th>
-                        <th>{{translate('Seller')}}</th>
-                        <th>{{translate('Total Amount to Pay')}}</th>
-                        <th>{{translate('Requested Amount')}}</th>
-                        <th>{{ translate('Message') }}</th>
-                        <th>{{ translate('Status') }}</th>
-                        <th width="15%">{{translate('Options')}}</th>
+                        <th>Tarih</th>
+                        <th>Satıcı</th>
+                        <th>Ödenecek Toplam Tutar</th>
+                        <th>Talep edilen miktar</th>
+                        <th>Mesaj</th>
+                        <th>Durum</th>
+                        <th width="15%">Seçenekler</th>
                     </tr>
                 </thead>
                 <tbody>

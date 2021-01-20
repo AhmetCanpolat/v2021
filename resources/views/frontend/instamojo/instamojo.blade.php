@@ -20,14 +20,14 @@
 <div class="row">
     <div class="col-lg-12 mt40">
         <div class="card-header" style="background: #0275D8;">
-            <h2>{{translate('Confirm your Information For Security Reason')}}</h2>
+            <h2>Güvenlik Nedeniyle Bilgilerinizi Onaylayın</h2>
         </div>
     </div>
 </div>
 
 @if ($errors->any())
     <div class="alert alert-danger">
-        <strong>{{translate('Opps!')}}'</strong> {{translate('Something went wrong')}}<br>
+        <strong>Hata oluştu sanki :/'</strong> Birşeyler Yanlış ilerliyor<br>
         <ul>
             @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
@@ -42,30 +42,30 @@
      <div class="row">
         <div class="col-md-12">
             <div class="form-group">
-                <strong>{{translate('Name')}}</strong>
-                <input type="text" name="name" class="form-control" placeholder="{{ translate('Enter Name') }}" value="{{$order->user->name}}" required>
+                <strong>Ad Soyad</strong>
+                <input type="text" name="name" class="form-control" placeholder="Adınızı yazınız" value="{{$order->user->name}}" required>
             </div>
         </div>
         <div class="col-md-12">
             <div class="form-group">
-                <strong>{{translate('Mobile Number')}}</strong>
-                <input type="text" name="mobile_number" class="form-control" placeholder="{{ translate('Enter Mobile Number') }}" value="{{$order->user->phone}}" required>
+                <strong>Telefon numaranız</strong>
+                <input type="text" name="mobile_number" class="form-control" placeholder="Telefon numaranızı Yazınız" value="{{$order->user->phone}}" required>
             </div>
         </div>
         <div class="col-md-12">
             <div class="form-group">
-                <strong>{{translate('Email Id')}}</strong>
-                <input type="text" name="email" class="form-control" placeholder="{{ translate('Enter Email id') }}" value="{{$order->user->email}}" required>
+                <strong>Email kimliği</strong>
+                <input type="text" name="email" class="form-control" placeholder="Email kimliğinizi giriniz" value="{{$order->user->email}}" required>
             </div>
         </div>
         <div class="col-md-12">
             <div class="form-group">
-                <strong>{{translate('Amount')}}</strong>
-                <input type="text" name="amount" class="form-control" placeholder="{{ translate('Enter Amount') }}" value="{{round($order->grand_total)}}" readonly="">
+                <strong>Miktar</strong>
+                <input type="text" name="amount" class="form-control" placeholder="Miktarı girin" value="{{round($order->grand_total)}}" readonly="">
             </div>
         </div>
         <div class="col-md-12">
-                <button type="submit" class="btn btn-primary">{{ translate('Submit') }}</button>
+                <button type="submit" class="btn btn-primary">Gönder</button>
         </div>
     </div>
 

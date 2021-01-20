@@ -7,7 +7,7 @@
 <div class="modal-body gry-bg px-3 pt-3">
     <div class="row">
         <div class="col-lg-2">
-            <label>{{translate('Message')}} <span class="text-danger">*</span></label>
+            <label>Mesaj <span class="text-danger">*</span></label>
         </div>
         <div class="col-lg-10">
             <textarea name="meta_description" rows="8" class="form-control" disabled>{{ $seller_withdraw_request->message }}</textarea>
@@ -15,5 +15,5 @@
     </div>
 </div>
 <div class="modal-footer">
-    <button class="btn btn-default" data-dismiss="modal">{{translate('Cancel')}}</button>
+    <button class="btn btn-default" data-dismiss="modal">İptal</button>
 </div>

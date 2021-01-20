@@ -46,14 +46,14 @@
                             <div class="overlay overlay-fixed dark c-pointer" data-toggle="class-toggle" data-target=".aiz-filter-sidebar" data-same=".filter-sidebar-thumb"></div>
                             <div class="collapse-sidebar c-scrollbar-light text-left">
                                 <div class="d-flex d-xl-none justify-content-between align-items-center pl-3 border-bottom">
-                                    <h3 class="h6 mb-0 fw-600">{{ translate('Filters') }}</h3>
+                                    <h3 class="h6 mb-0 fw-600">Filtreler</h3>
                                     <button type="button" class="btn btn-sm p-2 filter-sidebar-thumb" data-toggle="class-toggle" data-target=".aiz-filter-sidebar" type="button">
                                         <i class="las la-times la-2x"></i>
                                     </button>
                                 </div>
                                 <div class="bg-white shadow-sm rounded mb-3 text-left">
                                     <div class="fs-15 fw-600 p-3 border-bottom">
-                                        {{ translate('Categories')}}
+                                        Kategoriler
                                     </div>
                                     <div class="p-3">
                                         <ul class="list-unstyled">
@@ -67,7 +67,7 @@
                                                 <li class="mb-2">
                                                     <a class="text-reset fs-14 fw-600" href="{{ route('customer.products') }}">
                                                         <i class="las la-angle-left"></i>
-                                                        {{ translate('All Categories')}}
+                                                        Tüm Kategoriler
                                                     </a>
                                                 </li>
                                                 @if (\App\Category::find($category_id)->parent_id != 0)
@@ -100,15 +100,15 @@
 
                         <ul class="breadcrumb bg-transparent p-0">
                             <li class="breadcrumb-item opacity-50">
-                                <a class="text-reset" href="{{ route('home') }}">{{ translate('Home')}}</a>
+                                <a class="text-reset" href="{{ route('home') }}">Ana sayfa</a>
                             </li>
                             @if(!isset($category_id))
                                 <li class="breadcrumb-item fw-600  text-dark">
-                                    <a class="text-reset" href="{{ route('customer.products') }}">"{{ translate('All Categories')}}"</a>
+                                    <a class="text-reset" href="{{ route('customer.products') }}">"Tüm kategoriler"</a>
                                 </li>
                             @else
                                 <li class="breadcrumb-item opacity-50">
-                                    <a class="text-reset" href="{{ route('customer.products') }}">{{ translate('All Categories')}}</a>
+                                    <a class="text-reset" href="{{ route('customer.products') }}">Tüm kategoriler</a>
                                 </li>
                             @endif
                             @if(isset($category_id))

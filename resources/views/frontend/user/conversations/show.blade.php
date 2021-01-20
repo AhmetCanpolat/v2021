@@ -11,7 +11,7 @@
                         <div class="card-header">
                             <h5 class="card-title">#{{ $conversation->title }}
                             (
-                                {{ translate('Between you and') }}
+                                Sohbet
                                 @if ($conversation->sender_id == Auth::user()->id)
                                     {{ $conversation->receiver->name }}
                                 @else
@@ -30,7 +30,7 @@
                                 {{-- @if ($message->user_id == Auth::user()->id)
                                 @endif --}}
                                 <div class="media mb-2">
-                                  <img class="avatar avatar-sm m-3" @if($message->user != null) src="{{ uploaded_asset($message->user->avatar_original) }}" @endif alt="{{ translate('Image') }}">
+                                  <img class="avatar avatar-sm m-3" @if($message->user != null) src="{{ uploaded_asset($message->user->avatar_original) }}" @endif alt="Resim">
                                   <div class="media-body">
                                     <h6 class="mt-0">
                                         @if ($message->user != null)
@@ -49,11 +49,11 @@
                                 <input type="hidden" name="conversation_id" value="{{ $conversation->id }}">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <textarea class="form-control" rows="4" name="message" placeholder="{{ translate('Type your reply') }}" required></textarea>
+                                        <textarea class="form-control" rows="4" name="message" placeholder="Cevabınızı yazın" required></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group mb-0 text-right">
-                                    <button type="submit" class="btn btn-primary">{{ translate('Send') }}</button>
+                                    <button type="submit" class="btn btn-primary">Gönder</button>
                                 </div>
                             </form>
                         </div>

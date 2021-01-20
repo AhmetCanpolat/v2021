@@ -8,7 +8,7 @@
                 <div class="col-lg-6 offset-lg-3">
                     <div class="card">
                         <div class="align-items-center card-header d-flex justify-content-center text-center" >
-                            <h3 class="d-inline-block heading-4 mb-0 mr-3 strong-600" >{{translate('Payment Details')}}</h3>
+                            <h3 class="d-inline-block heading-4 mb-0 mr-3 strong-600" >Ödeme detayları</h3>
                             <img loading="lazy"  class="img-fluid" srcna="http://i76.imgup.net/accepted_c22e0.png" height="30">
                         </div>
                         <div class="card-body">
@@ -17,15 +17,15 @@
                                 <input type="hidden" name="CommandID" class="form-control" value="CustomerPayBillOnline" required>
                                 <div class='form-row'>
                                     <div class='col-12 form-group required'>
-                                        <label class='control-label'>{{translate('Enter Mobile Number')}}</label>
-                                        <input type="text" name="Msisdn" class="form-control" placeholder="{{ translate('Enter Mobile Number') }}" required>
+                                        <label class='control-label'>Telefon numarası</label>
+                                        <input type="text" name="Msisdn" class="form-control" placeholder="Telefon numaranızı yazın" required>
                                     </div>
                                 </div>
 
                                 <div class='form-row'>
                                     <div class='col-12 form-group required'>
-                                        <label class='control-label'>{{translate('Account Number/BillRefNumber')}}</label>
-                                        <input type="text" name="BillRefNumber" class="form-control" placeholder="{{ translate('Enter Acc Number') }}" required>
+                                        <label class='control-label'>Hesap Numarası / Fatura Ref Numarası</label>
+                                        <input type="text" name="BillRefNumber" class="form-control" placeholder="Hesap Numarası" required>
                                     </div>
                                 </div>
 

@@ -10,7 +10,7 @@
                 <div class="aiz-user-panel">
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="mb-0 h6">{{ translate('Payment History') }}</h5>
+                            <h5 class="mb-0 h6">Payment History</h5>
                         </div>
                         @if (count($payments) > 0)
                             <div class="card-body">
@@ -18,9 +18,9 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>{{ translate('Date')}}</th>
-                                            <th>{{ translate('Amount')}}</th>
-                                            <th>{{ translate('Payment Method')}}</th>
+                                            <th>Tarih</th>
+                                            <th>Miktar</th>
+                                            <th>Ödeme şekli</th>
                                         </tr>
                                     </thead>
                                     <tbody>

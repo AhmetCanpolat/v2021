@@ -3,7 +3,7 @@
         <div class="px-2 py-4 px-md-4 py-md-3 bg-white shadow-sm rounded">
             <div class="d-flex mb-3 align-items-baseline border-bottom">
                 <h3 class="h5 fw-700 mb-0">
-                    <span class="border-bottom border-primary border-width-2 pb-3 d-inline-block">{{ translate('Featured Products') }}</span>
+                    <span class="border-bottom border-primary border-width-2 pb-3 d-inline-block">Özel Ürünler</span>
                 </h3>
             </div>
             <div class="aiz-carousel gutters-10 half-outside-arrow" data-items="6" data-xl-items="5" data-lg-items="4"  data-md-items="3" data-sm-items="2" data-xs-items="2" data-arrows='true' data-infinite='true'>
@@ -21,13 +21,13 @@
                                 >
                             </a>
                             <div class="absolute-top-right aiz-p-hov-icon">
-                                <a href="javascript:void(0)" onclick="addToWishList({{ $product->id }})" data-toggle="tooltip" data-title="{{ translate('Add to wishlist') }}" data-placement="left">
+                                <a href="javascript:void(0)" onclick="addToWishList({{ $product->id }})" data-toggle="tooltip" data-title="Favorilerime ekle" data-placement="left">
                                     <i class="la la-heart-o"></i>
                                 </a>
-                                <a href="javascript:void(0)" onclick="addToCompare({{ $product->id }})" data-toggle="tooltip" data-title="{{ translate('Add to compare') }}" data-placement="left">
+                                <a href="javascript:void(0)" onclick="addToCompare({{ $product->id }})" data-toggle="tooltip" data-title="Karşılaştırmaya ekle" data-placement="left">
                                     <i class="las la-sync"></i>
                                 </a>
-                                <a href="javascript:void(0)" onclick="showAddToCartModal({{ $product->id }})" data-toggle="tooltip" data-title="{{ translate('Add to cart') }}" data-placement="left">
+                                <a href="javascript:void(0)" onclick="showAddToCartModal({{ $product->id }})" data-toggle="tooltip" data-title="Sepete ekle" data-placement="left">
                                     <i class="las la-shopping-cart"></i>
                                 </a>
                             </div>
@@ -48,7 +48,7 @@
 
                             @if (\App\Addon::where('unique_identifier', 'club_point')->first() != null && \App\Addon::where('unique_identifier', 'club_point')->first()->activated)
                                 <div class="rounded px-2 mt-2 bg-soft-primary border-soft-primary border">
-                                    {{ translate('Club Point') }}:
+                                    Kulüp Puanı:
                                     <span class="fw-700 float-right">{{ $product->earn_point }}</span>
                                 </div>
                             @endif

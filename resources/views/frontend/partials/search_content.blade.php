@@ -1,6 +1,6 @@
 <div class="">
     @if (sizeof($keywords) > 0)
-        <div class="px-2 py-1 text-uppercase fs-10 text-right text-muted bg-soft-secondary">{{translate('Popular Suggestions')}}</div>
+        <div class="px-2 py-1 text-uppercase fs-10 text-right text-muted bg-soft-secondary">Popüler Öneriler</div>
         <ul class="list-group list-group-raw">
             @foreach ($keywords as $key => $keyword)
                 <li class="list-group-item py-1">
@@ -12,7 +12,7 @@
 </div>
 <div class="">
     @if (count($categories) > 0)
-        <div class="px-2 py-1 text-uppercase fs-10 text-right text-muted bg-soft-secondary">{{translate('Category Suggestions')}}</div>
+        <div class="px-2 py-1 text-uppercase fs-10 text-right text-muted bg-soft-secondary">Kategori Önerileri</div>
         <ul class="list-group list-group-raw">
             @foreach ($categories as $key => $category)
                 <li class="list-group-item py-1">
@@ -24,7 +24,7 @@
 </div>
 <div class="">
     @if (count($products) > 0)
-        <div class="px-2 py-1 text-uppercase fs-10 text-right text-muted bg-soft-secondary">{{translate('Products')}}</div>
+        <div class="px-2 py-1 text-uppercase fs-10 text-right text-muted bg-soft-secondary">Ürünler</div>
         <ul class="list-group list-group-raw">
             @foreach ($products as $key => $product)
                 <li class="list-group-item">
@@ -54,7 +54,7 @@
 @if(\App\BusinessSetting::where('type', 'vendor_system_activation')->first()->value == 1)
     <div class="">
         @if (count($shops) > 0)
-            <div class="px-2 py-1 text-uppercase fs-10 text-right text-muted bg-soft-secondary">{{translate('Shops')}}</div>
+            <div class="px-2 py-1 text-uppercase fs-10 text-right text-muted bg-soft-secondary">Mağazalar</div>
             <ul class="list-group list-group-raw">
                 @foreach ($shops as $key => $shop)
                     <li class="list-group-item">

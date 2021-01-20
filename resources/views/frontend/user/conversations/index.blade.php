@@ -9,7 +9,7 @@
                   <div class="aiz-titlebar mt-2 mb-4">
                       <div class="row align-items-center">
                           <div class="col-md-6">
-                              <b class="h4">{{ translate('Conversations')}}</b>
+                              <b class="h4">Mesajlaşmalar</b>
                           </div>
                       </div>
                   </div>
@@ -54,7 +54,7 @@
                                                                       {{ $conversation->title }}
                                                                   </a>
                                                                   @if ((Auth::user()->id == $conversation->sender_id && $conversation->sender_viewed == 0) || (Auth::user()->id == $conversation->receiver_id && $conversation->receiver_viewed == 0))
-                                                                      <span class="badge badge-inline badge-danger">{{ translate('New') }}</span>
+                                                                      <span class="badge badge-inline badge-danger">Yeni</span>
                                                                   @endif
                                                               </h6>
                                                           </div>

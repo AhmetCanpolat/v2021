@@ -12,7 +12,7 @@
                     <div class="aiz-titlebar mt-2 mb-4">
                       <div class="row align-items-center">
                         <div class="col-md-6">
-                            <h1 class="h3">{{ translate('Products') }}</h1>
+                            <h1 class="h3">Ürünler</h1>
                         </div>
                       </div>
                     </div>
@@ -136,10 +136,10 @@
                 		                      <a class="btn btn-soft-info btn-icon btn-circle btn-sm" href="{{route('seller.products.edit', ['id'=>$product->id, 'lang'=>env('DEFAULT_LANGUAGE')])}}" title="Düzenle">
                 		                          <i class="las la-edit"></i>
                 		                      </a>
-                                              <a href="{{route('products.duplicate', $product->id)}}" class="btn btn-soft-success btn-icon btn-circle btn-sm"  title="{{ translate('Duplicate') }}">
+                                              <a href="{{route('products.duplicate', $product->id)}}" class="btn btn-soft-success btn-icon btn-circle btn-sm"  title="Ürünü Kopyala">
                     							   <i class="las la-copy"></i>
                     						  </a>
-                                              <a href="#" class="btn btn-soft-danger btn-icon btn-circle btn-sm confirm-delete" data-href="{{route('products.destroy', $product->id)}}" title="{{ translate('Delete') }}">
+                                              <a href="#" class="btn btn-soft-danger btn-icon btn-circle btn-sm confirm-delete" data-href="{{route('products.destroy', $product->id)}}" title="Sil">
                                                   <i class="las la-trash"></i>
                                               </a>
                                           </td>
@@ -175,10 +175,10 @@
             }
             $.post('{{ route('products.featured') }}', {_token:'{{ csrf_token() }}', id:el.value, status:status}, function(data){
                 if(data == 1){
-                    AIZ.plugins.notify('success', '{{ translate('Featured products updated successfully') }}');
+                    AIZ.plugins.notify('success', 'Öne çıkan ürünler başarıyla güncellendi');
                 }
                 else{
-                    AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                    AIZ.plugins.notify('danger', 'Bir şeyler ters gitti');
                 }
             });
         }
@@ -192,10 +192,10 @@
             }
             $.post('{{ route('products.published') }}', {_token:'{{ csrf_token() }}', id:el.value, status:status}, function(data){
                 if(data == 1){
-                    AIZ.plugins.notify('success', '{{ translate('Published products updated successfully') }}');
+                    AIZ.plugins.notify('success', 'Yayınlanan ürünler başarıyla güncellendi');
                 }
                 else{
-                    AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                    AIZ.plugins.notify('danger', 'Bi şeyler ters gitti');
                 }
             });
         }

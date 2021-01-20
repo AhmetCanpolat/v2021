@@ -76,7 +76,7 @@
 
                             <div class="row no-gutters mt-3">
                                 <div class="col-2">
-                                    <div class="opacity-50 mt-2">{{ translate('Price')}}:</div>
+                                    <div class="opacity-50 mt-2">Fiyat:</div>
                                 </div>
                                 <div class="col-10">
                                     <div class="">
@@ -121,7 +121,7 @@
                                                 <span class="dummy">{{ str_replace(substr($customer_product->user->phone,3),'XXXXXXXX', $customer_product->user->phone) }}</span>
                                                 <span class="real d-none">{{ $customer_product->user->phone }}</span>
                                             </h3>
-                                            <p class="mb-0 opacity-50">{{ translate('Click to show phone number') }}</p>
+                                            <p class="mb-0 opacity-50">Telefon numarasını göstermek için tıklayın</p>
                                         </div>
                                     </div>
                                 </li>
@@ -129,7 +129,7 @@
 
                             <div class="row no-gutters mt-5">
                                 <div class="col-2">
-                                    <div class="opacity-50 mt-2">{{ translate('Share')}}:</div>
+                                    <div class="opacity-50 mt-2">Paylaş:</div>
                                 </div>
                                 <div class="col-10">
                                     <div class="aiz-share"></div>
@@ -146,12 +146,12 @@
         <div class="container">
             <div class="bg-white mb-3 shadow-sm rounded">
                 <div class="nav border-bottom aiz-nav-tabs">
-                    <a href="#tab_default_1" data-toggle="tab" class="p-3 fs-16 fw-600 text-reset active show">{{ translate('Description')}}</a>
+                    <a href="#tab_default_1" data-toggle="tab" class="p-3 fs-16 fw-600 text-reset active show">Açıklama</a>
                     @if($customer_product->video_link != null)
-                        <a href="#tab_default_2" data-toggle="tab" class="p-3 fs-16 fw-600 text-reset">{{ translate('Video')}}</a>
+                        <a href="#tab_default_2" data-toggle="tab" class="p-3 fs-16 fw-600 text-reset">Video</a>
                     @endif
                     @if($customer_product->pdf != null)
-                        <a href="#tab_default_3" data-toggle="tab" class="p-3 fs-16 fw-600 text-reset">{{ translate('Downloads')}}</a>
+                        <a href="#tab_default_3" data-toggle="tab" class="p-3 fs-16 fw-600 text-reset">İndirilenler</a>
                     @endif
                 </div>
 
@@ -179,7 +179,7 @@
                     </div>
                     <div class="tab-pane" id="tab_default_3">
                         <div class="p-4 text-center ">
-                            <a href="{{ uploaded_asset($customer_product->pdf) }}" class="btn btn-primary">{{  translate('Download') }}</a>
+                            <a href="{{ uploaded_asset($customer_product->pdf) }}" class="btn btn-primary">İndir</a>
                         </div>
                     </div>
                 </div>
@@ -191,9 +191,9 @@
            <div class="bg-white shadow-sm rounded">
                 <div class="d-flex mb-3 align-items-baseline border-bottom px-3 py-2">
                     <h3 class="fs-16 fw-600 mb-0">
-                        {{ translate('Other Ads of') }} {{$customer_product->category->getTranslation('name') }}
+                        Diğer Reklamlar {{$customer_product->category->getTranslation('name') }}
                     </h3>
-                    <a href="{{ route('customer_products.category', $customer_product->category->slug) }}" class="ml-auto mr-0 btn btn-primary btn-sm shadow-md">{{ translate('View More') }}</a>
+                    <a href="{{ route('customer_products.category', $customer_product->category->slug) }}" class="ml-auto mr-0 btn btn-primary btn-sm shadow-md">Daha fazla göster</a>
                 </div>
                 <div class="p-3">
                     <div class="aiz-carousel gutters-5 half-outside-arrow" data-items="6" data-xl-items="5" data-lg-items="4"  data-md-items="3" data-sm-items="2" data-xs-items="2" data-arrows='true' data-infinite='true'>
@@ -215,9 +215,9 @@
                                     </a>
                                     <div class="absolute-top-left pt-2 pl-2">
                                         @if($product->conditon == 'new')
-                                           <span class="badge badge-inline badge-success">{{translate('new')}}</span>
+                                           <span class="badge badge-inline badge-success">Yeni</span>
                                        @elseif($product->conditon == 'used')
-                                           <span class="badge badge-inline badge-danger">{{translate('Used')}}</span>
+                                           <span class="badge badge-inline badge-danger">Kullanılmış</span>
                                        @endif
                                     </div>
                                 </div>

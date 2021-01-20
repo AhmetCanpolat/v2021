@@ -4,12 +4,11 @@
             <div class="shadow-sm bg-white p-3 p-lg-4 rounded">
                 <div class="mb-4">
                     <div class="row gutters-5 d-none d-md-flex border-bottom mb-3 pb-3">
-                        <div class="col-md-5 fw-600">{{ translate('Product')}}</div>
-                        <div class="col fw-600">{{ translate('Price')}}</div>
-                        <div class="col fw-600">{{ translate('Tax')}}</div>
-                        <div class="col fw-600">{{ translate('Quantity')}}</div>
-                        <div class="col fw-600">{{ translate('Total')}}</div>
-                        <div class="col-auto fw-600">{{ translate('Remove')}}</div>
+                        <div class="col-md-5 fw-600">Ürün</div>
+                        <div class="col fw-600">Fiyat</div>
+                        <div class="col fw-600">Miktar</div>
+                        <div class="col fw-600">Toplam</div>
+                        <div class="col-auto fw-600">Sil</div>
                     </div>
                     <ul class="list-group list-group-flush">
                         @php
@@ -38,12 +37,8 @@
                                     </div>
 
                                     <div class="col-lg col-4 order-1 order-lg-0 my-3 my-lg-0">
-                                        <span class="opacity-60 fs-12 d-block d-lg-none">{{ translate('Price')}}</span>
+                                        <span class="opacity-60 fs-12 d-block d-lg-none">Fiyat</span>
                                         <span class="fw-600 fs-16">{{ single_price($cartItem['price']) }}</span>
-                                    </div>
-                                    <div class="col-lg col-4 order-2 order-lg-0 my-3 my-lg-0">
-                                        <span class="opacity-60 fs-12 d-block d-lg-none">{{ translate('Tax')}}</span>
-                                        <span class="fw-600 fs-16">{{ single_price($cartItem['tax']) }}</span>
                                     </div>
 
                                     <div class="col-lg col-6 order-4 order-lg-0">
@@ -60,8 +55,8 @@
                                         @endif
                                     </div>
                                     <div class="col-lg col-4 order-3 order-lg-0 my-3 my-lg-0">
-                                        <span class="opacity-60 fs-12 d-block d-lg-none">{{ translate('Total')}}</span>
-                                        <span class="fw-600 fs-16 text-primary">{{ single_price(($cartItem['price']+$cartItem['tax'])*$cartItem['quantity']) }}</span>
+                                        <span class="opacity-60 fs-12 d-block d-lg-none">Toplam</span>
+                                        <span class="fw-600 fs-16 text-primary">{{ single_price(($cartItem['price']+$cartItem['quantity']) }}</span>
                                     </div>
                                     <div class="col-lg-auto col-6 order-5 order-lg-0 text-right">
                                         <a href="javascript:void(0)" onclick="removeFromCartView(event, {{ $key }})" class="btn btn-icon btn-sm btn-soft-primary btn-circle">
@@ -75,7 +70,7 @@
                 </div>
 
                 <div class="px-3 py-2 mb-4 border-top d-flex justify-content-between">
-                    <span class="opacity-60 fs-15">{{translate('Subtotal')}}</span>
+                    <span class="opacity-60 fs-15">Ara Toplam</span>
                     <span class="fw-600 fs-17">{{ single_price($total) }}</span>
                 </div>
 
@@ -83,14 +78,14 @@
                     <div class="col-md-6 text-center text-md-left order-1 order-md-0">
                         <a href="{{ route('home') }}" class="btn btn-link">
                             <i class="las la-arrow-left"></i>
-                            {{ translate('Return to shop')}}
+                            Ana sayfa
                         </a>
                     </div>
                     <div class="col-md-6 text-center text-md-right">
                         @if(Auth::check())
-                            <a href="{{ route('checkout.shipping_info') }}" class="btn btn-primary fw-600">{{ translate('Continue to Shipping')}}</a>
+                            <a href="{{ route('checkout.shipping_info') }}" class="btn btn-primary fw-600">Gönderime Devam Et</a>
                         @else
-                            <button class="btn btn-primary fw-600" onclick="showCheckoutModal()">{{ translate('Continue to Shipping')}}</button>
+                            <button class="btn btn-primary fw-600" onclick="showCheckoutModal()">Continue to Shipping</button>
                         @endif
                     </div>
                 </div>

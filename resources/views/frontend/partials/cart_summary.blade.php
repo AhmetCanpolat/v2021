@@ -1,8 +1,8 @@
 <div class="card border-0 shadow-sm rounded">
     <div class="card-header">
-        <h3 class="fs-16 fw-600 mb-0">{{translate('Summary')}}</h3>
+        <h3 class="fs-16 fw-600 mb-0">Özet</h3>
         <div class="text-right">
-            <span class="badge badge-inline badge-primary">{{ count(Session::get('cart')->where('owner_id', Session::get('owner_id'))) }} {{translate('Items')}}</span>
+            <span class="badge badge-inline badge-primary">{{ count(Session::get('cart')->where('owner_id', Session::get('owner_id'))) }} Ürünler</span>
         </div>
     </div>
 
@@ -18,15 +18,15 @@
                 @endphp
             @endforeach
             <div class="rounded px-2 mb-2 bg-soft-primary border-soft-primary border">
-                {{ translate("Total Club point") }}:
+                Toplam Kulüp puanı:
                 <span class="fw-700 float-right">{{ $total_point }}</span>
             </div>
         @endif
         <table class="table">
             <thead>
                 <tr>
-                    <th class="product-name">{{translate('Product')}}</th>
-                    <th class="product-total text-right">{{translate('Total')}}</th>
+                    <th class="product-name">Ürün</th>
+                    <th class="product-total text-right">Toplam</th>
                 </tr>
             </thead>
             <tbody>
@@ -64,21 +64,14 @@
 
             <tfoot>
                 <tr class="cart-subtotal">
-                    <th>{{translate('Subtotal')}}</th>
+                    <th>Ara Toplam</th>
                     <td class="text-right">
                         <span class="fw-600">{{ single_price($subtotal) }}</span>
                     </td>
                 </tr>
 
                 <tr class="cart-shipping">
-                    <th>{{translate('Tax')}}</th>
-                    <td class="text-right">
-                        <span class="font-italic">{{ single_price($tax) }}</span>
-                    </td>
-                </tr>
-
-                <tr class="cart-shipping">
-                    <th>{{translate('Total Shipping')}}</th>
+                    <th>Toplam Kargo</th>
                     <td class="text-right">
                         <span class="font-italic">{{ single_price($shipping) }}</span>
                     </td>
@@ -86,7 +79,7 @@
 
                 @if (Session::has('coupon_discount'))
                     <tr class="cart-shipping">
-                        <th>{{translate('Coupon Discount')}}</th>
+                        <th>Kupon İndirimi</th>
                         <td class="text-right">
                             <span class="font-italic">{{ single_price(Session::get('coupon_discount')) }}</span>
                         </td>
@@ -101,7 +94,7 @@
                 @endphp
 
                 <tr class="cart-total">
-                    <th><span class="strong-600">{{translate('Total')}}</span></th>
+                    <th><span class="strong-600">Toplam</span></th>
                     <td class="text-right">
                         <strong><span>{{ single_price($total) }}</span></strong>
                     </td>
@@ -117,7 +110,7 @@
                         <div class="input-group">
                             <div class="form-control">{{ \App\Coupon::find(Session::get('coupon_id'))->code }}</div>
                             <div class="input-group-append">
-                                <button type="submit" class="btn btn-primary">{{translate('Change Coupon')}}</button>
+                                <button type="submit" class="btn btn-primary">Kuponu Değiştir</button>
                             </div>
                         </div>
                     </form>
@@ -127,9 +120,9 @@
                     <form class="" action="{{ route('checkout.apply_coupon_code') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="input-group">
-                            <input type="text" class="form-control" name="code" placeholder="{{translate('Have coupon code? Enter here')}}" required>
+                            <input type="text" class="form-control" name="code" placeholder="Kupon kodunuz var mı? Buraya girin" required>
                             <div class="input-group-append">
-                                <button type="submit" class="btn btn-primary">{{translate('Apply')}}</button>
+                                <button type="submit" class="btn btn-primary">Uygula</button>
                             </div>
                         </div>
                     </form>

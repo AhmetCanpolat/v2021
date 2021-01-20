@@ -12,7 +12,7 @@
                     <div class="aiz-titlebar mt-2 mb-4">
                       <div class="row align-items-center">
                         <div class="col-md-6">
-                            <h1 class="h3">{{ translate('Money Withdraw') }}</h1>
+                            <h1 class="h3">Para Çekme</h1>
                         </div>
                       </div>
                     </div>
@@ -25,7 +25,7 @@
                               </span>
                               <div class="px-3 pt-3 pb-3">
                                   <div class="h4 fw-700 text-center">{{ single_price(Auth::user()->seller->admin_to_pay) }}</div>
-                                  <div class="opacity-50 text-center">{{ translate('Pending Balance') }}</div>
+                                  <div class="opacity-50 text-center">Bekleyen Bakiye</div>
                               </div>
                             </div>
                         </div>
@@ -34,24 +34,24 @@
                               <span class="size-60px rounded-circle mx-auto bg-secondary d-flex align-items-center justify-content-center mb-3">
                                   <i class="las la-plus la-3x text-white"></i>
                               </span>
-                              <div class="fs-18 text-primary">{{ translate('Send Withdraw Request') }}</div>
+                              <div class="fs-18 text-primary">Para Çekme İsteği Gönder</div>
                           </div>
                         </div>
                     </div>
 
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="mb-0 h6">{{ translate('Withdraw Request history')}}</h5>
+                            <h5 class="mb-0 h6">Para Çekme İsteği geçmişi</h5>
                         </div>
                           <div class="card-body">
                               <table class="table aiz-table mb-0">
                                   <thead>
                                       <tr>
                                           <th>#</th>
-                                          <th>{{ translate('Date') }}</th>
-                                          <th>{{ translate('Amount')}}</th>
-                                          <th>{{ translate('Status')}}</th>
-                                          <th width="50%">{{ translate('Message')}}</th>
+                                          <th>Tarih</th>
+                                          <th>Miktar</th>
+                                          <th>Durum</th>
+                                          <th width="50%">Mesaj</th>
                                       </tr>
                                   </thead>
                                   <tbody>
@@ -62,9 +62,9 @@
                                               <td>{{ single_price($seller_withdraw_request->amount) }}</td>
                                               <td>
                                                   @if ($seller_withdraw_request->status == 1)
-                                                      <span class=" badge badge-inline badge-success" >{{ translate('Paid')}}</span>
+                                                      <span class=" badge badge-inline badge-success" >Ödenmiş</span>
                                                   @else
-                                                      <span class=" badge badge-inline badge-info" >{{ translate('Pending')}}</span>
+                                                      <span class=" badge badge-inline badge-info" >Bekliyor</span>
                                                   @endif
                                               </td>
                                               <td>
@@ -91,7 +91,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">{{ translate('Send A Withdraw Request') }}</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Para Çekme İsteği Gönderin</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
                 </div>
                 @if (Auth::user()->seller->admin_to_pay > 5)
@@ -100,29 +100,29 @@
                         <div class="modal-body gry-bg px-3 pt-3">
                             <div class="row">
                                 <div class="col-md-3">
-                                    <label>{{ translate('Amount')}} <span class="text-danger">*</span></label>
+                                    <label>Miktar<span class="text-danger">*</span></label>
                                 </div>
                                 <div class="col-md-9">
-                                    <input type="number" class="form-control mb-3" name="amount" min="1" max="{{ Auth::user()->seller->admin_to_pay }}" placeholder="{{ translate('Amount') }}" required>
+                                    <input type="number" class="form-control mb-3" name="amount" min="1" max="{{ Auth::user()->seller->admin_to_pay }}" placeholder="Miktar" required>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-3">
-                                    <label>{{ translate('Message')}}</label>
+                                    <label>Mesaj</label>
                                 </div>
                                 <div class="col-md-9">
                                     <textarea name="message" rows="8" class="form-control mb-3"></textarea>
                                 </div>
                             </div>
                             <div class="form-group text-right">
-                                <button type="submit" class="btn btn-sm btn-primary">{{translate('Send')}}</button>
+                                <button type="submit" class="btn btn-sm btn-primary">Gönder</button>
                             </div>
                         </div>
                     </form>
                 @else
                     <div class="modal-body gry-bg px-3 pt-3">
                         <div class="p-5 heading-3">
-                            {{ translate('You do not have enough balance to send withdraw request') }}
+                            Para çekme isteği göndermek için yeterli bakiyeniz yok
                         </div>
                     </div>
                 @endif

@@ -6,14 +6,14 @@
         @else
             <span class="badge badge-primary badge-inline badge-pill">0</span>
         @endif
-        <span class="nav-box-text d-none d-xl-block opacity-70">{{translate('Cart')}}</span>
+        <span class="nav-box-text d-none d-xl-block opacity-70">Sepet</span>
     </span>
 </a>
 <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg p-0 stop-propagation">
     @if(Session::has('cart'))
         @if(count($cart = Session::get('cart')) > 0)
             <div class="p-3 fs-15 fw-600 p-3 border-bottom">
-                {{translate('Cart Items')}}
+                Sepet Ürünleri
             </div>
             <ul class="h-250px overflow-auto c-scrollbar-light list-group list-group-flush">
                 @php
@@ -53,20 +53,20 @@
                 @endforeach
             </ul>
             <div class="px-3 py-2 fs-15 border-top d-flex justify-content-between">
-                <span class="opacity-60">{{translate('Subtotal')}}</span>
+                <span class="opacity-60">ara toplam</span>
                 <span class="fw-600">{{ single_price($total) }}</span>
             </div>
             <div class="px-3 py-2 text-center border-top">
                 <ul class="list-inline mb-0">
                     <li class="list-inline-item">
                         <a href="{{ route('cart') }}" class="btn btn-soft-primary btn-sm">
-                            {{translate('View cart')}}
+                            Sepeti görüntüle
                         </a>
                     </li>
                     @if (Auth::check())
                     <li class="list-inline-item">
                         <a href="{{ route('checkout.shipping_info') }}" class="btn btn-primary btn-sm">
-                            {{translate('Checkout')}}
+                            Ödemeye devam et
                         </a>
                     </li>
                     @endif
@@ -75,13 +75,13 @@
         @else
             <div class="text-center p-3">
                 <i class="las la-frown la-3x opacity-60 mb-3"></i>
-                <h3 class="h6 fw-700">{{translate('Your Cart is empty')}}</h3>
+                <h3 class="h6 fw-700">Sepetiniz boş</h3>
             </div>
         @endif
     @else
         <div class="text-center p-3">
             <i class="las la-frown la-3x opacity-60 mb-3"></i>
-            <h3 class="h6 fw-700">{{translate('Your Cart is empty')}}</h3>
+            <h3 class="h6 fw-700">Sepetiniz boş</h3>
         </div>
     @endif
 </div>

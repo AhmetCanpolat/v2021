@@ -12,16 +12,16 @@
 
             <div class="modal-header">
                 {{-- <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button> --}}
-                <h4 class="modal-title" id="myModalLabel">{{ translate('Confirmation')}}</h4>
+                <h4 class="modal-title" id="myModalLabel">Onayla</h4>
             </div>
 
             <div class="modal-body">
-                <p>{{ translate('Delete confirmation message')}}</p>
+                <p>Onay mesajını sil</p>
             </div>
 
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">{{ translate('Cancel')}}</button>
-                <a id="delete_link" class="btn btn-danger btn-ok">{{ translate('Delete')}}</a>
+                <button type="button" class="btn btn-default" data-dismiss="modal">İptal</button>
+                <a id="delete_link" class="btn btn-danger btn-ok">Sil</a>
             </div>
         </div>
     </div>
