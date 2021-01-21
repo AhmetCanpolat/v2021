@@ -35,7 +35,7 @@
                     $tax = 0;
                     $shipping = 0;
                 @endphp
-                @foreach (Session::get('cart')->where('owner_id', Session::get('owner_id')) as $key => $cartItem)
+                @foreach (Session::get('cart')  as $key => $cartItem)
                     @php
                         $product = \App\Product::find($cartItem['id']);
                         $subtotal += $cartItem['price']*$cartItem['quantity'];
@@ -77,17 +77,9 @@
                     </td>
                 </tr>
 
-                @if (Session::has('coupon_discount'))
-                    <tr class="cart-shipping">
-                        <th>Kupon İndirimi</th>
-                        <td class="text-right">
-                            <span class="font-italic">{{ single_price(Session::get('coupon_discount')) }}</span>
-                        </td>
-                    </tr>
-                @endif
 
                 @php
-                    $total = $subtotal+$tax+$shipping;
+                    $total = $subtotal+$shipping;
                     if(Session::has('coupon_discount')){
                         $total -= Session::get('coupon_discount');
                     }

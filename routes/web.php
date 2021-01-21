@@ -101,6 +101,7 @@ Route::group(['middleware' => ['checkout']], function(){
 
 Route::get('/checkout/order-confirmed', 'CheckoutController@order_confirmed')->name('order_confirmed');
 Route::post('/checkout/payment', 'CheckoutController@checkout')->name('payment.checkout');
+Route::post('/checkout/payment', 'IyzicoController@pay')->name('payment.iyzico');
 Route::post('/get_pick_ip_points', 'HomeController@get_pick_ip_points')->name('shipping_info.get_pick_ip_points');
 Route::get('/checkout/payment_select', 'CheckoutController@get_payment_info')->name('checkout.payment_info');
 Route::post('/checkout/apply_coupon_code', 'CheckoutController@apply_coupon_code')->name('checkout.apply_coupon_code');
@@ -258,7 +259,7 @@ Route::get('/vogue-pay', 'VoguePayController@showForm');
 Route::get('/vogue-pay/success/{id}', 'VoguePayController@paymentSuccess');
 Route::get('/vogue-pay/failure/{id}', 'VoguePayController@paymentFailure');
 
-Route::any('/iyzico/payment/callback/{payment_type}/{payment_data}/{order_id}', 'IyzicoController@callback')->name('iyzico.callback');
+Route::any('/iyzico/payment/callback/{order_id}', 'IyzicoController@callback')->name('iyzico.callback');
 
 //2checkout Start
 Route::post('twocheckout/payment/callback', 'TwoCheckoutController@twocheckoutPost')->name('twocheckout.post');

@@ -45,37 +45,43 @@
     <div class="container text-left">
         <div class="row">
             <div class="col-lg-8">
-                <form action="{{ route('payment.checkout') }}" class="form-default" role="form" method="POST" id="checkout-form">
+                <form action="{{ route('payment.iyzico') }}" class="form-default" role="form" method="POST" id="checkout-form">
                     @csrf
+                    {{method_field('post')}}
                     <div class="card shadow-sm border-0 rounded">
                         <div class="card-header p-3">
                             <h3 class="fs-16 fw-600 mb-0">
-                                {{ translate('Select a payment option')}}
+                                Ödeme yapın
                             </h3>
                         </div>
                         <div class="card-body text-center">
-                            <div class="row">
-                                <div class="col-xxl-8 col-xl-10 mx-auto">
-                                    <div class="row gutters-10">
 
-                                        @if(\App\BusinessSetting::where('type', 'iyzico')->first()->value == 1)
-                                            <div class="col-6 col-md-4">
-                                                <label class="aiz-megabox d-block mb-3">
-                                                    <input value="iyzico" class="online_payment" type="radio" name="payment_option" checked>
-                                                    <span class="d-block p-3 aiz-megabox-elem">
-                                                        <img src="{{ static_asset('assets/img/cards/iyzico.png')}}" class="img-fluid mb-2">
-                                                        <span class="d-block text-center">
-                                                            <span class="d-block fw-600 fs-15">{{ translate('Iyzico')}}</span>
-                                                        </span>
-                                                    </span>
-                                                </label>
-                                            </div>
-                                        @endif
-
+                            <div class="col-12 col-md-4">
+                                <div class="form-group"> <label for="holdername">
+                                        <h6>Ad Soyad</h6>
+                                    </label> <input type="text" name="holdername" placeholder="Kart sahibi adı soyadı" required class="form-control "> </div>
+                                <div class="form-group"> <label for="cardnumber">
+                                            <h6>Kart Numarası</h6>
+                                    </label>
+                                    <div class="input-group"> <input type="text" name="cardnumber" placeholder="Kart numarası" class="form-control " required>
+                                        <div class="input-group-append"> <span class="input-group-text text-muted"> <i class="fab fa-cc-visa mx-1"></i> <i class="fab fa-cc-mastercard mx-1"></i> <i class="fab fa-cc-amex mx-1"></i> </span> </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-8">
+                                        <div class="form-group"> <label><span class="hidden-xs">
+                                                    <h6>Ay/Yıl</h6>
+                                                </span></label>
+                                            <div class="input-group"> <input type="number" placeholder="AY" name="month" class="form-control" required> <input type="number" placeholder="YIL" name="year" class="form-control" required> </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group mb-4"> <label data-toggle="tooltip" title="Three digit CV code on the back of your card">
+                                                <h6>CVC<i class="fa fa-question-circle d-inline"></i></h6>
+                                            </label> <input type="text" placeholder="CVC" name="cvc" required class="form-control"> </div>
                                     </div>
                                 </div>
                             </div>
-
 
                         </div>
                     </div>
@@ -103,13 +109,35 @@
                     </div>
                 </form>
             </div>
-
             <div class="col-lg-4 mt-4 mt-lg-0">
                 @include('frontend.partials.cart_summary')
             </div>
         </div>
     </div>
 </section>
+
+
+    <style>
+        .rounded {
+            border-radius: 1rem
+        }
+
+        .nav-pills .nav-link {
+            color: #555
+        }
+
+        .nav-pills .nav-link.active {
+            color: white
+        }
+
+        input[type="radio"] {
+            margin-right: 5px
+        }
+
+        .bold {
+            font-weight: bold
+        }
+    </style>
 @endsection
 
 @section('script')
