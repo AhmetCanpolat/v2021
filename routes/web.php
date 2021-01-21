@@ -259,7 +259,7 @@ Route::get('/vogue-pay', 'VoguePayController@showForm');
 Route::get('/vogue-pay/success/{id}', 'VoguePayController@paymentSuccess');
 Route::get('/vogue-pay/failure/{id}', 'VoguePayController@paymentFailure');
 
-Route::any('/iyzico/payment/callback/{order_id}', 'IyzicoController@callback')->name('iyzico.callback');
+Route::any('/iyzico/payment/callback/{payment_type}/{payment_data}/{order_id}', 'IyzicoController@callback')->name('iyzico.callback');
 
 //2checkout Start
 Route::post('twocheckout/payment/callback', 'TwoCheckoutController@twocheckoutPost')->name('twocheckout.post');
