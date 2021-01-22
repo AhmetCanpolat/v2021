@@ -22,6 +22,8 @@
                 @foreach($cart as $key => $cartItem)
                     @php
                         $product = \App\Product::find($cartItem['id']);
+                        $producttotalprice = $cartItem['price']*$cartItem['quantity'];
+                        return $producttotalprice;
                         $total = $total + $cartItem['price']*$cartItem['quantity'];
                     @endphp
                     @if ($product != null)
@@ -39,7 +41,7 @@
                                                 {{  $product->getTranslation('name')  }}
                                         </span>
                                         <span class="">{{ $cartItem['quantity'] }}x</span>
-                                        <span class="">{{ single_price($cartItem['price']) }}</span>
+                                        <span class="">{{ single_price($producttotalprice) }}</span>
                                     </span>
                                 </a>
                                 <span class="">

@@ -10,6 +10,9 @@
                         <div class="text-center text-success">
                             <i class="la-3x mb-2 las la-shopping-cart"></i>
                             <h3 class="fs-14 fw-600 d-none d-lg-block text-capitalize">{{ translate('1. My Cart')}}</h3>
+                            @php
+                                Session::get('shipping_info');
+                            @endphp
                         </div>
                     </div>
                     <div class="col done">
@@ -47,11 +50,11 @@
             <div class="col-lg-8">
                 <form action="{{ route('payment.iyzico') }}" class="form-default" role="form" method="POST" id="checkout-form">
                     @csrf
-                    {{method_field('post')}}
                     <div class="card shadow-sm border-0 rounded">
                         <div class="card-header p-3">
                             <h3 class="fs-16 fw-600 mb-0">
-                                Ödeme yapın
+                                    Ödeme yapın
+                                {{Session::get('cart') }}
                             </h3>
                         </div>
                         <div class="card-body text-center">
@@ -59,7 +62,7 @@
                             <div class="col-12 col-md-4">
                                 <div class="form-group"> <label for="holdername">
                                         <h6>Ad Soyad</h6>
-                                    </label> <input type="text" name="holdername" placeholder="Kart sahibi adı soyadı" required class="form-control "> </div>
+                                    </label> <input type="text" name="holdername" placeholder="Kart sahibi adı soyadı" required class="form-control "><input style="visibility: hidden; width: 1px; height: 1px;" type="text" name="total" value="{{$total}}"> </div>
                                 <div class="form-group"> <label for="cardnumber">
                                             <h6>Kart Numarası</h6>
                                     </label>

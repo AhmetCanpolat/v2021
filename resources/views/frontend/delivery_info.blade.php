@@ -53,7 +53,7 @@
                     @csrf
                             <div class="card mb-3 shadow-sm border-0 rounded">
                                 <div class="card-header p-3">
-                                    <h5 class="fs-16 fw-600 mb-0">MAgpaza Adı Gelecek {{ translate('Products') }}</h5>
+                                    <h5 class="fs-16 fw-600 mb-0">MAğaza Adı {{ translate('Products') }}</h5>
                                 </div>
                                 <div class="card-body">
                                     <ul class="list-group list-group-flush">

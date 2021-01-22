@@ -5,8 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5a72f7fd-5148-443b-b004-55762d7282bf" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/error.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/success.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CartController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/IyzicoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/IyzicoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/delivery_info.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/delivery_info.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/order_confirmed.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/order_confirmed.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/partials/cart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/partials/cart.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/partials/cart_details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/partials/cart_details.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/payment_select.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/payment_select.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/razor_wallet/wallet_payment_Razorpay.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/razor_wallet/wallet_payment_Razorpay.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/view_cart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/view_cart.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -191,7 +202,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/frontend" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/codecanyon-H7nsWcQG-active-ecommerce-cms/install" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -237,6 +248,8 @@
       <workItem from="1611236536422" duration="42000" />
       <workItem from="1611236659596" duration="5844000" />
       <workItem from="1611242808286" duration="1021000" />
+      <workItem from="1611300329811" duration="5807000" />
+      <workItem from="1611306197799" duration="15496000" />
     </task>
     <servers />
   </component>

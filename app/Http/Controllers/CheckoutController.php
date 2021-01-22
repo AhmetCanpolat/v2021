@@ -123,7 +123,7 @@ class CheckoutController extends Controller
         $order->save();
 
         if (Session::has('cart')) {
-            Session::put('cart', Session::get('cart')->where('owner_id', '!=', Session::get('owner_id')));
+            Session::put('cart', Session::get('cart'));
         }
         Session::forget('owner_id');
         Session::forget('payment_type');
