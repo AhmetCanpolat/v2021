@@ -51,9 +51,9 @@
 
                 <form class="form-default"  action="{{ route('checkout.store_delivery_info') }}" role="form" method="POST">
                     @csrf
-                            <div class="card mb-3 shadow-sm border-0 rounded">
+                            <div class="card mb-3 shadow-sm border-0 rounded" style="margin-bottom: 0px !important;">
                                 <div class="card-header p-3">
-                                    <h5 class="fs-16 fw-600 mb-0">MAğaza Adı {{ translate('Products') }}</h5>
+                                    <h5 class="fs-16 fw-600 mb-0">Alınan {{ translate('Products') }}</h5>
                                 </div>
                                 <div class="card-body">
                                     <ul class="list-group list-group-flush">
@@ -82,8 +82,8 @@
                                 </div>
 
                             </div>
-                             <div class="card-footer justify-content-end">
-                                <button type="submit" name="owner_id"  class="btn fw-600 btn-primary">{{ translate('Continue to Payment')}}</button>
+                             <div style="display: flex; background-color: #fff; padding: 12px 25px;" class="card-footer justify-content-end">
+                                <button type="submit" name="owner_id"  class="btn fw-600 btn-primary">Ödeme sayfasına devam et</button>
                             </div>
                  </form>
                 <div class="pt-4">

@@ -17,14 +17,17 @@ class IyzicoController extends Controller
 
         if ($request != null) {
 
+        
             $CardHolderName = request('holdername');
-            $CardNumber = request('cardnumber');
-            $ExpireMonth = request('month');
-            $ExpireYear = request('year');
+            $Cardnumber = request('cardnumber');
+            $ExpireMonthYear = request('month-year');
             $Cvc = request('cvc');
             $RegisterCard = request('0');
             $clientIP = request()->ip();
             $total = request('total');
+
+            list($ExpireMonth, $ExpireYear) = explode('/', $ExpireMonthYear);
+
 
             $orderController = new OrderController;
             $orderController->store($request);
@@ -32,9 +35,9 @@ class IyzicoController extends Controller
             if ($request->session()->get('order_id') != null) {
 
                 $options = new \Iyzipay\Options();
-                $options->setApiKey('sandbox-IL3YqFQk1vpCzDjHZiuR7KtWXjfxrZCS');
-                $options->setSecretKey('sandbox-ilVKAaMRVhXdp6DfAR0WYu7W0wfuFCFm');
-                $options->setBaseUrl("https://sandbox-api.iyzipay.com"); //https://api.iyzipay.com
+                $options->setApiKey('sMRn3nsxAn8iW51s4OdnGLrag8CXgKn1');
+                $options->setSecretKey('lErap07z0zIcxpcKVDrBdsMNSvPZVy8A');
+                $options->setBaseUrl("https://api.iyzipay.com"); //https://api.iyzipay.com
 
                 foreach (Session::get('cart') as $key => $cartItem) {
 
@@ -42,10 +45,13 @@ class IyzicoController extends Controller
 
                     $order = Order::findOrFail(Session::get('order_id'));
 
+                
+                  // 
+
                     if(Session::get('payment_type') == 'cart_payment') {
                         $request = new \Iyzipay\Request\CreatePaymentRequest();
-                        $request->setPrice(round($total));
-                        $request->setPaidPrice(round($total));
+                        $request->setPrice(round($order->grand_total));
+                        $request->setPaidPrice(round($order->grand_total));
                         $request->setBasketId(rand(000000, 999999));
                         $request->setLocale(\Iyzipay\Model\Locale::TR);
                         $request->setConversationId(Session::get('id'));
@@ -57,7 +63,7 @@ class IyzicoController extends Controller
 
                         $paymentCard = new \Iyzipay\Model\PaymentCard();
                         $paymentCard->setCardHolderName($CardHolderName);
-                        $paymentCard->setCardNumber($CardNumber);
+                        $paymentCard->setCardNumber($Cardnumber);
                         $paymentCard->setExpireMonth($ExpireMonth);
                         $paymentCard->setExpireYear($ExpireYear);
                         $paymentCard->setCvc($Cvc);
@@ -108,7 +114,7 @@ class IyzicoController extends Controller
                         $firstBasketItem->setName(Session::get('shipping_info')["name"]);
                         $firstBasketItem->setCategory1($product->category_id);
                         $firstBasketItem->setItemType(\Iyzipay\Model\BasketItemType::PHYSICAL);
-                        $firstBasketItem->setPrice(round(($total)));
+                        $firstBasketItem->setPrice(round(($order->grand_total)));
                         $basketItems[0] = $firstBasketItem;
 
                         $basketItems[0] = $firstBasketItem;
@@ -131,9 +137,9 @@ class IyzicoController extends Controller
     public function callback(Request $request, $payment_type, $payment_data, $order_id){
 
         $options = new \Iyzipay\Options();
-        $options->setApiKey('sandbox-IL3YqFQk1vpCzDjHZiuR7KtWXjfxrZCS');
-        $options->setSecretKey('sandbox-ilVKAaMRVhXdp6DfAR0WYu7W0wfuFCFm');
-        $options->setBaseUrl("https://sandbox-api.iyzipay.com"); //https://api.iyzipay.com
+        $options->setApiKey('sMRn3nsxAn8iW51s4OdnGLrag8CXgKn1');
+        $options->setSecretKey('lErap07z0zIcxpcKVDrBdsMNSvPZVy8A');
+        $options->setBaseUrl("https://api.iyzipay.com"); //https://api.iyzipay.com
 
 
         $requests = new \Iyzipay\Request\CreateThreedsPaymentRequest();
