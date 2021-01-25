@@ -5,20 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5a72f7fd-5148-443b-b004-55762d7282bf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/error.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/success.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CartController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/IyzicoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/IyzicoController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/delivery_info.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/delivery_info.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/order_confirmed.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/order_confirmed.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/partials/cart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/partials/cart.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/partials/cart_details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/partials/cart_details.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/payment_select.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/payment_select.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/razor_wallet/wallet_payment_Razorpay.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/razor_wallet/wallet_payment_Razorpay.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/view_cart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/view_cart.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/user/seller/product_edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/user/seller/product_edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/user/seller/product_upload.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/user/seller/product_upload.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -214,6 +205,7 @@
       <recent name="C:\xampp\htdocs\public" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\resources\views\frontend\user\seller" />
       <recent name="C:\xampp\htdocs\resources\views\frontend" />
       <recent name="C:\xampp\htdocs\resources\lang\en" />
       <recent name="C:\xampp\htdocs\resources" />
@@ -250,6 +242,7 @@
       <workItem from="1611242808286" duration="1021000" />
       <workItem from="1611300329811" duration="5807000" />
       <workItem from="1611306197799" duration="15496000" />
+      <workItem from="1611577370097" duration="1983000" />
     </task>
     <servers />
   </component>

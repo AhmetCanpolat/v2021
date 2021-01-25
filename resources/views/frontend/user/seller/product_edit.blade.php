@@ -13,7 +13,7 @@
                     <div class="aiz-titlebar mt-2 mb-4">
                       <div class="row align-items-center">
                         <div class="col-md-6">
-                            <h1 class="h3">Ürününüzü güncelleyin</h1>
+                            <h1 class="h3">{{ translate('Update your product') }}</h1>
                         </div>
                       </div>
                     </div>
@@ -27,7 +27,7 @@
                         <div class="card">
                             <ul class="nav nav-tabs nav-fill border-light">
                                 @foreach (\App\Language::all() as $key => $language)
-                                    <li class="nav-item">
+                                    <li style="display: none;" class="nav-item">
                                         <a class="nav-link text-reset @if ($language->code == $lang) active @else bg-soft-dark border-light border-left-0 @endif py-3" href="{{ route('seller.products.edit', ['id'=>$product->id, 'lang'=> $language->code] ) }}">
                                             <img src="{{ static_asset('assets/img/flags/'.$language->code.'.png') }}" height="11" class="mr-1">
                                             <span>{{$language->name}}</span>
@@ -37,26 +37,184 @@
                             </ul>
                             <div class="card-body">
                                 <div class="form-group row">
-                                    <label class="col-lg-3 col-from-label">Ürün adı</label>
+                                    <label class="col-lg-3 col-from-label">{{translate('Product Name')}}</label>
                                     <div class="col-lg-8">
-                                        <input type="text" class="form-control" name="name" placeholder="Ürün adı" value="{{$product->getTranslation('name')}}" required>
+                                        <input type="text" class="form-control" name="name" placeholder="{{translate('Product Name')}}" value="{{$product->getTranslation('name')}}" required>
                                     </div>
                                 </div>
+
                                 <div class="form-group row" id="category">
-                                    <label class="col-lg-3 col-from-label">Kategori</label>
-                                    <div class="col-lg-8">
-                                        <select class="form-control aiz-selectpicker" name="category_id" id="category_id" data-selected={{ $product->category_id }} required>
-                                            @foreach ($categories as $category)
-                                                <option value="{{ $category->id }}">{{ $category->getTranslation('name') }}</option>
-                                                @foreach ($category->childrenCategories as $childCategory)
-                                                    @include('categories.child_category', ['child_category' => $childCategory])
-                                                @endforeach
-                                            @endforeach
-                                        </select>
+                                    <label class="col-lg-3 col-from-label">{{translate('Category')}}</label>
+
+                                    <div class="col-md-8">
+                                        @if ($product->subsubcategory_id != null)
+                                            <div class="form-control mb-3 c-pointer" data-toggle="modal" data-target="#categorySelectModal" id="product_category">{{$bir .'>'. $iki .'>'.$uc }}</div>
+                                        @else
+                                            <div class="form-control mb-3 c-pointer" data-toggle="modal" data-target="#categorySelectModal" id="product_category">{{ $bir .'>'. $iki }}</div>
+                                        @endif
+                                        <input type="hidden" name="category_id" id="category_id" value="{{ $product->category_id }}" required>
+                                        <input type="hidden" name="subcategory_id" id="subcategory_id" value="{{ $product->subcategory_id }}" required>
+                                        <input type="hidden" name="subsubcategory_id" id="subsubcategory_id" value="{{ $product->subsubcategory_id }}">
                                     </div>
+
+
+                                    <div class="modal fade" id="categorySelectModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                         aria-hidden="true" data-backdrop="static">
+                                        <div class="modal-dialog modal-lg" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h6 class="modal-title" id="exampleModalLabel">Kategori seç</h6>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="target-category heading-6">
+                                                        <span class="mr-3">Hedef Kategori: <span id="hKategori"></span></span>
+                                                    </div>
+                                                    <div class="row no-gutters modal-categories mt-4 mb-2">
+                                                        <div class="col-12" id="backButton">
+                                                        </div>
+                                                        <div class="col-4" id="categoriesBox">
+                                                            <div class="modal-category-box c-scrollbar">
+                                                                <div class="sort-by-box">
+                                                                    <form role="form" class="search-widget">
+                                                                        <input class="form-control input-lg" type="text" placeholder="Kategori Ara"
+                                                                               onkeyup="filterListItems(this, 'categories')">
+                                                                        <button type="button" class="btn-inner d-none">
+                                                                            <i class="fa fa-search"></i>
+                                                                        </button>
+                                                                    </form>
+                                                                </div>
+                                                                <style>
+                                                                    #categories{
+                                                                        padding: 0;
+                                                                    }
+                                                                </style>
+                                                                <div class="modal-category-list has-right-arrow">
+                                                                    <ul id="categories" class="list-unstyled" style="margin-top:10px">
+                                                                        @if($bid==4)
+                                                                            <li onclick="get_subcategories_by_category(this, 4)" class="secildi">KADIN</li>
+                                                                        @else
+                                                                            <li onclick="get_subcategories_by_category(this, 4)">KADIN</li>
+                                                                        @endif
+
+                                                                        @if($bid==5)
+                                                                                <li onclick="get_subcategories_by_category(this, 5)" class="secildi">ERKEK</li>
+                                                                        @else
+                                                                            <li onclick="get_subcategories_by_category(this, 5)">ERKEK</li>
+                                                                        @endif
+
+                                                                            @if($bid==6)
+                                                                                <li onclick="get_subcategories_by_category(this, 6)" class="secildi">ÇOCUK</li>
+                                                                            @else
+                                                                                <li onclick="get_subcategories_by_category(this, 6)">ÇOCUK</li>
+                                                                            @endif
+
+                                                                            @if($bid==8)
+                                                                                <li onclick="get_subcategories_by_category(this, 8)" class="secildi">EV &amp; YAŞAM</li>
+                                                                            @else
+                                                                                <li onclick="get_subcategories_by_category(this, 8)">EV &amp; YAŞAM</li>
+                                                                            @endif
+
+                                                                            @if($bid==9)
+                                                                                <li onclick="get_subcategories_by_category(this, 9)" class="secildi">KÖY PAZARIM</li>
+                                                                            @else
+                                                                                <li onclick="get_subcategories_by_category(this, 9)">KÖY PAZARIM</li>
+                                                                            @endif
+
+                                                                            @if($bid==10)
+                                                                                <li onclick="get_subcategories_by_category(this, 10)" class="secildi">KOZMETİK</li>
+                                                                            @else
+                                                                                <li onclick="get_subcategories_by_category(this, 10)">KOZMETİK</li>
+                                                                            @endif
+
+                                                                            @if($bid==11)
+                                                                                <li onclick="get_subcategories_by_category(this, 11)" class="secildi">AYAKKABI &amp; CANTA</li>
+                                                                            @else
+                                                                                <li onclick="get_subcategories_by_category(this, 11)">AYAKKABI &amp; CANTA</li>
+                                                                            @endif
+
+                                                                            @if($bid==12)
+                                                                                <li onclick="get_subcategories_by_category(this, 12)" class="secildi">SAAT &amp; AKSESUAR</li>
+                                                                            @else
+                                                                                <li onclick="get_subcategories_by_category(this, 12)">SAAT &amp; AKSESUAR</li>
+                                                                            @endif
+
+                                                                            @if($bid==13)
+                                                                                <li onclick="get_subcategories_by_category(this, 13)" class="secildi">ELEKTRONİK &amp;
+                                                                                    AKSESUAR
+                                                                                </li>
+                                                                            @else
+                                                                                <li onclick="get_subcategories_by_category(this, 13)">ELEKTRONİK &amp;
+                                                                                    AKSESUAR
+                                                                                </li>
+                                                                            @endif
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-4" id="subCategoriesBox">
+                                                            <div class="modal-category-box c-scrollbar" id="subcategory_list">
+                                                                <div class="sort-by-box">
+                                                                    <form role="form" class="search-widget">
+                                        <span class='btn btn-primary mb-2 mr-1 backrow'
+                                              onclick="$('#categoriesBox').show();$('#subCategoriesBox').hide();$('#subcategory_list').hide()"><i
+                                                    class="fa fa-arrow-left"></i> Geri</span>
+                                                                        <input class="form-control input-lg" type="text" placeholder="Alt Kategori Ara"
+                                                                               onkeyup="filterListItems(this, 'subcategories')">
+                                                                        <button type="button" class="btn-inner d-none">
+                                                                            <i class="fa fa-search"></i>
+                                                                        </button>
+                                                                    </form>
+                                                                </div>
+                                                                <div class="modal-category-list has-right-arrow">
+                                                                    <ul id="subcategories" class="list-unstyled" style="margin-top:10px">
+                                                                         @foreach($altKategoriParentList as $val)
+                                                                             <li onclick="get_subsubcategories_by_subcategory(this, {{$val->id}})">{{$val->name}}</li>
+                                                                        @endforeach
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-4" id="subSubCategoriesBox">
+                                                            <div class="modal-category-box c-scrollbar" id="subsubcategory_list">
+                                                                <div class="sort-by-box">
+                                                                    <form role="form" class="search-widget">
+                                        <span class='btn btn-primary mb-2 mr-1 backrow'
+                                              onclick="$('#subCategoriesBox').show();$('#subsubcategory_list').hide();$('#subSubCategoriesBox').hide()"><i
+                                                    class="fa fa-arrow-left"></i> Geri</span>
+                                                                        <input class="form-control input-lg" type="text"
+                                                                               placeholder="Alt Alt Kategori Ara"
+                                                                               onkeyup="filterListItems(this, 'subsubcategories')">
+                                                                        <button type="button" class="btn-inner d-none" >
+                                                                            <i class="fa fa-search"></i>
+                                                                        </button>
+                                                                    </form>
+                                                                </div>
+                                                                <div class="modal-category-list">
+                                                                    <ul id="subsubcategories" class="list-unstyled" style="margin-top:10px">
+                                                                        @foreach($altAltKategoriParentList as $val)
+                                                                        <li onclick="confirm_subsubcategory(this, {{$val->id}})">{{$val->name}}</li>
+                                                                        @endforeach
+
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">İptal et</button>
+                                                    <button type="button" class="btn btn-primary" onclick="closeModal()">Onayla</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                                 <div class="form-group row" id="brand">
-                                    <label class="col-lg-3 col-from-label">Marka</label>
+                                    <label class="col-lg-3 col-from-label">{{translate('Brand')}}</label>
                                     <div class="col-lg-8">
                                         <select class="form-control aiz-selectpicker" name="brand_id" id="brand_id">
                                             <option value="">{{ ('Select Brand') }}</option>
@@ -67,31 +225,31 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-lg-3 col-from-label">Birim</label>
+                                    <label class="col-lg-3 col-from-label">{{translate('Unit')}}</label>
                                     <div class="col-lg-8">
-                                        <input type="text" class="form-control" name="unit" placeholder="Birim (ör. ADET, KG vb.)" value="{{$product->getTranslation('unit')}}" required>
+                                        <input type="text" class="form-control" name="unit" placeholder="{{ translate('Unit (e.g. KG, Pc etc)') }}" value="{{$product->getTranslation('unit')}}" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-lg-3 col-from-label">Minimum Miktar</label>
+                                    <label class="col-lg-3 col-from-label">{{translate('Minimum Qty')}}</label>
                                     <div class="col-lg-8">
                                         <input type="number" class="form-control" name="min_qty" value="@if($product->min_qty <= 1){{1}}@else{{$product->min_qty}}@endif" min="1" required>
                                     </div>
                                 </div>
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-from-label">Etiketler</label>
+                                <div style="disiplay: none;" class="form-group row">
+                                    <label class="col-lg-3 col-from-label">{{translate('Tags')}}</label>
                                     <div class="col-lg-8">
-                                        <input type="text" class="form-control aiz-tag-input" name="tags[]" id="tags" value="{{ $product->tags }}" placeholder="Etiket eklemek için yazın" data-role="tagsinput">
+                                        <input type="text" class="form-control aiz-tag-input" name="tags[]" id="tags" value="{{ $product->tags }}" placeholder="{{ translate('Type to add a tag') }}" data-role="tagsinput">
                                     </div>
                                 </div>
                                 @php
                                     $pos_addon = \App\Addon::where('unique_identifier', 'pos_system')->first();
                                 @endphp
                                 @if ($pos_addon != null && $pos_addon->activated == 1)
-                                    <div class="form-group row">
-                                        <label class="col-lg-3 col-from-label">Barkod</label>
+                                    <div style="disiplay: none;" class="form-group row">
+                                        <label class="col-lg-3 col-from-label">{{translate('Barcode')}}</label>
                                         <div class="col-lg-8">
-                                            <input type="text" class="form-control" name="barcode" placeholder="Barkod" value="{{ $product->barcode }}">
+                                            <input type="text" class="form-control" name="barcode" placeholder="{{ translate('Barcode') }}" value="{{ $product->barcode }}">
                                         </div>
                                     </div>
                                 @endif
@@ -101,7 +259,7 @@
                                 @endphp
                                 @if ($refund_request_addon != null && $refund_request_addon->activated == 1)
                                     <div class="form-group row">
-                                        <label class="col-lg-3 col-from-label">Geri ödenebilir</label>
+                                        <label class="col-lg-3 col-from-label">{{translate('Refundable')}}</label>
                                         <div class="col-lg-8">
                                             <label class="aiz-switch aiz-switch-success mb-0" style="margin-top:5px;">
                                                 <input type="checkbox" name="refundable" @if ($product->refundable == 1) checked @endif>
@@ -114,18 +272,18 @@
                         </div>
                         <div class="card">
                             <div class="card-header">
-                                <h5 class="mb-0 h6">Ürün Görselleri</h5>
+                                <h5 class="mb-0 h6">{{translate('Product Images')}}</h5>
                             </div>
                             <div class="card-body">
 
                                 <div class="form-group row">
-                                    <label class="col-md-3 col-form-label" for="signinSrEmail">Galeri Görselleri</label>
+                                    <label class="col-md-3 col-form-label" for="signinSrEmail">{{translate('Gallery Images')}}</label>
                                     <div class="col-md-8">
                                         <div class="input-group" data-toggle="aizuploader" data-type="image" data-multiple="true">
                                             <div class="input-group-prepend">
-                                                <div class="input-group-text bg-soft-secondary font-weight-medium">Göz at</div>
+                                                <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
                                             </div>
-                                            <div class="form-control file-amount">Dosya seçin</div>
+                                            <div class="form-control file-amount">{{ translate('Choose File') }}</div>
                                             <input type="hidden" name="photos" value="{{ $product->photos }}" class="selected-files">
                                         </div>
                                         <div class="file-preview box sm">
@@ -133,13 +291,13 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-md-3 col-form-label" for="signinSrEmail">Küçük Resim <small>(290x300)</small></label>
+                                    <label class="col-md-3 col-form-label" for="signinSrEmail">{{translate('Thumbnail Image')}} <small>(290x300)</small></label>
                                     <div class="col-md-8">
                                         <div class="input-group" data-toggle="aizuploader" data-type="image">
                                             <div class="input-group-prepend">
-                                                <div class="input-group-text bg-soft-secondary font-weight-medium">Göz at</div>
+                                                <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
                                             </div>
-                                            <div class="form-control file-amount">Dosya seçin</div>
+                                            <div class="form-control file-amount">{{ translate('Choose File') }}</div>
                                             <input type="hidden" name="thumbnail_img" value="{{ $product->thumbnail_img }}" class="selected-files">
                                         </div>
                                         <div class="file-preview box sm">
@@ -184,12 +342,12 @@
                         </div>
                         <div class="card">
                             <div class="card-header">
-                                <h5 class="mb-0 h6">Ürün Varyasyonu</h5>
+                                <h5 class="mb-0 h6">{{translate('Product Variation')}}</h5>
                             </div>
                             <div class="card-body">
                                 <div class="form-group row">
                                     <div class="col-lg-3">
-                                        <input type="text" class="form-control" value="Renkler" disabled>
+                                        <input type="text" class="form-control" value="{{translate('Colors')}}" disabled>
                                     </div>
                                     <div class="col-lg-8">
                                         <select class="form-control aiz-selectpicker" data-live-search="true" data-selected-text-format="count" name="colors[]" id="colors" multiple>
@@ -212,10 +370,10 @@
 
                                 <div class="form-group row">
                                     <div class="col-lg-3">
-                                        <input type="text" class="form-control" value="Özellikler" disabled>
+                                        <input type="text" class="form-control" value="{{translate('Attributes')}}" disabled>
                                     </div>
                                     <div class="col-lg-8">
-                                        <select name="choice_attributes[]" data-live-search="true" data-selected-text-format="count" id="choice_attributes" class="form-control aiz-selectpicker" multiple data-placeholder="Özellikleri Seçin">
+                                        <select name="choice_attributes[]" data-live-search="true" data-selected-text-format="count" id="choice_attributes" class="form-control aiz-selectpicker" multiple data-placeholder="{{ translate('Choose Attributes') }}">
                                             @foreach (\App\Attribute::all() as $key => $attribute)
                                                 <option value="{{ $attribute->id }}" @if($product->attributes != null && in_array($attribute->id, json_decode($product->attributes, true))) selected @endif>{{ $attribute->getTranslation('name') }}</option>
                                             @endforeach
@@ -224,7 +382,7 @@
                                 </div>
 
                                 <div class="">
-                                    <p>Bu ürünün özelliklerini seçin ve ardından her bir özelliğin değerlerini girin</p>
+                                    <p>{{ translate('Choose the attributes of this product and then input values of each attribute') }}</p>
                                     <br>
                                 </div>
 
@@ -233,10 +391,10 @@
                                         <div class="form-group row">
                                             <div class="col-lg-3">
                                                 <input type="hidden" name="choice_no[]" value="{{ $choice_option->attribute_id }}">
-                                                <input type="text" class="form-control" name="choice[]" value="{{ \App\Attribute::find($choice_option->attribute_id)->getTranslation('name') }}" placeholder="Seçim Başlığı" disabled>
+                                                <input type="text" class="form-control" name="choice[]" value="{{ \App\Attribute::find($choice_option->attribute_id)->getTranslation('name') }}" placeholder="{{ translate('Choice Title') }}" disabled>
                                             </div>
                                             <div class="col-lg-8">
-                                                <input type="text" class="form-control aiz-tag-input" name="choice_options_{{ $choice_option->attribute_id }}[]" placeholder="Seçim değerlerini girin" value="{{ implode(',', $choice_option->values) }}" data-on-change="update_sku">
+                                                <input type="text" class="form-control aiz-tag-input" name="choice_options_{{ $choice_option->attribute_id }}[]" placeholder="{{ translate('Enter choice values') }}" value="{{ implode(',', $choice_option->values) }}" data-on-change="update_sku">
                                             </div>
                                         </div>
                                     @endforeach
@@ -245,37 +403,31 @@
                         </div>
                         <div class="card">
                             <div class="card-header">
-                                <h5 class="mb-0 h6">Ürün fiyatı + stok</h5>
+                                <h5 class="mb-0 h6">{{translate('Product price + stock')}}</h5>
                             </div>
                             <div class="card-body">
                                 <div class="form-group row">
-                                    <label class="col-lg-3 col-from-label">Birim fiyat</label>
+                                    <label class="col-lg-3 col-from-label">{{translate('Unit price')}}</label>
                                     <div class="col-lg-6">
-                                        <input type="text" placeholder="Birim fiyat" name="unit_price" class="form-control" value="{{$product->unit_price}}" required>
+                                        <input type="text" placeholder="{{translate('Unit price')}}" name="unit_price" class="form-control" value="{{$product->unit_price}}" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-lg-3 col-from-label">Satın alma fiyatı</label>
+                                    <label class="col-lg-3 col-from-label">{{translate('Discount')}}</label>
                                     <div class="col-lg-6">
-                                        <input type="number" min="0" step="0.01" placeholder="Satın alma fiyatı" name="purchase_price" class="form-control" value="{{$product->purchase_price}}" required>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-from-label">İndirim</label>
-                                    <div class="col-lg-6">
-                                        <input type="number" min="0" step="0.01" placeholder="İndirim" name="discount" class="form-control" value="{{ $product->discount }}" required>
+                                        <input type="number" min="0" step="0.01" placeholder="{{translate('Discount')}}" name="discount" class="form-control" value="{{ $product->discount }}" required>
                                     </div>
                                     <div class="col-lg-3">
                                         <select class="form-control aiz-selectpicker" name="discount_type" required>
-                                            <option value="amount" <?php if($product->discount_type == 'amount') echo "selected";?> >Düz</option>
-                                            <option value="percent" <?php if($product->discount_type == 'percent') echo "selected";?> >Yüzde</option>
+                                            <option value="amount" <?php if($product->discount_type == 'amount') echo "selected";?> >{{translate('Flat')}}</option>
+                                            <option value="percent" <?php if($product->discount_type == 'percent') echo "selected";?> >{{translate('Percent')}}</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group row" id="quantity">
-                                    <label class="col-lg-3 col-from-label">Miktar</label>
+                                    <label class="col-lg-3 col-from-label">{{translate('Quantity')}}</label>
                                     <div class="col-lg-6">
-                                        <input type="number" value="{{ $product->current_stock }}" step="1" placeholder="Miktar" name="current_stock" class="form-control" required>
+                                        <input type="number" value="{{ $product->current_stock }}" step="1" placeholder="{{translate('Quantity')}}" name="current_stock" class="form-control" required>
                                     </div>
                                 </div>
                                 <br>
@@ -286,11 +438,11 @@
                         </div>
                         <div class="card">
                             <div class="card-header">
-                                <h5 class="mb-0 h6">Ürün Açıklaması}</h5>
+                                <h5 class="mb-0 h6">{{translate('Product Description')}}</h5>
                             </div>
                             <div class="card-body">
                                 <div class="form-group row">
-                                    <label class="col-lg-3 col-from-label">Açıklama</label>
+                                    <label class="col-lg-3 col-from-label">{{translate('Description')}}</label>
                                     <div class="col-lg-9">
                                         <textarea class="aiz-text-editor" name="description">{{$product->getTranslation('description')}}</textarea>
                                     </div>
@@ -300,18 +452,18 @@
                         @if (\App\BusinessSetting::where('type', 'shipping_type')->first()->value == 'product_wise_shipping')
                             <div class="card">
                                 <div class="card-header">
-                                    <h5 class="mb-0 h6">Ürün Kargo Maliyeti</h5>
+                                    <h5 class="mb-0 h6">{{translate('Product Shipping Cost')}}</h5>
                                 </div>
                                 <div class="card-body">
                                     <div class="form-group row">
                                         <div class="col-lg-3">
                                             <div class="card-heading">
-                                                <h5 class="mb-0 h6">Ücretsiz kargo</h5>
+                                                <h5 class="mb-0 h6">{{translate('Free Shipping')}}</h5>
                                             </div>
                                         </div>
                                         <div class="col-lg-9">
                                             <div class="form-group row">
-                                                <label class="col-lg-3 col-from-label">Durum</label>
+                                                <label class="col-lg-3 col-from-label">{{translate('Status')}}</label>
                                                 <div class="col-lg-8">
                                                     <label class="aiz-switch aiz-switch-success mb-0">
                                                         <input type="radio" name="shipping_type" value="free" @if($product->shipping_type == 'free') checked @endif>
@@ -325,12 +477,12 @@
                                     <div class="form-group row">
                                         <div class="col-lg-3">
                                             <div class="card-heading">
-                                                <h5 class="mb-0 h6">Sabit fiyat</h5>
+                                                <h5 class="mb-0 h6">{{translate('Flat Rate')}}</h5>
                                             </div>
                                         </div>
                                         <div class="col-lg-9">
                                             <div class="form-group row">
-                                                <label class="col-lg-3 col-from-label">Durum</label>
+                                                <label class="col-lg-3 col-from-label">{{translate('Status')}}</label>
                                                 <div class="col-lg-8">
                                                     <label class="aiz-switch aiz-switch-success mb-0">
                                                         <input type="radio" name="shipping_type" value="flat_rate" @if($product->shipping_type == 'flat_rate') checked @endif>
@@ -339,18 +491,18 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label class="col-lg-3 col-from-label">Kargo maliyeti</label>
+                                                <label class="col-lg-3 col-from-label">{{translate('Shipping cost')}}</label>
                                                 <div class="col-lg-8">
-                                                    <input type="number" min="0" value="{{ $product->shipping_cost }}" step="0.01" placeholder="Kargo maliyeti" name="flat_shipping_cost" class="form-control" required>
+                                                    <input type="number" min="0" value="{{ $product->shipping_cost }}" step="0.01" placeholder="{{ translate('Shipping cost') }}" name="flat_shipping_cost" class="form-control" required>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        @endif
+                        @endif                       
                         <div class="mar-all text-right">
-                            <button type="submit" name="button" class="btn btn-primary">Ürünü Güncelle</button>
+                            <div onclick='document.getElementById("choice_form").submit()' name="button" class="btn btn-primary">{{ translate('Update Product') }}</div>
                         </div>
                     </form>
                 </div>
@@ -362,9 +514,134 @@
 
 @section('script')
     <script type="text/javascript">
+       var category_id = '{{$bid}}';
+       var subcategory_id = '{{$iid}}';
+       var subsubcategory_id = '{{$uid}}';
+       var category_name='{{$bir}}';
+       var subcategory_name='{{$iki}}';
+       var subsubcategory_name='{{$uc}}';
+       $(document).ready(function () {
+           $("#hKategori").html(category_name+'>'+subcategory_name+'>'+subsubcategory_name);
+           // $('#subcategory_list').hide();
+           // $('#subsubcategory_list').hide();
+           //alert(subcategory_id);
+        });
 
-    function add_more_customer_choice_option(i, name){
-        $('#customer_choice_options').append('<div class="form-group row"><div class="col-md-3"><input type="hidden" name="choice_no[]" value="'+i+'"><input type="text" class="form-control" name="choice[]" value="'+name+'" placeholder="Seçim Başlığı" readonly></div><div class="col-md-8"><input type="text" class="form-control aiz-tag-input" name="choice_options_'+i+'[]" placeholder="{{ translate('Seçim değerlerini girin') }}" data-on-change="update_sku"></div></div>');
+        var u3ColumnsMode = false;
+        if($(window).width() < 720){
+            $("#categorySelectModal [role='document']").removeClass("modal-lg")
+        }else{
+            u3ColumnsMode = true;
+            var boxes = $("#categoriesBox, #subCategoriesBox, #subSubCategoriesBox");
+            boxes.removeClass("col-12").addClass("col-4");
+            boxes.find(".backrow").remove();
+
+        }
+        function list_item_highlight(el){
+            $(el).parent().children().each(function(){
+                $(this).removeClass('selected');
+            });
+            $(el).addClass('selected');
+        }
+            function closeModal(){
+                $("#filters").html("");
+                addFilterInput();
+                console.log();
+
+                if(category_id > 0 && subcategory_id > 0){
+                    $('#category_id').val(category_id);
+                    $('#subcategory_id').val(subcategory_id);
+                    $('#subsubcategory_id').val(subsubcategory_id);
+                    $('#product_category').html(category_name+'>'+subcategory_name+'>'+subsubcategory_name);
+                    $('#categorySelectModal').modal('hide');
+                    // alert($('#category_id').val() +"-"+$('#subcategory_id').val()+"-"+$('#subsubcategory_id').val());
+                }
+                else{
+                    alert('Lütfen Kategori Seçiniz...');
+                    // console.log(category_id);
+                    // console.log(subcategory_id);
+                    // console.log(subsubcategory_id);
+                }
+            }
+            function addFilterInput()
+            {
+                /*$("#filters").append(`
+                    <div class="row mb-4">
+                        <div class="col-md-5 col-sm-12">
+                            <select class="form-control filtername marka" onchange="getFilterValues(this)" readonly>
+                                <option value="Marka">Marka</option>
+                            </select>
+                        </div>
+                        <div class="col-md-5 col-sm-12">
+                            <input class="form-control var-select filtervalue">
+                        </div>
+                        <div class="col-md-1 col-sm-12 text-center">
+
+                        </div>
+                    </div>
+                `);*/
+                updateSelect2();
+                try{$(".var-select").select2()}catch(i){}
+            }
+            function updateSelect2()
+            {
+                $("select.no-selection").each(function(){
+                    $(this).select2({});
+                    $(this).removeClass("no-selection")
+                })
+            }
+            $(document).ready(function(){
+                addFilterInput()
+            })
+        function get_subcategories_by_category(el, cat_id){
+            list_item_highlight(el);
+            category_id = cat_id;
+            subcategory_id = null;
+            subsubcategory_id = null;
+            category_name = $(el).html();
+            $('#subcategories').html(null);
+            $('#subsubcategory_list').hide();
+            $.post('/subcategories/get_subcategories_by_category',{_token:'{{ csrf_token() }}', category_id:category_id}, function(data){
+                console.log(data);
+                for (var i = 0; i < data.length; i++) {
+                    $('#subcategories').append('<li onclick="get_subsubcategories_by_subcategory(this, '+data[i].id+')">'+data[i].name+'</li>');
+                }
+                !u3ColumnsMode && $('#categoriesBox').hide();
+                !u3ColumnsMode && $('#subCategoriesBox').show();
+                $('#subcategory_list').show();
+            });
+            $("#hKategori").html(category_name);
+        }
+
+        function get_subsubcategories_by_subcategory(el, subcat_id){
+            list_item_highlight(el);
+            subcategory_id = subcat_id;
+            subsubcategory_id = null;
+            subcategory_name = $(el).html();
+            $('#subsubcategories').html(null);
+            $.post('/subsubcategories/get_subsubcategories_by_subcategory',{_token:'{{ csrf_token() }}', subcategory_id:subcategory_id}, function(data){
+
+                for (var i = 0; i < data.length; i++) {
+                    $('#subsubcategories').append('<li onclick="confirm_subsubcategory(this, '+data[i].id+')">'+data[i].name+'</li>');
+                }
+                !u3ColumnsMode && $('#subCategoriesBox').hide();
+                $('#subsubcategory_list').show();
+                !u3ColumnsMode && $('#subSubCategoriesBox').show();
+            });
+            $("#hKategori").html(category_name+'>'+subcategory_name);
+        }
+
+        function confirm_subsubcategory(el, subsubcat_id){
+            list_item_highlight(el);
+            subsubcategory_id = subsubcat_id;
+            subsubcategory_name = $(el).html();
+            $("#hKategori").html(category_name+'>'+subcategory_name+'>'+subsubcategory_name);
+            !u3ColumnsMode && closeModal();
+        }
+
+
+        function add_more_customer_choice_option(i, name){
+        $('#customer_choice_options').append('<div class="form-group row"><div class="col-md-3"><input type="hidden" name="choice_no[]" value="'+i+'"><input type="text" class="form-control" name="choice[]" value="'+name+'" placeholder="{{ translate('Choice Title') }}" readonly></div><div class="col-md-8"><input type="text" class="form-control aiz-tag-input" name="choice_options_'+i+'[]" placeholder="{{ translate('Enter choice values') }}" data-on-change="update_sku"></div></div>');
 
         AIZ.plugins.tagify();
     }
