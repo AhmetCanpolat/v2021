@@ -90,7 +90,7 @@
                                     <span class="rating">
                                         {{ renderStarRating($detailedProduct->rating) }}
                                     </span>
-                                    <span class="ml-1 opacity-50">({{ $total }} {{ translate('reviews')}})</span>
+                                    <span class="ml-1 opacity-50">({{ $total }} yorumlar)</span>
                                 </div>
                                 <div class="col-6 text-right">
                                     @php
@@ -105,9 +105,9 @@
                                         }
                                     @endphp
                                     @if ($qty > 0)
-                                        <span class="badge badge-md badge-inline badge-pill badge-success">{{ translate('In stock')}}</span>
+                                        <span class="badge badge-md badge-inline badge-pill badge-success">Stokta var</span>
                                     @else
-                                        <span class="badge badge-md badge-inline badge-pill badge-danger">{{ translate('Out of stock')}}</span>
+                                        <span class="badge badge-md badge-inline badge-pill badge-danger">Stoklar tükendi</span>
                                     @endif
                                 </div>
                             </div>
@@ -116,16 +116,16 @@
 
                             <div class="row align-items-center">
                                 <div class="col-auto">
-                                    <small class="mr-2 opacity-50">{{ translate('Sold by')}}: </small><br>
+                                    <small class="mr-2 opacity-50">Satıcı: </small><br>
                                     @if ($detailedProduct->added_by == 'seller' && \App\BusinessSetting::where('type', 'vendor_system_activation')->first()->value == 1)
                                         <a href="{{ route('shop.visit', $detailedProduct->user->shop->slug) }}" class="text-reset">{{ $detailedProduct->user->shop->name }}</a>
                                     @else
-                                        {{  translate('Inhouse product') }}
+                                        Şirket içi ürün
                                     @endif
                                 </div>
                                 @if (\App\BusinessSetting::where('type', 'conversation_system')->first()->value == 1)
                                     <div class="col-auto">
-                                        <button class="btn btn-sm btn-soft-primary" onclick="show_chat_modal()">{{ translate('Message Seller')}}</button>
+                                        <button class="btn btn-sm btn-soft-primary" onclick="show_chat_modal()">Satıcıya Mesaj Gönder</button>
                                     </div>
                                 @endif
 
@@ -142,7 +142,7 @@
 
                                 <div class="row no-gutters mt-3">
                                     <div class="col-sm-2">
-                                        <div class="opacity-50 my-2">{{ translate('Price')}}:</div>
+                                        <div class="opacity-50 my-2">Fiyat:</div>
                                     </div>
                                     <div class="col-sm-10">
                                         <div class="fs-20 opacity-60">
@@ -158,7 +158,7 @@
 
                                 <div class="row no-gutters my-2">
                                     <div class="col-sm-2">
-                                        <div class="opacity-50">{{ translate('Discount Price')}}:</div>
+                                        <div class="opacity-50">İndirimli fiyat:</div>
                                     </div>
                                     <div class="col-sm-10">
                                         <div class="">
@@ -174,7 +174,7 @@
                             @else
                                 <div class="row no-gutters mt-3">
                                     <div class="col-sm-2">
-                                        <div class="opacity-50 my-2">{{ translate('Price')}}:</div>
+                                        <div class="opacity-50 my-2">Fiyat:</div>
                                     </div>
                                     <div class="col-sm-10">
                                         <div class="">
@@ -192,7 +192,7 @@
                             @if (\App\Addon::where('unique_identifier', 'club_point')->first() != null && \App\Addon::where('unique_identifier', 'club_point')->first()->activated && $detailedProduct->earn_point > 0)
                                 <div class="row no-gutters mt-4">
                                     <div class="col-sm-2">
-                                        <div class="opacity-50 my-2">{{  translate('Club Point') }}:</div>
+                                        <div class="opacity-50 my-2">Kulup puan:</div>
                                     </div>
                                     <div class="col-sm-10">
                                         <div class="d-inline-block rounded px-2 bg-soft-primary border-soft-primary border">
@@ -240,7 +240,7 @@
                                 @if (count(json_decode($detailedProduct->colors)) > 0)
                                     <div class="row no-gutters">
                                         <div class="col-sm-2">
-                                            <div class="opacity-50 my-2">{{ translate('Color')}}:</div>
+                                            <div class="opacity-50 my-2">Renk:</div>
                                         </div>
                                         <div class="col-sm-10">
                                             <div class="aiz-radio-inline">
@@ -267,7 +267,7 @@
                                 <!-- Quantity + Add to cart -->
                                 <div class="row no-gutters">
                                     <div class="col-sm-2">
-                                        <div class="opacity-50 my-2">{{ translate('Quantity')}}:</div>
+                                        <div class="opacity-50 my-2">Miktar:</div>
                                     </div>
                                     <div class="col-sm-10">
                                         <div class="product-quantity d-flex align-items-center">
@@ -280,7 +280,7 @@
                                                     <i class="las la-plus"></i>
                                                 </button>
                                             </div>
-                                            <div class="avialable-amount opacity-60">(<span id="available-quantity">{{ $qty }}</span> {{ translate('available')}})</div>
+                                            <div class="avialable-amount opacity-60">(<span id="available-quantity">{{ $qty }}</span> Mevcut)</div>
                                         </div>
                                     </div>
                                 </div>
@@ -289,7 +289,7 @@
 
                                 <div class="row no-gutters pb-3 d-none" id="chosen_price_div">
                                     <div class="col-sm-2">
-                                        <div class="opacity-50 my-2">{{ translate('Total Price')}}:</div>
+                                        <div class="opacity-50 my-2">Toplam Fiyat:</div>
                                     </div>
                                     <div class="col-sm-10">
                                         <div class="product-price">
@@ -306,14 +306,14 @@
                                 @if ($qty > 0)
                                     <button type="button" class="btn btn-soft-primary mr-2 add-to-cart fw-600" onclick="addToCart()">
                                         <i class="las la-shopping-bag"></i>
-                                        <span class="d-none d-md-inline-block"> {{ translate('Add to cart')}}</span>
+                                        <span class="d-none d-md-inline-block"> Sepete Ekle</span>
                                     </button>
                                     <button type="button" class="btn btn-primary buy-now fw-600" onclick="buyNow()">
-                                        <i class="la la-shopping-cart"></i> {{ translate('Buy Now')}}
+                                        <i class="la la-shopping-cart"></i> Satın Al
                                     </button>
                                 @else
                                     <button type="button" class="btn btn-secondary fw-600" disabled>
-                                        <i class="la la-cart-arrow-down"></i> {{ translate('Out of Stock')}}
+                                        <i class="la la-cart-arrow-down"></i> Stoklar tükendi
                                     </button>
                                 @endif
                             </div>
@@ -324,11 +324,11 @@
                                 <div class="d-table-cell">
                                     <!-- Add to wishlist button -->
                                     <button type="button" class="btn pl-0 btn-link fw-600" onclick="addToWishList({{ $detailedProduct->id }})">
-                                        {{ translate('Add to wishlist')}}
+                                        Favorilerime Ekle
                                     </button>
                                     <!-- Add to compare button -->
                                     <button type="button" class="btn btn-link btn-icon-left fw-600" onclick="addToCompare({{ $detailedProduct->id }})">
-                                        {{ translate('Add to compare')}}
+                                        Karşılaştırma Listeme Ekle
                                     </button>
                                     @if(Auth::check() && \App\Addon::where('unique_identifier', 'affiliate_system')->first() != null && \App\Addon::where('unique_identifier', 'affiliate_system')->first()->activated && (\App\AffiliateOption::where('type', 'product_sharing')->first()->status || \App\AffiliateOption::where('type', 'category_wise_affiliate')->first()->status) && Auth::user()->affiliate_user != null && Auth::user()->affiliate_user->status)
                                         @php
@@ -344,7 +344,7 @@
                                         <div class="form-group">
                                             <textarea id="referral_code_url" class="form-control" readonly type="text" style="display:none">{{$referral_code_url}}</textarea>
                                         </div>
-                                        <button type=button id="ref-cpurl-btn" class="btn btn-sm btn-secondary" data-attrcpy="{{ translate('Copied')}}" onclick="CopyToClipboard('referral_code_url')">{{ translate('Copy the Promote Link')}}</button>
+                                        <button type=button id="ref-cpurl-btn" class="btn btn-sm btn-secondary" data-attrcpy="Kopyalandı" onclick="CopyToClipboard('referral_code_url')">Tanıtım Bağlantısını kopyalayın</button>
                                     @endif
                                 </div>
                             </div>
@@ -357,7 +357,7 @@
                             @if ($refund_request_addon != null && $refund_request_addon->activated == 1 && $detailedProduct->refundable)
                                 <div class="row no-gutters mt-4">
                                     <div class="col-sm-2">
-                                        <div class="opacity-50 my-2">{{ translate('Refund')}}:</div>
+                                        <div class="opacity-50 my-2">Geri Ödeme:</div>
                                     </div>
                                     <div class="col-sm-10">
                                         <a href="{{ route('returnpolicy') }}" target="_blank">
@@ -373,7 +373,7 @@
                             @endif
                             <div class="row no-gutters mt-4">
                                 <div class="col-sm-2">
-                                    <div class="opacity-50 my-2">{{ translate('Share')}}:</div>
+                                    <div class="opacity-50 my-2">Paylaş:</div>
                                 </div>
                                 <div class="col-sm-10">
                                     <div class="aiz-share"></div>
@@ -403,7 +403,7 @@
                                     </svg>
                                 </div>
                             @endif
-                            <div class="opacity-50 fs-12 border-bottom">{{ translate('Sold By')}}</div>
+                            <div class="opacity-50 fs-12 border-bottom">Sırala</div>
                             @if($detailedProduct->added_by == 'seller' && \App\BusinessSetting::where('type', 'vendor_system_activation')->first()->value == 1)
                                 <a href="{{ route('shop.visit', $detailedProduct->user->shop->slug) }}" class="text-reset d-block fw-600">
                                     {{ $detailedProduct->user->shop->name }}
@@ -434,13 +434,13 @@
                                         {{ renderStarRating(0) }}
                                     @endif
                                 </div>
-                                <div class="opacity-60 fs-12">({{ $total }} {{ translate('customer reviews')}})</div>
+                                <div class="opacity-60 fs-12">({{ $total }} Değerlendirmeler)</div>
                             </div>
                         </div>
                         @if($detailedProduct->added_by == 'seller' && \App\BusinessSetting::where('type', 'vendor_system_activation')->first()->value == 1)
                             <div class="row no-gutters align-items-center border-top">
                                 <div class="col">
-                                    <a href="{{ route('shop.visit', $detailedProduct->user->shop->slug) }}" class="d-block btn btn-soft-primary rounded-0">{{ translate('Visit Store')}}</a>
+                                    <a href="{{ route('shop.visit', $detailedProduct->user->shop->slug) }}" class="d-block btn btn-soft-primary rounded-0">Mağazayı ziyaret et</a>
                                 </div>
                                 <div class="col">
                                     <ul class="social list-inline mb-0">
@@ -471,7 +471,7 @@
                     </div>
                     <div class="bg-white rounded shadow-sm mb-3">
                         <div class="p-3 border-bottom fs-16 fw-600">
-                            {{ translate('Top Selling Products')}}
+                        En Çok Satan Ürünler
                         </div>
                         <div class="p-3">
                             <ul class="list-group list-group-flush">
@@ -510,14 +510,14 @@
                 <div class="col-xl-9 order-0 order-xl-1">
                     <div class="bg-white mb-3 shadow-sm rounded">
                         <div class="nav border-bottom aiz-nav-tabs">
-                            <a href="#tab_default_1" data-toggle="tab" class="p-3 fs-16 fw-600 text-reset active show">{{ translate('Description')}}</a>
+                            <a href="#tab_default_1" data-toggle="tab" class="p-3 fs-16 fw-600 text-reset active show">Açıklama</a>
                             @if($detailedProduct->video_link != null)
-                                <a href="#tab_default_2" data-toggle="tab" class="p-3 fs-16 fw-600 text-reset">{{ translate('Video')}}</a>
+                                <a href="#tab_default_2" data-toggle="tab" class="p-3 fs-16 fw-600 text-reset">Video</a>
                             @endif
                             @if($detailedProduct->pdf != null)
-                                <a href="#tab_default_3" data-toggle="tab" class="p-3 fs-16 fw-600 text-reset">{{ translate('Downloads')}}</a>
+                                <a href="#tab_default_3" data-toggle="tab" class="p-3 fs-16 fw-600 text-reset">İndirilenler</a>
                             @endif
-                                <a href="#tab_default_4" data-toggle="tab" class="p-3 fs-16 fw-600 text-reset">{{ translate('Reviews')}}</a>
+                                <a href="#tab_default_4" data-toggle="tab" class="p-3 fs-16 fw-600 text-reset">Yorumlar</a>
                         </div>
 
                         <div class="tab-content pt-0">
@@ -544,7 +544,7 @@
                             </div>
                             <div class="tab-pane fade" id="tab_default_3">
                                 <div class="p-4 text-center ">
-                                    <a href="{{ uploaded_asset($detailedProduct->pdf) }}" class="btn btn-primary">{{  translate('Download') }}</a>
+                                    <a href="{{ uploaded_asset($detailedProduct->pdf) }}" class="btn btn-primary">İndir</a>
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="tab_default_4">
@@ -589,7 +589,7 @@
 
                                     @if(count($detailedProduct->reviews) <= 0)
                                         <div class="text-center fs-18 opacity-70">
-                                            {{  translate('There have been no reviews for this product yet.') }}
+                                        Bu ürün için henüz bir inceleme yapılmamıştır.
                                         </div>
                                     @endif
 
@@ -608,7 +608,7 @@
                                             <div class="pt-4">
                                                 <div class="border-bottom mb-4">
                                                     <h3 class="fs-17 fw-600">
-                                                        {{ translate('Write a review')}}
+                                                     Bir değerlendirme yazın
                                                     </h3>
                                                 </div>
                                                 <form class="form-default" role="form" action="{{ route('reviews.store') }}" method="POST">
@@ -617,19 +617,19 @@
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <div class="form-group">
-                                                                <label for="" class="text-uppercase c-gray-light">{{ translate('Your name')}}</label>
+                                                                <label for="" class="text-uppercase c-gray-light">Adınız</label>
                                                                 <input type="text" name="name" value="{{ Auth::user()->name }}" class="form-control" disabled required>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group">
-                                                                <label for="" class="text-uppercase c-gray-light">{{ translate('Email')}}</label>
+                                                                <label for="" class="text-uppercase c-gray-light">Eposta</label>
                                                                 <input type="text" name="email" value="{{ Auth::user()->email }}" class="form-control" required disabled>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="opacity-60">{{ translate('Rating')}}</label>
+                                                        <label class="opacity-60">Değerlendir</label>
                                                         <div class="rating rating-input">
                                                             <label>
                                                                 <input type="radio" name="rating" value="1">
@@ -655,13 +655,13 @@
                                                     </div>
 
                                                     <div class="form-group">
-                                                        <label class="opacity-60">{{ translate('Comment')}}</label>
-                                                        <textarea class="form-control" rows="4" name="comment" placeholder="{{ translate('Your review')}}" required></textarea>
+                                                        <label class="opacity-60">Yorum</label>
+                                                        <textarea class="form-control" rows="4" name="comment" placeholder="Yorumunuz" required></textarea>
                                                     </div>
 
                                                     <div class="text-right">
                                                         <button type="submit" class="btn btn-primary mt-3">
-                                                            {{ translate('Submit review')}}
+                                                        Yorumu gönder
                                                         </button>
                                                     </div>
                                                 </form>
@@ -676,7 +676,7 @@
                     <div class="bg-white rounded shadow-sm">
                         <div class="border-bottom p-3">
                             <h3 class="fs-16 fw-600 mb-0">
-                                <span class="mr-4">{{ translate('Related products')}}</span>
+                                <span class="mr-4">İlgili ürünler</span>
                             </h3>
                         </div>
                         <div class="p-3">
@@ -710,7 +710,7 @@
                                             </h3>
                                             @if (\App\Addon::where('unique_identifier', 'club_point')->first() != null && \App\Addon::where('unique_identifier', 'club_point')->first()->activated)
                                                 <div class="rounded px-2 mt-2 bg-soft-primary border-soft-primary border">
-                                                    {{ translate('Club Point') }}:
+                                                    Kulup puan:
                                                     <span class="fw-700 float-right">{{ $related_product->earn_point }}</span>
                                                 </div>
                                             @endif
@@ -733,7 +733,7 @@
         <div class="modal-dialog modal-dialog-centered modal-dialog-zoom product-modal" id="modal-size" role="document">
             <div class="modal-content position-relative">
                 <div class="modal-header">
-                    <h5 class="modal-title fw-600 h5">{{ translate('Any query about this product')}}</h5>
+                    <h5 class="modal-title fw-600 h5">Bu ürünle ilgili herhangi bir soru sor</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -743,15 +743,15 @@
                     <input type="hidden" name="product_id" value="{{ $detailedProduct->id }}">
                     <div class="modal-body gry-bg px-3 pt-3">
                         <div class="form-group">
-                            <input type="text" class="form-control mb-3" name="title" value="{{ $detailedProduct->name }}" placeholder="{{ translate('Product Name') }}" required>
+                            <input type="text" class="form-control mb-3" name="title" value="{{ $detailedProduct->name }}" placeholder="Ürün adı" required>
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control" rows="8" name="message" required placeholder="{{ translate('Your Question') }}">{{ route('product', $detailedProduct->slug) }}</textarea>
+                            <textarea class="form-control" rows="8" name="message" required placeholder="Sorunuz">{{ route('product', $detailedProduct->slug) }}</textarea>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-outline-primary fw-600" data-dismiss="modal">{{ translate('Cancel')}}</button>
-                        <button type="submit" class="btn btn-primary fw-600">{{ translate('Send')}}</button>
+                        <button type="button" class="btn btn-outline-primary fw-600" data-dismiss="modal">İptal</button>
+                        <button type="submit" class="btn btn-primary fw-600">Gönder</button>
                     </div>
                 </form>
             </div>
@@ -763,7 +763,7 @@
         <div class="modal-dialog modal-dialog-zoom" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h6 class="modal-title fw-600">{{ translate('Login')}}</h6>
+                    <h6 class="modal-title fw-600">Giriş Yap</h6>
                     <button type="button" class="close" data-dismiss="modal">
                         <span aria-hidden="true"></span>
                     </button>
@@ -774,44 +774,44 @@
                             @csrf
                             <div class="form-group">
                                 @if (\App\Addon::where('unique_identifier', 'otp_system')->first() != null && \App\Addon::where('unique_identifier', 'otp_system')->first()->activated)
-                                    <input type="text" class="form-control h-auto form-control-lg {{ $errors->has('email') ? ' is-invalid' : '' }}" value="{{ old('email') }}" placeholder="{{ translate('Email Or Phone')}}" name="email" id="email">
+                                    <input type="text" class="form-control h-auto form-control-lg {{ $errors->has('email') ? ' is-invalid' : '' }}" value="{{ old('email') }}" placeholder="Eposta Veya Telefon" name="email" id="email">
                                 @else
-                                    <input type="email" class="form-control h-auto form-control-lg {{ $errors->has('email') ? ' is-invalid' : '' }}" value="{{ old('email') }}" placeholder="{{  translate('Email') }}" name="email">
+                                    <input type="email" class="form-control h-auto form-control-lg {{ $errors->has('email') ? ' is-invalid' : '' }}" value="{{ old('email') }}" placeholder="Eposta" name="email">
                                 @endif
                                 @if (\App\Addon::where('unique_identifier', 'otp_system')->first() != null && \App\Addon::where('unique_identifier', 'otp_system')->first()->activated)
-                                    <span class="opacity-60">{{  translate('Use country code before number') }}</span>
+                                    <span class="opacity-60">Numaradan önce ülke kodunu kullanın</span>
                                 @endif
                             </div>
 
                             <div class="form-group">
-                                <input type="password" name="password" class="form-control h-auto form-control-lg" placeholder="{{ translate('Password')}}">
+                                <input type="password" name="password" class="form-control h-auto form-control-lg" placeholder="Şifre">
                             </div>
 
                             <div class="row mb-2">
                                 <div class="col-6">
                                     <label class="aiz-checkbox">
                                         <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>
-                                        <span class=opacity-60>{{  translate('Remember Me') }}</span>
+                                        <span class=opacity-60>Beni Hatırla</span>
                                         <span class="aiz-square-check"></span>
                                     </label>
                                 </div>
                                 <div class="col-6 text-right">
-                                    <a href="{{ route('password.request') }}" class="text-reset opacity-60 fs-14">{{ translate('Forgot password?')}}</a>
+                                    <a href="{{ route('password.request') }}" class="text-reset opacity-60 fs-14">Şifrenizi mi Unuttunuz?</a>
                                 </div>
                             </div>
 
                             <div class="mb-5">
-                                <button type="submit" class="btn btn-primary btn-block fw-600">{{  translate('Login') }}</button>
+                                <button type="submit" class="btn btn-primary btn-block fw-600">Giriş Yap</button>
                             </div>
                         </form>
 
                         <div class="text-center mb-3">
-                            <p class="text-muted mb-0">{{ translate('Dont have an account?')}}</p>
-                            <a href="{{ route('user.registration') }}">{{ translate('Register Now')}}</a>
+                            <p class="text-muted mb-0">Hesabınız mu?</p>
+                            <a href="{{ route('user.registration') }}">Kayıt Ol</a>
                         </div>
                         @if(\App\BusinessSetting::where('type', 'google_login')->first()->value == 1 || \App\BusinessSetting::where('type', 'facebook_login')->first()->value == 1 || \App\BusinessSetting::where('type', 'twitter_login')->first()->value == 1)
                             <div class="separator mb-3">
-                                <span class="bg-white px-3 opacity-60">{{ translate('Or Login With')}}</span>
+                                <span class="bg-white px-3 opacity-60">Veya  Bunlarla Giriş Yap</span>
                             </div>
                             <ul class="list-inline social colored text-center mb-5">
                                 @if (\App\BusinessSetting::where('type', 'facebook_login')->first()->value == 1)

@@ -9,7 +9,7 @@
                     <div class="col done">
                         <div class="text-center text-success">
                             <i class="la-3x mb-2 las la-shopping-cart"></i>
-                            <h3 class="fs-14 fw-600 d-none d-lg-block text-capitalize">{{ translate('1. My Cart')}}</h3>
+                            <h3 class="fs-14 fw-600 d-none d-lg-block text-capitalize">Sepetim</h3>
                             @php
                                 Session::get('shipping_info');
                             @endphp
@@ -18,25 +18,25 @@
                     <div class="col done">
                         <div class="text-center text-success">
                             <i class="la-3x mb-2 las la-map"></i>
-                            <h3 class="fs-14 fw-600 d-none d-lg-block text-capitalize">{{ translate('2. Shipping info')}}</h3>
+                            <h3 class="fs-14 fw-600 d-none d-lg-block text-capitalize">Kargo Bilgileri</h3>
                         </div>
                     </div>
                     <div class="col done">
                         <div class="text-center text-success">
                             <i class="la-3x mb-2 las la-truck"></i>
-                            <h3 class="fs-14 fw-600 d-none d-lg-block text-capitalize">{{ translate('3. Delivery info')}}</h3>
+                            <h3 class="fs-14 fw-600 d-none d-lg-block text-capitalize">Teslimat Adres Bilgileri</h3>
                         </div>
                     </div>
                     <div class="col active">
                         <div class="text-center text-primary">
                             <i class="la-3x mb-2 las la-credit-card"></i>
-                            <h3 class="fs-14 fw-600 d-none d-lg-block text-capitalize">{{ translate('4. Payment')}}</h3>
+                            <h3 class="fs-14 fw-600 d-none d-lg-block text-capitalize">Ödeme</h3>
                         </div>
                     </div>
                     <div class="col">
                         <div class="text-center">
                             <i class="la-3x mb-2 opacity-50 las la-check-circle"></i>
-                            <h3 class="fs-14 fw-600 d-none d-lg-block opacity-50 text-capitalize">{{ translate('5. Confirmation')}}</h3>
+                            <h3 class="fs-14 fw-600 d-none d-lg-block opacity-50 text-capitalize">Tamamla</h3>
                         </div>
                     </div>
                 </div>
@@ -189,19 +189,19 @@
                         <label class="aiz-checkbox">
                             <input type="checkbox" required id="agree_checkbox">
                             <span class="aiz-square-check"></span>
-                            <span>{{ translate('I agree to the')}}</span>
+                            <span>Katılıyorum</span>
                         </label>
-                        <a href="{{ route('terms') }}">{{ translate('terms and conditions')}}</a>,
-                        <a href="{{ route('returnpolicy') }}">{{ translate('return policy')}}</a> &
-                        <a href="{{ route('privacypolicy') }}">{{ translate('privacy policy')}}</a>
-                        <button style="float: right;margin-top: -10px;" type="button" onclick="submitOrder(this)" class="btn btn-primary fw-600">{{ translate('Complete Order')}}</button>
+                        <a href="{{ route('terms') }}">şartlar ve koşullar</a>,
+                        <a href="{{ route('returnpolicy') }}">iade politikasi</a> &
+                        <a href="{{ route('privacypolicy') }}">Gizlilik Politikası</a>
+                        <button style="float: right;margin-top: -10px;" type="button" onclick="submitOrder(this)" class="btn btn-primary fw-600">Siparişi Tamamla</button>
                     </div>
 
                     <div class="row align-items-center pt-3">
                         <div class="col-6">
                             <a href="{{ route('home') }}" class="link link--style-3">
                                 <i class="las la-arrow-left"></i>
-                                {{ translate('Return to shop')}}
+                                Alışverişe geri dön
                             </a>
                         </div>
                     </div>
@@ -846,7 +846,7 @@
             if($('#agree_checkbox').is(":checked")){
                 $('#checkout-form').submit();
             }else{
-                AIZ.plugins.notify('danger','{{ translate('You need to agree with our policies') }}');
+                AIZ.plugins.notify('danger','Politikalarımıza Kabul ediniz');
             }
         }
         function submitOrder(el){
@@ -854,7 +854,7 @@
             if($('#agree_checkbox').is(":checked")){
                 $('#checkout-form').submit();
             }else{
-                AIZ.plugins.notify('danger','{{ translate('You need to agree with our policies') }}');
+                AIZ.plugins.notify('danger','Politikalarımıza Kabul ediniz') }}');
                 $(el).prop('disabled', false);
             }
         }

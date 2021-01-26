@@ -706,10 +706,11 @@ if (! function_exists('convertPrice')) {
 
 
 function translate($key, $lang = null){
+  
     if($lang == null){
         $lang = App::getLocale();
     }
-
+  
     $translation_def = Translation::where('lang', env('DEFAULT_LANGUAGE', 'en'))->where('lang_key', $key)->first();
     if($translation_def == null){
         $translation_def = new Translation;
@@ -721,6 +722,7 @@ function translate($key, $lang = null){
 
     //Check for session lang
     $translation_locale = Translation::where('lang_key', $key)->where('lang', $lang)->first();
+ return (Translation::where('lang_key', $key)->first()->lang_value);
     if($translation_locale != null && $translation_locale->lang_value != null){
         return $translation_locale->lang_value;
     }

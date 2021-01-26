@@ -133,9 +133,9 @@
                                     </select>
                                 </div>
                                 <div class="form-group ml-auto mr-0 w-200px d-none d-md-block">
-                                    <label class="mb-0 opacity-50">{{ translate('Condition')}}</label>
+                                    <label class="mb-0 opacity-50">Durum</label>
                                     <select class="form-control form-control-sm aiz-selectpicker" name="condition" onchange="filter()">
-                                        <option value="">{{ translate('All Type')}}</option>
+                                        <option value="">Tüm Türler</option>
                                         <option value="new" @isset($condition) @if ($condition == 'new') selected @endif @endisset>Yeni</option>
                                         <option value="used" @isset($condition) @if ($condition == 'used') selected @endif @endisset>Kullanılmış</option>
                                     </select>
@@ -172,9 +172,9 @@
                                             </a>
                                             <div class="absolute-top-left pt-2 pl-2">
                                                 @if($product->conditon == 'new')
-                                                   <span class="badge badge-inline badge-success">{{translate('new')}}</span>
+                                                   <span class="badge badge-inline badge-success">Yeni</span>
                                                @elseif($product->conditon == 'used')
-                                                   <span class="badge badge-inline badge-danger">{{translate('Used')}}</span>
+                                                   <span class="badge badge-inline badge-danger">Eski</span>
                                                @endif
                                             </div>
                                         </div>

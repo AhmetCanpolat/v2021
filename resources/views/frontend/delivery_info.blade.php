@@ -10,31 +10,31 @@
                     <div class="col done">
                         <div class="text-center text-success">
                             <i class="la-3x mb-2 las la-shopping-cart"></i>
-                            <h3 class="fs-14 fw-600 d-none d-lg-block text-capitalize">{{ translate('1. My Cart')}}</h3>
+                            <h3 class="fs-14 fw-600 d-none d-lg-block text-capitalize">Sepetim</h3>
                         </div>
                     </div>
                     <div class="col done">
                         <div class="text-center text-success">
                             <i class="la-3x mb-2 las la-map"></i>
-                            <h3 class="fs-14 fw-600 d-none d-lg-block text-capitalize">{{ translate('2. Shipping info')}}</h3>
+                            <h3 class="fs-14 fw-600 d-none d-lg-block text-capitalize">Kargo Bilgileri</h3>
                         </div>
                     </div>
                     <div class="col active">
                         <div class="text-center text-primary">
                             <i class="la-3x mb-2 las la-truck"></i>
-                            <h3 class="fs-14 fw-600 d-none d-lg-block text-capitalize">{{ translate('3. Delivery info')}}</h3>
+                            <h3 class="fs-14 fw-600 d-none d-lg-block text-capitalize">Teslimat Adres Bilgileri</h3>
                         </div>
                     </div>
                     <div class="col">
                         <div class="text-center">
                             <i class="la-3x mb-2 opacity-50 las la-credit-card"></i>
-                            <h3 class="fs-14 fw-600 d-none d-lg-block opacity-50 text-capitalize">{{ translate('4. Payment')}}</h3>
+                            <h3 class="fs-14 fw-600 d-none d-lg-block opacity-50 text-capitalize">Ödeme</h3>
                         </div>
                     </div>
                     <div class="col">
                         <div class="text-center">
                             <i class="la-3x mb-2 opacity-50 las la-check-circle"></i>
-                            <h3 class="fs-14 fw-600 d-none d-lg-block opacity-50 text-capitalize">{{ translate('5. Confirmation')}}</h3>
+                            <h3 class="fs-14 fw-600 d-none d-lg-block opacity-50 text-capitalize">Tamamla</h3>
                         </div>
                     </div>
                 </div>
@@ -53,7 +53,7 @@
                     @csrf
                             <div class="card mb-3 shadow-sm border-0 rounded" style="margin-bottom: 0px !important;">
                                 <div class="card-header p-3">
-                                    <h5 class="fs-16 fw-600 mb-0">Alınan {{ translate('Products') }}</h5>
+                                    <h5 class="fs-16 fw-600 mb-0">Alınan Ürünler</h5>
                                 </div>
                                 <div class="card-body">
                                     <ul class="list-group list-group-flush">
@@ -89,7 +89,7 @@
                 <div class="pt-4">
                     <a href="{{ route('home') }}" >
                         <i class="la la-angle-left"></i>
-                        {{ translate('Return to shop')}}
+                        Alışverişe devam et
                     </a>
                 </div>
             </div>

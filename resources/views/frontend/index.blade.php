@@ -64,9 +64,9 @@
                     <div class="bg-white rounded shadow-sm">
                         <div class="bg-soft-primary rounded-top p-3 d-flex align-items-center justify-content-center">
                             <span class="fw-600 fs-16 mr-2 text-truncate">
-                                {{ translate('Todays Deal') }}
+                               Bu Haftaya Özel
                             </span>
-                            <span class="badge badge-primary badge-inline">{{ translate('Hot') }}</span>
+                            <span class="badge badge-primary badge-inline">Fırsatlar</span>
                         </div>
                         <div class="c-scrollbar-light overflow-auto h-lg-400px p-2 bg-primary rounded-bottom">
                             <div class="gutters-5 lg-no-gutters row row-cols-2 row-cols-lg-1">
@@ -142,10 +142,10 @@
 
                 <div class="d-flex flex-wrap mb-3 align-items-baseline border-bottom">
                     <h3 class="h5 fw-700 mb-0">
-                        <span class="border-bottom border-primary border-width-2 pb-3 d-inline-block">{{ translate('Flash Sale') }}</span>
+                        <span class="border-bottom border-primary border-width-2 pb-3 d-inline-block">Süreli indirim</span>
                     </h3>
                     <div class="aiz-count-down ml-auto ml-lg-3 align-items-center" data-date="{{ date('Y/m/d H:i:s', $flash_deal->end_date) }}"></div>
-                    <a href="{{ route('flash-deal-details', $flash_deal->slug) }}" class="ml-auto mr-0 btn btn-primary btn-sm shadow-md w-100 w-md-auto">{{ translate('View More') }}</a>
+                    <a href="{{ route('flash-deal-details', $flash_deal->slug) }}" class="ml-auto mr-0 btn btn-primary btn-sm shadow-md w-100 w-md-auto">Daha Fazla</a>
                 </div>
 
                 <div class="aiz-carousel gutters-10 half-outside-arrow" data-items="6" data-xl-items="5" data-lg-items="4"  data-md-items="3" data-sm-items="2" data-xs-items="2" data-arrows='true' data-infinite='true'>
@@ -167,13 +167,13 @@
                                             >
                                         </a>
                                         <div class="absolute-top-right aiz-p-hov-icon">
-                                            <a href="javascript:void(0)" onclick="addToWishList({{ $product->id }})" data-toggle="tooltip" data-title="{{ translate('Add to wishlist') }}" data-placement="left">
+                                            <a href="javascript:void(0)" onclick="addToWishList({{ $product->id }})" data-toggle="tooltip" data-title="Favorilerime Ekle" data-placement="left">
                                                 <i class="la la-heart-o"></i>
                                             </a>
-                                            <a href="javascript:void(0)" onclick="addToCompare({{ $product->id }})" data-toggle="tooltip" data-title="{{ translate('Add to compare') }}" data-placement="left">
+                                            <a href="javascript:void(0)" onclick="addToCompare({{ $product->id }})" data-toggle="tooltip" data-title="Karşılaştırma listeme ekle" data-placement="left">
                                                 <i class="las la-sync"></i>
                                             </a>
-                                            <a href="javascript:void(0)" onclick="showAddToCartModal({{ $product->id }})" data-toggle="tooltip" data-title="{{ translate('Add to cart') }}" data-placement="left">
+                                            <a href="javascript:void(0)" onclick="showAddToCartModal({{ $product->id }})" data-toggle="tooltip" data-title="Sepete ekle" data-placement="left">
                                                 <i class="las la-shopping-cart"></i>
                                             </a>
                                         </div>
@@ -193,7 +193,7 @@
                                         </h3>
                                         @if (\App\Addon::where('unique_identifier', 'club_point')->first() != null && \App\Addon::where('unique_identifier', 'club_point')->first()->activated)
                                             <div class="rounded px-2 mt-2 bg-soft-primary border-soft-primary border">
-                                                {{ translate('Club Point') }}:
+                                                Kulup Puan:
                                                 <span class="fw-700 float-right">{{ $product->earn_point }}</span>
                                             </div>
                                         @endif
@@ -256,9 +256,9 @@
                        <div class="px-2 py-4 px-md-4 py-md-3 bg-white shadow-sm rounded">
                             <div class="d-flex mb-3 align-items-baseline border-bottom">
                                 <h3 class="h5 fw-700 mb-0">
-                                    <span class="border-bottom border-primary border-width-2 pb-3 d-inline-block">{{ translate('Classified Ads') }}</span>
+                                    <span class="border-bottom border-primary border-width-2 pb-3 d-inline-block">Sınıflandırılmış reklamlar</span>
                                 </h3>
-                                <a href="{{ route('customer.products') }}" class="ml-auto mr-0 btn btn-primary btn-sm shadow-md">{{ translate('View More') }}</a>
+                                <a href="{{ route('customer.products') }}" class="ml-auto mr-0 btn btn-primary btn-sm shadow-md">Daha Fazla</a>
                             </div>
                            <div class="aiz-carousel gutters-10 half-outside-arrow" data-items="6" data-xl-items="5" data-lg-items="4"  data-md-items="3" data-sm-items="2" data-xs-items="2" data-arrows='true' data-infinite='true'>
                                @foreach ($customer_products as $key => $customer_product)
@@ -276,9 +276,9 @@
                                                 </a>
                                                 <div class="absolute-top-left pt-2 pl-2">
                                                     @if($customer_product->conditon == 'new')
-                                                       <span class="badge badge-inline badge-success">{{translate('new')}}</span>
+                                                       <span class="badge badge-inline badge-success">Yeni</span>
                                                     @elseif($customer_product->conditon == 'used')
-                                                       <span class="badge badge-inline badge-danger">{{translate('Used')}}</span>
+                                                       <span class="badge badge-inline badge-danger">Kullanılmış</span>
                                                     @endif
                                                 </div>
                                             </div>
@@ -335,9 +335,9 @@
                     <div class="col-lg-6">
                         <div class="d-flex mb-3 align-items-baseline border-bottom">
                             <h3 class="h5 fw-700 mb-0">
-                                <span class="border-bottom border-primary border-width-2 pb-3 d-inline-block">{{ translate('Top 10 Categories') }}</span>
+                                <span class="border-bottom border-primary border-width-2 pb-3 d-inline-block">En İyi 10 Kategori></span>
                             </h3>
-                            <a href="{{ route('categories.all') }}" class="ml-auto mr-0 btn btn-primary btn-sm shadow-md">{{ translate('View All Categories') }}</a>
+                            <a href="{{ route('categories.all') }}" class="ml-auto mr-0 btn btn-primary btn-sm shadow-md">Tüm Kategoriler görüntüle</a>
                         </div>
                         <div class="row gutters-5">
                             @php $top10_categories = json_decode(get_setting('top10_categories')); @endphp
@@ -374,9 +374,9 @@
                     <div class="col-lg-6">
                         <div class="d-flex mb-3 align-items-baseline border-bottom">
                             <h3 class="h5 fw-700 mb-0">
-                                <span class="border-bottom border-primary border-width-2 pb-3 d-inline-block">{{ translate('Top 10 Brands') }}</span>
+                                <span class="border-bottom border-primary border-width-2 pb-3 d-inline-block">En çok tercih edilen markalar</span>
                             </h3>
-                            <a href="{{ route('brands.all') }}" class="ml-auto mr-0 btn btn-primary btn-sm shadow-md">{{ translate('View All Brands') }}</a>
+                            <a href="{{ route('brands.all') }}" class="ml-auto mr-0 btn btn-primary btn-sm shadow-md">Tüm Markaları Görüntüle</a>
                         </div>
                         <div class="row gutters-5">
                             @php $top10_brands = json_decode(get_setting('top10_brands')); @endphp
