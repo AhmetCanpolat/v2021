@@ -95,31 +95,25 @@ class AizUploadController extends Controller
 
         if($request->hasFile('aiz_file')){
             $upload = new Upload;
-            $upload->file_original_name = null;
-
-            $arr = explode('.', $request->file('aiz_file')->getClientOriginalName());
-
-            for($i=0; $i < count($arr)-1; $i++){
-                if($i == 0){
-                    $upload->file_original_name .= $arr[$i];
-                }
-                else{
-                    $upload->file_original_name .= ".".$arr[$i];
-                }
-            }
-
-            $upload->file_name = $request->file('aiz_file')->store('uploads/all');
-            $upload->user_id = Auth::user()->id;
             $upload->extension = strtolower($request->file('aiz_file')->getClientOriginalExtension());
-            if(isset($type[$upload->extension])){
-                $upload->type = $type[$upload->extension];
-            }
-            else{
-                $upload->type = "others";
-            }
-            $upload->file_size = $request->file('aiz_file')->getSize();
-            $upload->save();
 
+            if(isset($type[$upload->extension])){
+                $upload->file_original_name = null;
+                $arr = explode('.', $request->file('aiz_file')->getClientOriginalName());
+                for($i=0; $i < count($arr)-1; $i++){
+                    if($i == 0){
+                        $upload->file_original_name .= $arr[$i];
+                    }
+                    else{
+                        $upload->file_original_name .= ".".$arr[$i];
+                    }
+                }
+                $upload->file_name = $request->file('aiz_file')->store('uploads/all');
+                $upload->user_id = Auth::user()->id;
+                $upload->type = $type[$upload->extension];
+                $upload->file_size = $request->file('aiz_file')->getSize();
+                $upload->save();
+            }
             return '{}';
         }
     }
@@ -161,13 +155,12 @@ class AizUploadController extends Controller
             else{
                 unlink(public_path().'/'.Upload::where('id', $id)->first()->file_name);
             }
-
             Upload::destroy($id);
-            flash(translate('Dosya başarıyla silindi'))->success();
+            flash(translate('File deleted successfully'))->success();
         }
         catch(\Exception $e){
-            //dd($e);
-            flash(translate('Maalesef! bir şeyler yanlış gitti.'))->error();
+            Upload::destroy($id);
+            flash(translate('File deleted successfully'))->success();
         }
         return back();
     }
@@ -186,7 +179,7 @@ class AizUploadController extends Controller
            $file_path = public_path($project_attachment->file_name);
             return Response::download($file_path);
         }catch(\Exception $e){
-            flash(translate('Dosya bulunmuyor!'))->error();
+            flash(translate('File does not exist!'))->error();
             return back();
         }
 

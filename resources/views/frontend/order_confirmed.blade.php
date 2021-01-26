@@ -2,7 +2,7 @@
 
 @section('content')
     @php
-        $status = $order->delivery_status;
+        $status = $order->orderDetails->first()->delivery_status;
     @endphp
     <section class="pt-5 mb-4">
         <div class="container">
@@ -97,101 +97,101 @@
                                                 <td class="w-50 fw-600">{{ translate('Shipping')}}:</td>
                                                 <td>{{ translate('Flat shipping rate')}}</td>
                                             </tr>
-{{--                                            <tr>--}}
-{{--                                                <td class="w-50 fw-600">{{ translate('Payment method')}}:</td>--}}
-{{--                                                <td>{{ ucfirst(str_replace('_', ' ', $order->payment_type)) }}</td>--}}
-{{--                                            </tr>--}}
+                                            <tr>
+                                                <td class="w-50 fw-600">{{ translate('Payment method')}}:</td>
+                                                <td>{{ ucfirst(str_replace('_', ' ', $order->payment_type)) }}</td>
+                                            </tr>
                                         </table>
                                     </div>
                                 </div>
                             </div>
-{{--                            <div>--}}
-{{--                                <h5 class="fw-600 mb-3 fs-17 pb-2">{{ translate('Order Details')}}</h5>--}}
-{{--                                <div>--}}
-{{--                                    <table class="table table-responsive-md">--}}
-{{--                                        <thead>--}}
-{{--                                            <tr>--}}
-{{--                                                <th>#</th>--}}
-{{--                                                <th width="30%">{{ translate('Product')}}</th>--}}
-{{--                                                <th>{{ translate('Variation')}}</th>--}}
-{{--                                                <th>{{ translate('Quantity')}}</th>--}}
-{{--                                                <th>{{ translate('Delivery Type')}}</th>--}}
-{{--                                                <th class="text-right">{{ translate('Price')}}</th>--}}
-{{--                                            </tr>--}}
-{{--                                        </thead>--}}
-{{--                                        <tbody>--}}
-{{--                                            @foreach ($order->orderDetails as $key => $orderDetail)--}}
-{{--                                                <tr>--}}
-{{--                                                    <td>{{ $key+1 }}</td>--}}
-{{--                                                    <td>--}}
-{{--                                                        @if ($orderDetail->product != null)--}}
-{{--                                                            <a href="{{ route('product', $orderDetail->product->slug) }}" target="_blank" class="text-reset">--}}
-{{--                                                                {{ $orderDetail->product->getTranslation('name') }}--}}
-{{--                                                            </a>--}}
-{{--                                                        @else--}}
-{{--                                                            <strong>{{  translate('Product Unavailable') }}</strong>--}}
-{{--                                                        @endif--}}
-{{--                                                    </td>--}}
-{{--                                                    <td>--}}
-{{--                                                        {{ $orderDetail->variation }}--}}
-{{--                                                    </td>--}}
-{{--                                                    <td>--}}
-{{--                                                        {{ $orderDetail->quantity }}--}}
-{{--                                                    </td>--}}
-{{--                                                    <td>--}}
-{{--                                                        @if ($orderDetail->shipping_type != null && $orderDetail->shipping_type == 'home_delivery')--}}
-{{--                                                            {{  translate('Home Delivery') }}--}}
-{{--                                                        @elseif ($orderDetail->shipping_type == 'pickup_point')--}}
-{{--                                                            @if ($orderDetail->pickup_point != null)--}}
-{{--                                                                {{ $orderDetail->pickup_point->getTranslation('name') }} ({{ translate('Pickip Point') }})--}}
-{{--                                                            @endif--}}
-{{--                                                        @endif--}}
-{{--                                                    </td>--}}
-{{--                                                    <td class="text-right">{{ single_price($orderDetail->price) }}</td>--}}
-{{--                                                </tr>--}}
-{{--                                            @endforeach--}}
-{{--                                        </tbody>--}}
-{{--                                    </table>--}}
-{{--                                </div>--}}
-{{--                                <div class="row">--}}
-{{--                                    <div class="col-xl-5 col-md-6 ml-auto mr-0">--}}
-{{--                                        <table class="table ">--}}
-{{--                                            <tbody>--}}
-{{--                                                <tr>--}}
-{{--                                                    <th>{{ translate('Subtotal')}}</th>--}}
-{{--                                                    <td class="text-right">--}}
-{{--                                                        <span class="fw-600">{{ single_price($order->orderDetails->sum('price')) }}</span>--}}
-{{--                                                    </td>--}}
-{{--                                                </tr>--}}
-{{--                                                <tr>--}}
-{{--                                                    <th>{{ translate('Shipping')}}</th>--}}
-{{--                                                    <td class="text-right">--}}
-{{--                                                        <span class="font-italic">{{ single_price($order->orderDetails->sum('shipping_cost')) }}</span>--}}
-{{--                                                    </td>--}}
-{{--                                                </tr>--}}
-{{--                                                <tr>--}}
-{{--                                                    <th>{{ translate('Tax')}}</th>--}}
-{{--                                                    <td class="text-right">--}}
-{{--                                                        <span class="font-italic">{{ single_price($order->orderDetails->sum('tax')) }}</span>--}}
-{{--                                                    </td>--}}
-{{--                                                </tr>--}}
-{{--                                                <tr>--}}
-{{--                                                    <th>{{ translate('Coupon Discount')}}</th>--}}
-{{--                                                    <td class="text-right">--}}
-{{--                                                        <span class="font-italic">{{ single_price($order->coupon_discount) }}</span>--}}
-{{--                                                    </td>--}}
-{{--                                                </tr>--}}
-{{--                                                <tr>--}}
-{{--                                                    <th><span class="fw-600">{{ translate('Total')}}</span></th>--}}
-{{--                                                    <td class="text-right">--}}
-{{--                                                        <strong><span>{{ single_price($order->grand_total) }}</span></strong>--}}
-{{--                                                    </td>--}}
-{{--                                                </tr>--}}
-{{--                                            </tbody>--}}
-{{--                                        </table>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
+                            <div>
+                                <h5 class="fw-600 mb-3 fs-17 pb-2">{{ translate('Order Details')}}</h5>
+                                <div>
+                                    <table class="table table-responsive-md">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th width="30%">{{ translate('Product')}}</th>
+                                                <th>{{ translate('Variation')}}</th>
+                                                <th>{{ translate('Quantity')}}</th>
+                                                <th>{{ translate('Delivery Type')}}</th>
+                                                <th class="text-right">{{ translate('Price')}}</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($order->orderDetails as $key => $orderDetail)
+                                                <tr>
+                                                    <td>{{ $key+1 }}</td>
+                                                    <td>
+                                                        @if ($orderDetail->product != null)
+                                                            <a href="{{ route('product', $orderDetail->product->slug) }}" target="_blank" class="text-reset">
+                                                                {{ $orderDetail->product->getTranslation('name') }}
+                                                            </a>
+                                                        @else
+                                                            <strong>{{  translate('Product Unavailable') }}</strong>
+                                                        @endif
+                                                    </td>
+                                                    <td>
+                                                        {{ $orderDetail->variation }}
+                                                    </td>
+                                                    <td>
+                                                        {{ $orderDetail->quantity }}
+                                                    </td>
+                                                    <td>
+                                                        @if ($orderDetail->shipping_type != null && $orderDetail->shipping_type == 'home_delivery')
+                                                            {{  translate('Home Delivery') }}
+                                                        @elseif ($orderDetail->shipping_type == 'pickup_point')
+                                                            @if ($orderDetail->pickup_point != null)
+                                                                {{ $orderDetail->pickup_point->getTranslation('name') }} ({{ translate('Pickip Point') }})
+                                                            @endif
+                                                        @endif
+                                                    </td>
+                                                    <td class="text-right">{{ single_price($orderDetail->price) }}</td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl-5 col-md-6 ml-auto mr-0">
+                                        <table class="table ">
+                                            <tbody>
+                                                <tr>
+                                                    <th>{{ translate('Subtotal')}}</th>
+                                                    <td class="text-right">
+                                                        <span class="fw-600">{{ single_price($order->orderDetails->sum('price')) }}</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>{{ translate('Shipping')}}</th>
+                                                    <td class="text-right">
+                                                        <span class="font-italic">{{ single_price($order->orderDetails->sum('shipping_cost')) }}</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>{{ translate('Tax')}}</th>
+                                                    <td class="text-right">
+                                                        <span class="font-italic">{{ single_price($order->orderDetails->sum('tax')) }}</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>{{ translate('Coupon Discount')}}</th>
+                                                    <td class="text-right">
+                                                        <span class="font-italic">{{ single_price($order->coupon_discount) }}</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th><span class="fw-600">{{ translate('Total')}}</span></th>
+                                                    <td class="text-right">
+                                                        <strong><span>{{ single_price($order->grand_total) }}</span></strong>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -181,7 +181,9 @@
                                             <strong class="h2 fw-600 text-primary">
                                                 {{ home_discounted_price($detailedProduct->id) }}
                                             </strong>
-                                            <span class="opacity-70">/{{ $detailedProduct->getTranslation('unit') }}</span>
+                                            @if($detailedProduct->unit != null)
+                                                <span class="opacity-70">/{{ $detailedProduct->getTranslation('unit') }}</span>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
@@ -476,6 +478,7 @@
                                 <div class="p-4">
                                     <ul class="list-group list-group-flush">
                                         @foreach ($detailedProduct->reviews as $key => $review)
+                                            @if($review->user != null)
                                             <li class="media list-group-item d-flex">
 
                                                 <span class="avatar avatar-md mr-3">
@@ -508,6 +511,7 @@
                                                     </p>
                                                 </div>
                                             </li>
+                                            @endif
                                         @endforeach
                                     </ul>
 

@@ -64,11 +64,11 @@
                         </a>
                     </li>
                     @if (Auth::check())
-                        <li class="list-inline-item">
-                            <a href="{{ route('checkout.shipping_info') }}" class="btn btn-primary btn-sm">
-                                {{translate('Checkout')}}
-                            </a>
-                        </li>
+                    <li class="list-inline-item">
+                        <a href="{{ route('checkout.shipping_info') }}" class="btn btn-primary btn-sm">
+                            {{translate('Checkout')}}
+                        </a>
+                    </li>
                     @endif
                 </ul>
             </div>

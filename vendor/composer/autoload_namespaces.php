@@ -9,8 +9,8 @@ return array(
     'Unirest\\' => array($vendorDir . '/mashape/unirest-php/src'),
     'Sabberworm\\CSS' => array($vendorDir . '/sabberworm/php-css-parser/lib'),
     'Requests' => array($vendorDir . '/rmccue/requests/library'),
-    'PayPal' => array($vendorDir . '/paypal/rest-api-sdk-php/lib'),
     'Mockery' => array($vendorDir . '/mockery/mockery/library'),
     'Laracasts\\Flash' => array($vendorDir . '/laracasts/flash/src'),
+    'HTMLPurifier' => array($vendorDir . '/ezyang/htmlpurifier/library'),
     'CinetPay' => array($vendorDir . '/cinetpay/cinetpay-php/src'),
 );

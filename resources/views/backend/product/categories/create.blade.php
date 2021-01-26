@@ -84,7 +84,7 @@
                     <div class="form-group row">
                         <label class="col-md-3 col-form-label">{{translate('Commission Rate')}}</label>
                         <div class="col-md-9 input-group">
-                            <input type="number" min="0" step="0.01" placeholder="{{translate('Commission Rate')}}" id="commision_rate" name="commision_rate" class="form-control">
+                            <input type="number" lang="en" min="0" step="0.01" placeholder="{{translate('Commission Rate')}}" id="commision_rate" name="commision_rate" class="form-control">
                             <div class="input-group-append">
                                 <span class="input-group-text">%</span>
                             </div>

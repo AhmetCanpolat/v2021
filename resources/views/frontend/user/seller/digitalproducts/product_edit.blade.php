@@ -51,7 +51,7 @@
                                 <div class="form-group row" id="category">
                                     <label class="col-lg-3 col-from-label">{{translate('Category')}} <span class="text-danger">*</span></label>
                                     <div class="col-lg-9">
-                                        <select class="form-control aiz-selectpicker" name="category_id" id="category_id" data-selected={{ $product->id }} required>
+                                        <select class="form-control aiz-selectpicker" name="category_id" id="category_id" data-selected={{ $product->category_id }} required>
                                             @foreach(\App\Category::where('parent_id', 0)->where('digital', 1)->with('childrenCategories')->get(); as $category)
                                                 <option value="{{ $category->id }}">{{ $category->getTranslation('name') }}</option>
                                                 @foreach ($category->childrenCategories as $childCategory)
@@ -64,11 +64,14 @@
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-from-label">{{translate('Product File')}} <span class="text-danger">*</span></label>
                                     <div class="col-lg-9">
-                                        <div class="custom-file">
-                                            <label class="custom-file-label">
-                                                <input type="file" name="file" class="custom-file-input">
-                                                <span class="custom-file-name">{{ translate('Choose file') }}</span>
-                                            </label>
+                                        <div class="input-group" data-toggle="aizuploader" data-multiple="false">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
+                                            </div>
+                                            <div class="form-control file-amount">{{ translate('Choose File') }}</div>
+                                            <input type="hidden" name="file" class="selected-files" value="{{ $product->file_name }}">
+                                        </div>
+                                        <div class="file-preview box sm">
                                         </div>
                                     </div>
                                 </div>
@@ -172,13 +175,13 @@
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-from-label">{{translate('Purchase price')}}</label>
                                     <div class="col-lg-9">
-                                        <input type="number" min="0" step="0.01" placeholder="{{translate('Purchase price')}}" name="purchase_price" class="form-control" value="{{$product->purchase_price}}" required>
+                                        <input type="number" lang="en" min="0" step="0.01" placeholder="{{translate('Purchase price')}}" name="purchase_price" class="form-control" value="{{$product->purchase_price}}" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-from-label">{{translate('Tax')}}</label>
                                     <div class="col-lg-6">
-                                        <input type="number" min="0" step="0.01" placeholder="{{translate('tax')}}" name="tax" class="form-control" value="{{$product->tax}}" required>
+                                        <input type="number" lang="en" min="0" step="0.01" placeholder="{{translate('tax')}}" name="tax" class="form-control" value="{{$product->tax}}" required>
                                     </div>
                                     <div class="col-lg-3">
                                         <select class="form-control aiz-selectpicker" name="tax_type" required>
@@ -190,7 +193,7 @@
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-from-label">{{translate('Discount')}}</label>
                                     <div class="col-lg-6">
-                                        <input type="number" min="0" step="0.01" placeholder="{{translate('Discount')}}" name="discount" class="form-control" value="{{ $product->discount }}" required>
+                                        <input type="number" lang="en" min="0" step="0.01" placeholder="{{translate('Discount')}}" name="discount" class="form-control" value="{{ $product->discount }}" required>
                                     </div>
                                     <div class="col-lg-3">
                                         <select class="form-control aiz-selectpicker" name="discount_type" required>

@@ -10,7 +10,7 @@
                     <div class="aiz-titlebar mt-2 mb-4">
                       <div class="row align-items-center">
                         <div class="col-md-6">
-                            <h1 class="h3">Hesabımı Yönet</h1>
+                            <h1 class="h3">{{ translate('Manage Profile') }}</h1>
                         </div>
                       </div>
                     </div>
@@ -18,32 +18,32 @@
                     <!-- Basic Info-->
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="mb-0 h6">Temel bilgi</h5>
+                            <h5 class="mb-0 h6">{{ translate('Basic Info')}}</h5>
                         </div>
                         <div class="card-body">
                             <form action="{{ route('customer.profile.update') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group row">
-                                    <label class="col-md-2 col-form-label">Adınız</label>
+                                    <label class="col-md-2 col-form-label">{{ translate('Your Name') }}</label>
                                     <div class="col-md-10">
-                                        <input type="text" class="form-control" placeholder="Adınız" name="name" value="{{ Auth::user()->name }}">
+                                        <input type="text" class="form-control" placeholder="{{ translate('Your Name') }}" name="name" value="{{ Auth::user()->name }}">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label class="col-md-2 col-form-label">Telefonunuz</label>
+                                    <label class="col-md-2 col-form-label">{{ translate('Your Phone') }}</label>
                                     <div class="col-md-10">
-                                        <input type="text" class="form-control" placeholder="Telefon numaranız" name="phone" value="{{ Auth::user()->phone }}">
+                                        <input type="text" class="form-control" placeholder="{{ translate('Your Phone')}}" name="phone" value="{{ Auth::user()->phone }}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-md-2 col-form-label">Fotoğraf</label>
+                                    <label class="col-md-2 col-form-label">{{ translate('Photo') }}</label>
                                     <div class="col-md-10">
                                         <div class="input-group" data-toggle="aizuploader" data-type="image">
                                             <div class="input-group-prepend">
-                                                <div class="input-group-text bg-soft-secondary font-weight-medium">Göz at</div>
+                                                <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
                                             </div>
-                                            <div class="form-control file-amount">Dosya seçin</div>
+                                            <div class="form-control file-amount">{{ translate('Choose File') }}</div>
                                             <input type="hidden" name="photo" value="{{ Auth::user()->avatar_original }}" class="selected-files">
                                         </div>
                                         <div class="file-preview box sm">
@@ -51,20 +51,20 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-md-2 col-form-label">Şifreniz</label>
+                                    <label class="col-md-2 col-form-label">{{ translate('Your Password') }}</label>
                                     <div class="col-md-10">
-                                        <input type="password" class="form-control" placeholder="Yeni şifreniz" name="new_password">
+                                        <input type="password" class="form-control" placeholder="{{ translate('New Password') }}" name="new_password">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-md-2 col-form-label">Şifreyi Onayla</label>
+                                    <label class="col-md-2 col-form-label">{{ translate('Confirm Password') }}</label>
                                     <div class="col-md-10">
-                                        <input type="password" class="form-control" placeholder="Şifreyi Onayla" name="confirm_password">
+                                        <input type="password" class="form-control" placeholder="{{ translate('Confirm Password') }}" name="confirm_password">
                                     </div>
                                 </div>
 
                                 <div class="form-group mb-0 text-right">
-                                    <button type="submit" class="btn btn-primary">Hesap bilgilerimi Güncelle</button>
+                                    <button type="submit" class="btn btn-primary">{{translate('Update Profile')}}</button>
                                 </div>
                             </form>
                         </div>
@@ -200,12 +200,29 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <label class="col-md-2 col-form-label">{{ translate('City') }}</label>
-                                <div class="col-md-10">
-                                    <input type="text" class="form-control mb-3" placeholder="{{ translate('Your City')}}" name="city" value="" required>
+                            @if (\App\BusinessSetting::where('type', 'shipping_type')->first()->value == 'area_wise_shipping')
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <label>{{ translate('City')}}</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <select class="form-control mb-3 aiz-selectpicker" data-live-search="true" name="city" required>
+                                            @foreach (\App\City::get() as $key => $city)
+                                                <option value="{{ $city->name }}">{{ $city->getTranslation('name') }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
+                            @else
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <label>{{ translate('City')}}</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <input type="text" class="form-control mb-3" placeholder="{{ translate('Your City')}}" name="city" value="" required>
+                                    </div>
+                                </div>
+                            @endif
                             <div class="row">
                                 <label class="col-md-2 col-form-label">{{ translate('Postal code') }}</label>
                                 <div class="col-md-10">

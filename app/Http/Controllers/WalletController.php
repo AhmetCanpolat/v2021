@@ -72,6 +72,9 @@ class WalletController extends Controller
         } elseif ($request->payment_option == 'ngenius') {
             $ngenius = new NgeniusController();
             return $ngenius->pay();
+        } else if ($request->payment_option == 'iyzico') {
+            $iyzico = new IyzicoController();
+            return $iyzico->pay();
         }
         else if ($request->payment_option == 'mpesa') {
             $mpesa = new MpesaController();

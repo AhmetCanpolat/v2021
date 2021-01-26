@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
+
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="app-url" content="{{ getBaseURL() }}">
     <meta name="file-base-url" content="{{ getFileBaseURL() }}">
@@ -15,7 +16,7 @@
 
     @yield('meta')
 
-    @if(!isset($detailedProduct) && !isset($shop) && !isset($page))
+    @if(!isset($detailedProduct) && !isset($customer_product) && !isset($shop) && !isset($page))
     <!-- Schema.org markup for Google+ -->
     <meta itemprop="name" content="{{ config('app.name', 'Laravel') }}">
     <meta itemprop="description" content="{{ get_setting('meta_description') }}">
@@ -99,6 +100,10 @@
     <!-- End Facebook Pixel Code -->
 @endif
 
+@php
+    echo get_setting('header_script');
+@endphp
+
 </head>
 <body>
 
@@ -122,7 +127,9 @@
                         echo get_setting('cookies_agreement_text');
                     @endphp
                 </div>
-                <button class="btn btn-primary aiz-cookie-accepet">Kabul ediyorum</button>
+                <button class="btn btn-primary aiz-cookie-accepet">
+                    {{ translate('Ok. I Understood') }}
+                </button>
             </div>
         </div>
     @endif
@@ -245,7 +252,7 @@
                     if(data == '0'){
                         // $('.typed-search-box').addClass('d-none');
                         $('#search-content').html(null);
-                        $('.typed-search-box .search-nothing').removeClass('d-none').html('<strong>"'+searchKey+'"</strong> ile ilgili sonuç bulunamadı');
+                        $('.typed-search-box .search-nothing').removeClass('d-none').html('Sorry, nothing found for <strong>"'+searchKey+'"</strong>');
                         $('.search-preloader').addClass('d-none');
 
                     }
@@ -280,7 +287,7 @@
         function addToCompare(id){
             $.post('{{ route('compare.addToCompare') }}', {_token: AIZ.data.csrf, id:id}, function(data){
                 $('#compare').html(data);
-                AIZ.plugins.notify('success', "Ürün Favoriler listenize eklendi");
+                AIZ.plugins.notify('success', "{{ translate('Item has been added to compare list') }}");
                 $('#compare_items_sidenav').html(parseInt($('#compare_items_sidenav').html())+1);
             });
         }
@@ -290,14 +297,14 @@
                 $.post('{{ route('wishlists.store') }}', {_token: AIZ.data.csrf, id:id}, function(data){
                     if(data != 0){
                         $('#wishlist').html(data);
-                        AIZ.plugins.notify('success', "Ürün Favorilerinize eklendi");
+                        AIZ.plugins.notify('success', "{{ translate('Item has been added to wishlist') }}");
                     }
                     else{
-                        AIZ.plugins.notify('warning', "Lütfen önce giriş yapınız");
+                        AIZ.plugins.notify('warning', "{{ translate('Please login first') }}");
                     }
                 });
             @else
-                AIZ.plugins.notify('warning', "Lütfen önce giriş yapınız");
+                AIZ.plugins.notify('warning', "{{ translate('Please login first') }}");
             @endif
         }
 
@@ -557,6 +564,10 @@
     </script>
 
     @yield('script')
+
+    @php
+        echo get_setting('footer_script');
+    @endphp
 
 </body>
 </html>

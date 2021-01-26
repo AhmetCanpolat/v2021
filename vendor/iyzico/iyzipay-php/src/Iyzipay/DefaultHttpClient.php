@@ -49,8 +49,7 @@ class DefaultHttpClient implements HttpClient
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_VERBOSE => false,
             CURLOPT_HEADER => false,
-            CURLOPT_HTTPHEADER => $header,
-            CURLOPT_SSL_VERIFYPEER=>false
+            CURLOPT_HTTPHEADER => $header
         ));
     }
 

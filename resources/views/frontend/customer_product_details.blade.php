@@ -30,13 +30,13 @@
         <div class="container">
             <div class="bg-white shadow-sm rounded p-3">
                 <div class="row ">
-                    <div class="col-xl-5 col-lg-6">
-                        <div class="sticky-top z-3 row gutters-10 flex-row-reverse">
+                    <div class="col-xl-5 col-lg-6 mb-4">
+                        <div class="sticky-top z-3 row gutters-10">
                             @if($customer_product->photos != null)
                                 @php
                                     $photos = explode(',',$customer_product->photos);
                                 @endphp
-                                <div class="col">
+                                <div class="col order-1 order-md-2">
                                     <div class="aiz-carousel product-gallery" data-nav-for='.product-gallery-thumb' data-fade='true'>
                                         @foreach ($photos as $key => $photo)
                                         <div class="carousel-box img-zoom rounded">
@@ -50,8 +50,8 @@
                                         @endforeach
                                     </div>
                                 </div>
-                                <div class="col-auto w-90px">
-                                    <div class="aiz-carousel carousel-thumb product-gallery-thumb" data-items='5' data-nav-for='.product-gallery' data-vertical='true' data-focus-select='true'>
+                                <div class="col-12 col-md-auto w-md-80px order-2 order-md-1 mt-3 mt-md-0">
+                                    <div class="aiz-carousel product-gallery-thumb" data-items='5' data-nav-for='.product-gallery' data-vertical='true' data-vertical-sm='false' data-focus-select='true'>
                                         @foreach ($photos as $key => $photo)
                                         <div class="carousel-box c-pointer border p-1 rounded">
                                             <img
@@ -168,7 +168,7 @@
                         <div class="p-4">
                             <div class="embed-responsive embed-responsive-16by9 mb-5">
                                 @if ($customer_product->video_provider == 'youtube' && isset(explode('=', $customer_product->video_link)[1]))
-                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{ explode('=', $detailedProduct->video_link)[1] }}"></iframe>
+                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{ explode('=', $customer_product->video_link)[1] }}"></iframe>
                                 @elseif ($customer_product->video_provider == 'dailymotion' && isset(explode('video/', $customer_product->video_link)[1]))
                                     <iframe class="embed-responsive-item" src="https://www.dailymotion.com/embed/video/{{ explode('video/', $customer_product->video_link)[1] }}"></iframe>
                                 @elseif ($customer_product->video_provider == 'vimeo' && isset(explode('vimeo.com/', $customer_product->video_link)[1]))
@@ -191,9 +191,9 @@
            <div class="bg-white shadow-sm rounded">
                 <div class="d-flex mb-3 align-items-baseline border-bottom px-3 py-2">
                     <h3 class="fs-16 fw-600 mb-0">
-                        Diğer Reklamlar {{$customer_product->category->getTranslation('name') }}
+                        Diğer Reklamları {{$customer_product->category->getTranslation('name') }}
                     </h3>
-                    <a href="{{ route('customer_products.category', $customer_product->category->slug) }}" class="ml-auto mr-0 btn btn-primary btn-sm shadow-md">Daha fazla göster</a>
+                    <a href="{{ route('customer_products.category', $customer_product->category->slug) }}" class="ml-auto mr-0 btn btn-primary btn-sm shadow-md">Daha Fazla</a>
                 </div>
                 <div class="p-3">
                     <div class="aiz-carousel gutters-5 half-outside-arrow" data-items="6" data-xl-items="5" data-lg-items="4"  data-md-items="3" data-sm-items="2" data-xs-items="2" data-arrows='true' data-infinite='true'>

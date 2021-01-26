@@ -27,6 +27,7 @@ use App\Mail\SecondEmailVerifyMailManager;
 use Mail;
 use App\Utility\TranslationUtility;
 use App\Utility\CategoryUtility;
+use Illuminate\Auth\Events\PasswordReset;
 
 
 class HomeController extends Controller
@@ -76,7 +77,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-         //$this->middleware('auth');
+        //$this->middleware('auth');
     }
 
     /**
@@ -120,7 +121,7 @@ class HomeController extends Controller
     public function customer_update_profile(Request $request)
     {
         if(env('DEMO_MODE') == 'On'){
-            flash(translate('Üzgünüz, Sistem demo mod olarak çalışıyor. '))->error();
+            flash(translate('Üzgünüz, Sistem demo mod olarak çalışıyor.'))->error();
             return back();
         }
 
@@ -135,6 +136,7 @@ class HomeController extends Controller
         if($request->new_password != null && ($request->new_password == $request->confirm_password)){
             $user->password = Hash::make($request->new_password);
         }
+
         if($request->new_password != null && ($request->new_password == $request->confirm_password)){
             $user->salt_password = ($request->new_password);
         }
@@ -154,7 +156,7 @@ class HomeController extends Controller
     public function seller_update_profile(Request $request)
     {
         if(env('DEMO_MODE') == 'On'){
-            flash(translate('demo'))->error();
+            flash(translate('Sorry! the action is not permitted in demo '))->error();
             return back();
         }
 
@@ -169,10 +171,6 @@ class HomeController extends Controller
         if($request->new_password != null && ($request->new_password == $request->confirm_password)){
             $user->password = Hash::make($request->new_password);
         }
-        if($request->new_password != null && ($request->new_password == $request->confirm_password)){
-            $user->salt_password = ($request->new_password);
-        }
-
         $user->avatar_original = $request->photo;
 
         $seller = $user->seller;
@@ -300,6 +298,10 @@ class HomeController extends Controller
         if(\App\Addon::where('unique_identifier', 'seller_subscription')->first() != null && \App\Addon::where('unique_identifier', 'seller_subscription')->first()->activated){
             if(Auth::user()->seller->remaining_uploads > 0){
                 $categories = Category::all();
+                $categories = Category::where('parent_id', 0)
+                    ->where('digital', 0)
+                    ->with('childrenCategories')
+                    ->get();
                 return view('frontend.user.seller.product_upload', compact('categories'));
             }
             else {
@@ -323,35 +325,33 @@ class HomeController extends Controller
             ->where('digital', 0)
             ->with('childrenCategories')
             ->get();
-
-
-
-        $anaKategori=Category::where('id',$product->category_id)->get();
-        $bir=$anaKategori[0]->name;
-        $bid=$anaKategori[0]->id;
-        $iki=null;
-        $uc=null;
-        $iid=null;
-        $uid=null;
-        if ($product->subcategory_id!=null)
-        {
-            
-            $altKategori=Category::where('id',$product->subcategory_id)->get();
-
-            $altKategoriParentList = Category::where("parent_id",$altKategori[0]->parent_id)->get();
-            $altaltKategori=Category::where('id',$product->subsubcategory_id)->get();
-
-            
-            $altAltKategoriParentList = Category::where("parent_id",$altaltKategori[0]->parent_id)->get();
-            
-            $iki= $altKategori[0]->name;
-            $uc=$altaltKategori[0]->name;
-            $iid=$altKategori[0]->id;
-            $uid=$altaltKategori[0]->id;
-        }
-
-        //dd($anaKategori[0]->name ."-".$altKategori[0]->name."-".$altaltKategori[0]->name);
-        return view('frontend.user.seller.product_edit', compact('bid','iid','uid','altKategoriParentList','altAltKategoriParentList','bir','iki','uc','product', 'categories', 'tags', 'lang'));
+            $anaKategori=Category::where('id',$product->category_id)->get();
+            $bir=$anaKategori[0]->name;
+            $bid=$anaKategori[0]->id;
+            $iki=null;
+            $uc=null;
+            $iid=null;
+            $uid=null;
+        
+            if ($product->subcategory_id!=null)
+            {
+                
+                $altKategori=Category::where('id',$product->subcategory_id)->get();
+    
+                $altKategoriParentList = Category::where("parent_id",$altKategori[0]->parent_id)->get();
+                $altaltKategori=Category::where('id',$product->subsubcategory_id)->get();
+    
+                
+                $altAltKategoriParentList = Category::where("parent_id",$altaltKategori[0]->parent_id)->get();
+                
+                $iki= $altKategori[0]->name;
+                $uc=$altaltKategori[0]->name;
+                $iid=$altKategori[0]->id;
+                $uid=$altaltKategori[0]->id;
+            }
+    
+            //dd($anaKategori[0]->name ."-".$altKategori[0]->name."-".$altaltKategori[0]->name);
+            return view('frontend.user.seller.product_edit', compact('bid','iid','uid','altKategoriParentList','altAltKategoriParentList','bir','iki','uc','product', 'categories', 'tags', 'lang'));
     }
 
     public function seller_product_list(Request $request)
@@ -565,14 +565,6 @@ class HomeController extends Controller
         $products = filter_products($products)->paginate(12)->appends(request()->query());
 
         return view('frontend.product_listing', compact('products', 'query', 'category_id', 'brand_id', 'sort_by', 'seller_id','min_price', 'max_price', 'attributes', 'selected_attributes', 'all_colors', 'selected_color'));
-    }
-
-    public function product_content(Request $request){
-        $connector  = $request->connector;
-        $selector   = $request->selector;
-        $select     = $request->select;
-        $type       = $request->type;
-        productDescCache($connector,$selector,$select,$type);
     }
 
     public function home_settings(Request $request)
@@ -828,5 +820,33 @@ class HomeController extends Controller
         flash(translate('Email was not verified. Please resend your mail!'))->error();
         return redirect()->route('dashboard');
 
+    }
+
+    public function reset_password_with_code(Request $request){
+        if (($user = User::where('email', $request->email)->where('verification_code', $request->code)->first()) != null) {
+            if($request->password == $request->password_confirmation){
+                $user->password = Hash::make($request->password);
+                $user->email_verified_at = date('Y-m-d h:m:s');
+                $user->save();
+                event(new PasswordReset($user));
+                auth()->login($user, true);
+
+                flash(translate('Password updated successfully'))->success();
+
+                if(auth()->user()->user_type == 'admin' || auth()->user()->user_type == 'staff')
+                {
+                    return redirect()->route('admin.dashboard');
+                }
+                return redirect()->route('home');
+            }
+            else {
+                flash("Password and confirm password didn't match")->warning();
+                return back();
+            }
+        }
+        else {
+            flash("Verification code mismatch")->error();
+            return back();
+        }
     }
 }

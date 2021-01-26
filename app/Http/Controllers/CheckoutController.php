@@ -33,37 +33,8 @@ class CheckoutController extends Controller
 
     //check the selected payment gateway and redirect to that controller accordingly
     public function checkout(Request $request)
-    {
-        if ($request->payment_option != null) {
-
-            $orderController = new OrderController;
-            $orderController->store($request);
-
-            $request->session()->put('payment_type', 'cart_payment');
-
-            if ($request->session()->get('order_id') != null) {
-                if ($request->payment_option == 'iyzico') {
-                    $iyzico = new IyzicoController();
-                    return $iyzico->pay();
-                } else {
-                    $order = Order::findOrFail($request->session()->get('order_id'));
-                    $order->manual_payment = 1;
-                    $order->save();
-
-                    $request->session()->put('cart', Session::get('cart')->where('owner_id', '!=', Session::get('owner_id')));
-                    $request->session()->forget('owner_id');
-                    $request->session()->forget('delivery_info');
-                    $request->session()->forget('coupon_id');
-                    $request->session()->forget('coupon_discount');
-
-                    flash(translate('Siparişiniz başarıyla verildi'))->success();
-                    return redirect()->route('order_confirmed');
-                }
-            }
-        } else {
-            flash(translate('Ödeme yöntemini seçin'))->warning();
-            return back();
-        }
+    { 
+        //
     }
 
     //redirects to this method after a successfull checkout
@@ -123,7 +94,7 @@ class CheckoutController extends Controller
         $order->save();
 
         if (Session::has('cart')) {
-            Session::put('cart', Session::get('cart'));
+            Session::put('cart', Session::get('cart')->where('owner_id', '!=', Session::get('owner_id')));
         }
         Session::forget('owner_id');
         Session::forget('payment_type');
@@ -132,7 +103,7 @@ class CheckoutController extends Controller
         Session::forget('coupon_discount');
 
 
-        flash(translate('Ödeme tamamlandı'))->success();
+        flash(translate('Payment completed'))->success();
         return view('frontend.order_confirmed', compact('order'));
     }
 
@@ -142,7 +113,7 @@ class CheckoutController extends Controller
             $categories = Category::all();
             return view('frontend.shipping_info', compact('categories'));
         }
-        flash(translate('Sepetiniz boş'))->success();
+        flash(translate('Your cart is empty'))->success();
         return back();
     }
 
@@ -150,7 +121,7 @@ class CheckoutController extends Controller
     {
         if (Auth::check()) {
             if ($request->address_id == null) {
-                flash(translate("Lütfen gönderim adresini ekleyin"))->warning();
+                flash(translate("Please add shipping address"))->warning();
                 return back();
             }
             $address = Address::findOrFail($request->address_id);
@@ -217,7 +188,12 @@ class CheckoutController extends Controller
 
             $cart = $cart->map(function ($object, $key) use ($request) {
                 if (\App\Product::find($object['id'])->user_id == $request->owner_id) {
-                    $object['shipping'] = getShippingCost($key);
+                    if ($object['shipping_type'] == 'home_delivery') {
+                        $object['shipping'] = getShippingCost($key);
+                    }
+                    else {
+                        $object['shipping'] = 0;
+                    }
                 } else {
                     $object['shipping'] = 0;
                 }
@@ -243,7 +219,7 @@ class CheckoutController extends Controller
 
             return view('frontend.payment_select', compact('total'));
         } else {
-            flash(translate('Sepetiniz boş'))->warning();
+            flash(translate('Your Cart was empty'))->warning();
             return redirect()->route('home');
         }
     }
@@ -300,7 +276,7 @@ class CheckoutController extends Controller
                             }
                             $request->session()->put('coupon_id', $coupon->id);
                             $request->session()->put('coupon_discount', $coupon_discount);
-                            flash(translate('Kupon uygulandı'))->success();
+                            flash(translate('Coupon has been applied'))->success();
                         }
                     } elseif ($coupon->type == 'product_base') {
                         $coupon_discount = 0;
@@ -317,16 +293,16 @@ class CheckoutController extends Controller
                         }
                         $request->session()->put('coupon_id', $coupon->id);
                         $request->session()->put('coupon_discount', $coupon_discount);
-                        flash(translate('Kupon uygulandı'))->success();
+                        flash(translate('Coupon has been applied'))->success();
                     }
                 } else {
-                    flash(translate('Bu kuponu zaten kullandınız!'))->warning();
+                    flash(translate('You already used this coupon!'))->warning();
                 }
             } else {
-                flash(translate('Kuponun süresi doldu!'))->warning();
+                flash(translate('Coupon expired!'))->warning();
             }
         } else {
-            flash(translate('Geçersiz kupon!'))->warning();
+            flash(translate('Invalid coupon!'))->warning();
         }
         return back();
     }

@@ -8,7 +8,7 @@
 				<td class="text-center">
 					<label for="" class="control-label">{{translate('Variant Price')}}</label>
 				</td>
-				<td class="text-center">
+				<td class="text-center d-none">
 					<label for="" class="control-label">{{translate('SKU')}}</label>
 				</td>
 				<td class="text-center">
@@ -51,7 +51,7 @@
 				<label for="" class="control-label">{{ $str }}</label>
 			</td>
 			<td>
-				<input type="number" name="price_{{ $str }}" value="@php
+				<input type="number" lang="en" name="price_{{ $str }}" value="@php
                     if ($product->unit_price == $unit_price) {
 						if(($stock = $product->stocks->where('variant', $str)->first()) != null){
 	                        echo $stock->price;
@@ -65,7 +65,7 @@
 					}
                 @endphp" min="0" step="0.01" class="form-control" required>
 			</td>
-			<td>
+			<td class="d-none">
 				<input type="text" name="sku_{{ $str }}" value="@php
 					if(($stock = $product->stocks->where('variant', $str)->first()) != null){
 						echo $stock->sku;
@@ -76,7 +76,7 @@
 				@endphp" class="form-control">
 			</td>
 			<td>
-				<input type="number" name="qty_{{ $str }}" value="@php
+				<input type="number" lang="en" name="qty_{{ $str }}" value="@php
                     if(($stock = $product->stocks->where('variant', $str)->first()) != null){
                         echo $stock->qty;
                     }

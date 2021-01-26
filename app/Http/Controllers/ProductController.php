@@ -13,6 +13,7 @@ use App\SubSubCategory;
 use Session;
 use ImageOptimizer;
 use DB;
+use Combinations;
 use CoreComponentRepository;
 use Illuminate\Support\Str;
 use Artisan;
@@ -142,7 +143,6 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-
         $refund_request_addon = \App\Addon::where('unique_identifier', 'refund_request')->first();
 
         $product = new Product;
@@ -186,6 +186,9 @@ class ProductController extends Controller
         $product->video_provider = $request->video_provider;
         $product->video_link = $request->video_link;
         $product->unit_price = $request->unit_price;
+        $product->purchase_price = $request->purchase_price;
+        $product->tax = $request->tax;
+        $product->tax_type = $request->tax_type;
         $product->discount = $request->discount;
         $product->discount_type = $request->discount_type;
         $product->shipping_type = $request->shipping_type;
@@ -279,7 +282,7 @@ class ProductController extends Controller
         }
 
         //Generates the combinations of customer choice options
-        $combinations = combinations($options);
+        $combinations = Combinations::makeCombinations($options);
         if(count($combinations[0]) > 0){
             $product->variant_product = 1;
             foreach ($combinations as $key => $combination){
@@ -400,7 +403,6 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
         $refund_request_addon       = \App\Addon::where('unique_identifier', 'refund_request')->first();
         $product                    = Product::findOrFail($id);
         $product->category_id       = $request->category_id;
@@ -442,6 +444,9 @@ class ProductController extends Controller
         $product->video_provider = $request->video_provider;
         $product->video_link     = $request->video_link;
         $product->unit_price     = $request->unit_price;
+        $product->purchase_price = $request->purchase_price;
+        $product->tax            = $request->tax;
+        $product->tax_type       = $request->tax_type;
         $product->discount       = $request->discount;
         $product->shipping_type  = $request->shipping_type;
         if ($request->has('shipping_type')) {
@@ -512,7 +517,7 @@ class ProductController extends Controller
             $colors_active = 1;
             array_push($options, $request->colors);
         }
-
+    
         if($request->has('choice_no')){
             foreach ($request->choice_no as $key => $no) {
                 $name = 'choice_options_'.$no;
@@ -524,7 +529,7 @@ class ProductController extends Controller
             }
         }
 
-        $combinations = combinations($options);
+        $combinations = Combinations::makeCombinations($options);
         if(count($combinations[0]) > 0){
             $product->variant_product = 1;
             foreach ($combinations as $key => $combination){
@@ -689,6 +694,16 @@ class ProductController extends Controller
         return 0;
     }
 
+    public function updateSellerFeatured(Request $request)
+    {
+        $product = Product::findOrFail($request->id);
+        $product->seller_featured = $request->status;
+        if($product->save()){
+            return 1;
+        }
+        return 0;
+    }
+
     public function sku_combination(Request $request)
     {
         $options = array();
@@ -714,12 +729,13 @@ class ProductController extends Controller
             }
         }
 
-        $combinations = combinations($options);
+        $combinations = Combinations::makeCombinations($options);
         return view('backend.product.products.sku_combinations', compact('combinations', 'unit_price', 'colors_active', 'product_name'));
     }
 
     public function sku_combination_edit(Request $request)
     {
+       
         $product = Product::findOrFail($request->id);
 
         $options = array();
@@ -744,8 +760,8 @@ class ProductController extends Controller
                 array_push($options, $data);
             }
         }
-
-        $combinations = combinations($options);
+    
+        $combinations = Combinations::makeCombinations($options);
         return view('backend.product.products.sku_combinations_edit', compact('combinations', 'unit_price', 'colors_active', 'product_name', 'product'));
     }
 

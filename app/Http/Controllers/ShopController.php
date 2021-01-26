@@ -57,7 +57,7 @@ class ShopController extends Controller
         $user = null;
         if(!Auth::check()){
             if(User::where('email', $request->email)->first() != null){
-                flash(translate('E-posta kullanımda!'))->error();
+                flash(translate('Email already exists!'))->error();
                 return back();
             }
             if($request->password == $request->password_confirmation){
@@ -66,7 +66,6 @@ class ShopController extends Controller
                 $user->email = $request->email;
                 $user->user_type = "seller";
                 $user->password = Hash::make($request->password);
-                $user->salt_password = ($request->password);
                 $user->save();
             }
             else{

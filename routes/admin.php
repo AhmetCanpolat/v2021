@@ -43,6 +43,7 @@ Route::group(['prefix' =>'admin', 'middleware' => ['auth', 'admin']], function()
 	Route::get('/products/admin/{id}/edit','ProductController@admin_product_edit')->name('products.admin.edit');
 	Route::get('/products/seller/{id}/edit','ProductController@seller_product_edit')->name('products.seller.edit');
 	Route::post('/products/todays_deal', 'ProductController@updateTodaysDeal')->name('products.todays_deal');
+	Route::post('/products/featured', 'ProductController@updateFeatured')->name('products.featured');
 	Route::post('/products/get_products_by_subcategory', 'ProductController@get_products_by_subcategory')->name('products.get_products_by_subcategory');
 
 	Route::resource('sellers','SellerController');
@@ -102,32 +103,6 @@ Route::group(['prefix' =>'admin', 'middleware' => ['auth', 'admin']], function()
 	Route::post('/languages/update_rtl_status', 'LanguageController@update_rtl_status')->name('languages.update_rtl_status');
 	Route::post('/languages/key_value_store', 'LanguageController@key_value_store')->name('languages.key_value_store');
 
-	Route::get('/frontend_settings/home', 'HomeController@home_settings')->name('home_settings.index');
-	Route::post('/frontend_settings/home/top_10', 'HomeController@top_10_settings')->name('top_10_settings.store');
-	Route::get('/sellerpolicy/{type}', 'PolicyController@index')->name('sellerpolicy.index');
-	Route::get('/returnpolicy/{type}', 'PolicyController@index')->name('returnpolicy.index');
-	Route::get('/supportpolicy/{type}', 'PolicyController@index')->name('supportpolicy.index');
-	Route::get('/terms/{type}', 'PolicyController@index')->name('terms.index');
-	Route::get('/privacypolicy/{type}', 'PolicyController@index')->name('privacypolicy.index');
-
-	//Policy Controller
-	Route::post('/policies/store', 'PolicyController@store')->name('policies.store');
-
-	Route::group(['prefix' => 'frontend_settings'], function(){
-		Route::resource('sliders','SliderController');
-	    Route::get('/sliders/destroy/{id}', 'SliderController@destroy')->name('sliders.destroy');
-
-		Route::resource('home_banners','BannerController');
-		Route::get('/home_banners/create/{position}', 'BannerController@create')->name('home_banners.create');
-		Route::post('/home_banners/update_status', 'BannerController@update_status')->name('home_banners.update_status');
-	    Route::get('/home_banners/destroy/{id}', 'BannerController@destroy')->name('home_banners.destroy');
-
-		Route::resource('home_categories','HomeCategoryController');
-	    Route::get('/home_categories/destroy/{id}', 'HomeCategoryController@destroy')->name('home_categories.destroy');
-		Route::post('/home_categories/update_status', 'HomeCategoryController@update_status')->name('home_categories.update_status');
-		Route::post('/home_categories/get_subsubcategories_by_category', 'HomeCategoryController@getSubSubCategories')->name('home_categories.get_subsubcategories_by_category');
-	});
-
 	// website setting
 	Route::group(['prefix' => 'website'], function(){
 		Route::view('/header', 'backend.website_settings.header')->name('website.header');
@@ -156,6 +131,7 @@ Route::group(['prefix' =>'admin', 'middleware' => ['auth', 'admin']], function()
 
 	//Subscribers
 	Route::get('/subscribers', 'SubscriberController@index')->name('subscribers.index');
+	Route::get('/subscribers/destroy/{id}', 'SubscriberController@destroy')->name('subscriber.destroy');
 
 	// Route::get('/orders', 'OrderController@admin_orders')->name('orders.index.admin');
 	// Route::get('/orders/{id}/show', 'OrderController@show')->name('orders.show');
@@ -180,11 +156,6 @@ Route::group(['prefix' =>'admin', 'middleware' => ['auth', 'admin']], function()
 
 	Route::get('/orders/destroy/{id}', 'OrderController@destroy')->name('orders.destroy');
 	Route::get('invoice/admin/{order_id}', 'InvoiceController@admin_invoice_download')->name('admin.invoice.download');
-
-	Route::resource('links','LinkController');
-	Route::get('/links/destroy/{id}', 'LinkController@destroy')->name('links.destroy');
-
-	Route::resource('seosetting','SEOController');
 
 	Route::post('/pay_to_seller', 'CommissionController@pay_to_seller')->name('commissions.pay_to_seller');
 
@@ -252,6 +223,10 @@ Route::group(['prefix' =>'admin', 'middleware' => ['auth', 'admin']], function()
 
 	Route::resource('countries','CountryController');
 	Route::post('/countries/status', 'CountryController@updateStatus')->name('countries.status');
+
+	Route::resource('cities', 'CityController');
+	Route::get('/cities/edit/{id}', 'CityController@edit')->name('cities.edit');
+	Route::get('/cities/destroy/{id}', 'CityController@destroy')->name('cities.destroy');
 
 	Route::view('/system/update', 'backend.system.update')->name('system_update');
 	Route::view('/system/server-status', 'backend.system.server_status')->name('system_server');

@@ -124,26 +124,26 @@
                         <div class="text-left">
                             <div class="d-flex">
                                 <div class="form-group w-200px">
-                                    <label class="mb-0 opacity-50">{{ translate('Sort by')}}</label>
+                                    <label class="mb-0 opacity-50">Sırala</label>
                                     <select class="form-control form-control-sm aiz-selectpicker" name="sort_by" onchange="filter()">
-                                        <option value="1" @isset($sort_by) @if ($sort_by == '1') selected @endif @endisset>{{ translate('Newest')}}</option>
-                                        <option value="2" @isset($sort_by) @if ($sort_by == '2') selected @endif @endisset>{{ translate('Oldest')}}</option>
-                                        <option value="3" @isset($sort_by) @if ($sort_by == '3') selected @endif @endisset>{{ translate('Price low to high')}}</option>
-                                        <option value="4" @isset($sort_by) @if ($sort_by == '4') selected @endif @endisset>{{ translate('Price high to low')}}</option>
+                                        <option value="1" @isset($sort_by) @if ($sort_by == '1') selected @endif @endisset>En Yeni</option>
+                                        <option value="2" @isset($sort_by) @if ($sort_by == '2') selected @endif @endisset>En Eski</option>
+                                        <option value="3" @isset($sort_by) @if ($sort_by == '3') selected @endif @endisset>Fiyatı Düşükten Yükseğe</option>
+                                        <option value="4" @isset($sort_by) @if ($sort_by == '4') selected @endif @endisset>Fiyatı Yüksekten Düşüğe</option>
                                     </select>
                                 </div>
                                 <div class="form-group ml-auto mr-0 w-200px d-none d-md-block">
                                     <label class="mb-0 opacity-50">{{ translate('Condition')}}</label>
                                     <select class="form-control form-control-sm aiz-selectpicker" name="condition" onchange="filter()">
                                         <option value="">{{ translate('All Type')}}</option>
-                                        <option value="new" @isset($condition) @if ($condition == 'new') selected @endif @endisset>{{ translate('New')}}</option>
-                                        <option value="used" @isset($condition) @if ($condition == 'used') selected @endif @endisset>{{ translate('Used')}}</option>
+                                        <option value="new" @isset($condition) @if ($condition == 'new') selected @endif @endisset>Yeni</option>
+                                        <option value="used" @isset($condition) @if ($condition == 'used') selected @endif @endisset>Kullanılmış</option>
                                     </select>
                                 </div>
                                 <div class="form-group ml-2 mr-0 w-200px d-none d-md-block">
-                                    <label class="mb-0 opacity-50">{{ translate('Brands')}}</label>
+                                    <label class="mb-0 opacity-50">Markalar</label>
                                     <select class="form-control form-control-sm aiz-selectpicker" data-live-search="true" name="brand" onchange="filter()">
-                                        <option value="">{{ translate('All Brands')}}</option>
+                                        <option value="">Tüm Markalar</option>
                                         @foreach (\App\Brand::all() as $brand)
                                             <option value="{{ $brand->slug }}" @isset($brand_id) @if ($brand_id == $brand->id) selected @endif @endisset>{{ $brand->getTranslation('name') }}</option>
                                         @endforeach

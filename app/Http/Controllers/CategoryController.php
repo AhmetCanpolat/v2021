@@ -83,7 +83,7 @@ class CategoryController extends Controller
         $category_translation->name = $request->name;
         $category_translation->save();
 
-        flash(translate('Kategori başarıyla eklendi'))->success();
+        flash(translate('Category has been inserted successfully'))->success();
         return redirect()->route('categories.index');
     }
 
@@ -111,6 +111,7 @@ class CategoryController extends Controller
         $categories = Category::where('parent_id', 0)
             ->with('childrenCategories')
             ->whereNotIn('id', CategoryUtility::children_ids($category->id, true))->where('id', '!=' , $category->id)
+            ->orderBy('name','asc')
             ->get();
 
         return view('backend.product.categories.edit', compact('category', 'categories', 'lang'));
@@ -134,12 +135,25 @@ class CategoryController extends Controller
         $category->icon = $request->icon;
         $category->meta_title = $request->meta_title;
         $category->meta_description = $request->meta_description;
-        // dd($request->all());
+
+        $previous_level = $category->level;
+
         if ($request->parent_id != "0") {
             $category->parent_id = $request->parent_id;
 
             $parent = Category::find($request->parent_id);
             $category->level = $parent->level + 1 ;
+        }
+        else{
+            $category->parent_id = 0;
+            $category->level = 0;
+        }
+
+        if($category->level > $previous_level){
+            CategoryUtility::move_level_down($category->id);
+        }
+        elseif ($category->level < $previous_level) {
+            CategoryUtility::move_level_up($category->id);
         }
 
         if ($request->slug != null) {
@@ -160,7 +174,7 @@ class CategoryController extends Controller
         $category_translation->name = $request->name;
         $category_translation->save();
 
-        flash(translate('Kategori başarıyla güncellendi'))->success();
+        flash(translate('Category has been updated successfully'))->success();
         return back();
     }
 
@@ -186,7 +200,7 @@ class CategoryController extends Controller
 
         CategoryUtility::delete_category($id);
 
-        flash(translate('Kategori başarıyla silindi'))->success();
+        flash(translate('Category has been deleted successfully'))->success();
         return redirect()->route('categories.index');
     }
 

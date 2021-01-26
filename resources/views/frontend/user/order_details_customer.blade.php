@@ -80,11 +80,11 @@
                             <td>{{ single_price($order->orderDetails->sum('price') + $order->orderDetails->sum('tax')) }}</td>
                         </tr>
                         <tr>
-                            <td class="w-50 fw-600">{{ translate('Shipping metdod')}}:</td>
+                            <td class="w-50 fw-600">{{ translate('Shipping method')}}:</td>
                             <td>{{ translate('Flat shipping rate')}}</td>
                         </tr>
                         <tr>
-                            <td class="w-50 fw-600">{{ translate('Payment metdod')}}:</td>
+                            <td class="w-50 fw-600">{{ translate('Payment method')}}:</td>
                             <td>{{ ucfirst(str_replace('_', ' ', $order->payment_type)) }}</td>
                         </tr>
                     </table>

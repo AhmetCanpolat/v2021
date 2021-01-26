@@ -691,6 +691,11 @@
                                 <span class="aiz-side-nav-text">{{translate('Shipping Countries')}}</span>
                             </a>
                         </li>
+                        <li class="aiz-side-nav-item">
+                            <a href="{{route('cities.index')}}" class="aiz-side-nav-link {{ areActiveRoutes(['cities.index','cities.edit','cities.update'])}}">
+                                <span class="aiz-side-nav-text">{{translate('Shipping Cities')}}</span>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 @endif
@@ -739,6 +744,15 @@
                         </ul>
                     </li>
 
+                <!-- Addon Manager -->
+                @if(Auth::user()->user_type == 'admin' || in_array('21', json_decode(Auth::user()->staff->role->permissions)))
+                    <li class="aiz-side-nav-item">
+                        <a href="{{route('addons.index')}}" class="aiz-side-nav-link {{ areActiveRoutes(['addons.index', 'addons.create'])}}">
+                            <i class="las la-wrench aiz-side-nav-icon"></i>
+                            <span class="aiz-side-nav-text">{{translate('Addon Manager')}}</span>
+                        </a>
+                    </li>
+                @endif
             </ul><!-- .aiz-side-nav -->
         </div><!-- .aiz-side-nav-wrap -->
     </div><!-- .aiz-sidebar -->

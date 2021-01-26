@@ -90,9 +90,9 @@
 								<td>
 									{{ ini_get('max_file_uploads') }}
 								</td>
-								<td>60+</td>
+								<td>20+</td>
 								<td>
-									@if (ini_get('max_file_uploads') >= 60)
+									@if (ini_get('max_file_uploads') >= 20)
 										<i class="las la-check text-success"></i>
 									@else
 										<i class="las la-times text-danger"></i>

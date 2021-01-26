@@ -178,7 +178,6 @@ class CartController extends Controller
     //updated the quantity for a cart item
     public function updateQuantity(Request $request)
     {
-
         $cart = $request->session()->get('cart', collect([]));
         $cart = $cart->map(function ($object, $key) use ($request) {
             if($key == $request->key){
@@ -200,8 +199,6 @@ class CartController extends Controller
             }
             return $object;
         });
-
-
         $request->session()->put('cart', $cart);
 
         return view('frontend.partials.cart_details');
