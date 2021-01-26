@@ -155,7 +155,7 @@ class SubSubCategoryController extends Controller
 
     public function get_subsubcategories_by_subcategory(Request $request)
     {
-        $subsubcategories = SubSubCategory::where('sub_category_id', $request->subcategory_id)->get();
+        $subsubcategories = Category::where('parent_id', $request->subcategory_id)->get();
         return $subsubcategories;
     }
 }

@@ -46,7 +46,7 @@ class AttributeController extends Controller
         $attribute_translation->name = $request->name;
         $attribute_translation->save();
 
-        flash(translate('Attribute has been inserted successfully'))->success();
+        flash(translate('Özellik başarıyla eklendi'))->success();
         return redirect()->route('attributes.index');
     }
 
@@ -93,7 +93,7 @@ class AttributeController extends Controller
         $attribute_translation->name = $request->name;
         $attribute_translation->save();
 
-        flash(translate('Attribute has been updated successfully'))->success();
+        flash(translate('Özellik başarıyla güncellendi'))->success();
         return back();
     }
 
@@ -112,7 +112,7 @@ class AttributeController extends Controller
         }
 
         Attribute::destroy($id);
-        flash(translate('Attribute has been deleted successfully'))->success();
+        flash(translate('Özellik başarıyla silindi'))->success();
         return redirect()->route('attributes.index');
 
     }

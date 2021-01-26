@@ -62,7 +62,7 @@ class BrandController extends Controller
         $brand_translation->name = $request->name;
         $brand_translation->save();
 
-        flash(translate('Brand has been inserted successfully'))->success();
+        flash(translate('Marka başarıyla eklendi'))->success();
         return redirect()->route('brands.index');
 
     }
@@ -119,7 +119,7 @@ class BrandController extends Controller
         $brand_translation->name = $request->name;
         $brand_translation->save();
 
-        flash(translate('Brand has been updated successfully'))->success();
+        flash(translate('Marka başarıyla güncellendi'))->success();
         return back();
 
     }
@@ -139,7 +139,7 @@ class BrandController extends Controller
         }
         Brand::destroy($id);
 
-        flash(translate('Brand has been deleted successfully'))->success();
+        flash(translate('Marka başarıyla silindi'))->success();
         return redirect()->route('brands.index');
 
     }

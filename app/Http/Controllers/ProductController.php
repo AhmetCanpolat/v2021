@@ -186,9 +186,6 @@ class ProductController extends Controller
         $product->video_provider = $request->video_provider;
         $product->video_link = $request->video_link;
         $product->unit_price = $request->unit_price;
-        $product->purchase_price = $request->purchase_price;
-        $product->tax = $request->tax;
-        $product->tax_type = $request->tax_type;
         $product->discount = $request->discount;
         $product->discount_type = $request->discount_type;
         $product->shipping_type = $request->shipping_type;
@@ -403,9 +400,12 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
+        
         $refund_request_addon       = \App\Addon::where('unique_identifier', 'refund_request')->first();
         $product                    = Product::findOrFail($id);
         $product->category_id       = $request->category_id;
+        $product->subcategory_id    = $request->subcategory_id;
+        $product->subsubcategory_id    = $request->subsubcategory_id;
         $product->brand_id          = $request->brand_id;
         $product->current_stock     = $request->current_stock;
         $product->barcode           = $request->barcode;
@@ -442,9 +442,6 @@ class ProductController extends Controller
         $product->video_provider = $request->video_provider;
         $product->video_link     = $request->video_link;
         $product->unit_price     = $request->unit_price;
-        $product->purchase_price = $request->purchase_price;
-        $product->tax            = $request->tax;
-        $product->tax_type       = $request->tax_type;
         $product->discount       = $request->discount;
         $product->shipping_type  = $request->shipping_type;
         if ($request->has('shipping_type')) {

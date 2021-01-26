@@ -335,13 +335,15 @@ class HomeController extends Controller
         $uid=null;
         if ($product->subcategory_id!=null)
         {
+            
             $altKategori=Category::where('id',$product->subcategory_id)->get();
 
             $altKategoriParentList = Category::where("parent_id",$altKategori[0]->parent_id)->get();
             $altaltKategori=Category::where('id',$product->subsubcategory_id)->get();
 
+            
             $altAltKategoriParentList = Category::where("parent_id",$altaltKategori[0]->parent_id)->get();
-
+            
             $iki= $altKategori[0]->name;
             $uc=$altaltKategori[0]->name;
             $iid=$altKategori[0]->id;

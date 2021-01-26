@@ -80,7 +80,7 @@
                                     <label class="col-md-3 col-from-label">Etiketler</label>
                                     <div class="col-md-8">
                                         <input type="text" class="form-control aiz-tag-input" name="tags[]"
-                                               placeholder="{{ translate('Type and hit enter to add a tag') }}" value="Esosyete Online Alışveriş sitesi">
+                                               placeholder="{{ translate('Type and hit enter to add a tag') }}" value="Esosyete Online Alışveriş">
                                     </div>
                                 </div>
 
@@ -151,7 +151,7 @@
                                 <h5 class="mb-0 h6">{{translate('Product Variation')}}</h5>
                             </div>
                             <div class="card-body">
-                                <div class="form-group row">
+                                <div class="form-group row d-none">
                                     <div class="col-md-3">
                                         <input type="text" class="form-control" value="{{translate('Colors')}}"
                                                disabled>
@@ -201,6 +201,8 @@
                                 </div>
                             </div>
                         </div>
+
+                        
                         <div class="card">
                             <div class="card-header">
                                 <h5 class="mb-0 h6">{{translate('Product price + stock')}}</h5>

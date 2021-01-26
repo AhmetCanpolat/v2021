@@ -46,7 +46,7 @@ class AddonController extends Controller
     {
 
         if (env('DEMO_MODE') == 'On') {
-            flash(translate('This action is disabled in demo mode'))->error();
+            flash(translate('Demo'))->error();
             return back();
         }
 
@@ -119,7 +119,7 @@ class AddonController extends Controller
                             DB::unprepared(file_get_contents($sql_path));
                         }
 
-                        flash(translate('Addon nstalled successfully'))->success();
+                        flash(translate('Eklenti başarıyla yüklendi'))->success();
                         return redirect()->route('addons.index');
                     } else {
                         // Create new directories.
@@ -157,17 +157,17 @@ class AddonController extends Controller
                         $addon->version = $json['version'];
                         $addon->save();
 
-                        flash(translate('This addon is updated successfully'))->success();
+                        flash(translate('Eklenti başarıyla güncellendi'))->success();
                         return redirect()->route('addons.index');
                     }
                 } else {
-                    flash(translate('This version is not capable of installing Addons, Please update.'))->error();
+                    flash(translate('Bu sürüm Eklentileri yükleyemez, Lütfen güncelleyin.'))->error();
                     return redirect()->route('addons.index');
                 }
             }
         }
         else {
-            flash(translate('Please enable ZipArchive extension.'))->error();
+            flash(translate('Lütfen ZipArchive uzantısını etkinleştirin.'))->error();
         }
     }
 

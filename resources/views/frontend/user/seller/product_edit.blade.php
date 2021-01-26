@@ -431,7 +431,7 @@
                                     </div>
                                 </div>
                                 <br>
-                                <div class="sku_combination" id="sku_combination">
+                                <div class="sku_combination d-none" id="sku_combination">
 
                                 </div>
                             </div>

@@ -163,11 +163,11 @@ class AizUploadController extends Controller
             }
 
             Upload::destroy($id);
-            flash(translate('File deleted successfully'))->success();
+            flash(translate('Dosya başarıyla silindi'))->success();
         }
         catch(\Exception $e){
             //dd($e);
-            flash(translate('Oops! something went wrong.'))->error();
+            flash(translate('Maalesef! bir şeyler yanlış gitti.'))->error();
         }
         return back();
     }
@@ -186,7 +186,7 @@ class AizUploadController extends Controller
            $file_path = public_path($project_attachment->file_name);
             return Response::download($file_path);
         }catch(\Exception $e){
-            flash(translate('File does not exist!'))->error();
+            flash(translate('Dosya bulunmuyor!'))->error();
             return back();
         }
 

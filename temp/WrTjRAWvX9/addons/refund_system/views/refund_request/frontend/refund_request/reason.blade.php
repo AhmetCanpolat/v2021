@@ -10,7 +10,7 @@
                 <div class="aiz-user-panel">
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="mb-0 h6">{{ translate('Reason of Refund Request') }}</h5>
+                            <h5 class="mb-0 h6">İade Talebinin Nedeni</h5>
                         </div>
                         <div class="card-body">
                             <div class="row">

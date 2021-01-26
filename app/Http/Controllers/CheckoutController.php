@@ -132,7 +132,7 @@ class CheckoutController extends Controller
         Session::forget('coupon_discount');
 
 
-        flash(translate('Payment completed'))->success();
+        flash(translate('Ödeme tamamlandı'))->success();
         return view('frontend.order_confirmed', compact('order'));
     }
 
@@ -142,7 +142,7 @@ class CheckoutController extends Controller
             $categories = Category::all();
             return view('frontend.shipping_info', compact('categories'));
         }
-        flash(translate('Your cart is empty'))->success();
+        flash(translate('Sepetiniz boş'))->success();
         return back();
     }
 
@@ -150,7 +150,7 @@ class CheckoutController extends Controller
     {
         if (Auth::check()) {
             if ($request->address_id == null) {
-                flash(translate("Please add shipping address"))->warning();
+                flash(translate("Lütfen gönderim adresini ekleyin"))->warning();
                 return back();
             }
             $address = Address::findOrFail($request->address_id);
@@ -243,7 +243,7 @@ class CheckoutController extends Controller
 
             return view('frontend.payment_select', compact('total'));
         } else {
-            flash(translate('Your Cart was empty'))->warning();
+            flash(translate('Sepetiniz boş'))->warning();
             return redirect()->route('home');
         }
     }
@@ -300,7 +300,7 @@ class CheckoutController extends Controller
                             }
                             $request->session()->put('coupon_id', $coupon->id);
                             $request->session()->put('coupon_discount', $coupon_discount);
-                            flash(translate('Coupon has been applied'))->success();
+                            flash(translate('Kupon uygulandı'))->success();
                         }
                     } elseif ($coupon->type == 'product_base') {
                         $coupon_discount = 0;
@@ -317,16 +317,16 @@ class CheckoutController extends Controller
                         }
                         $request->session()->put('coupon_id', $coupon->id);
                         $request->session()->put('coupon_discount', $coupon_discount);
-                        flash(translate('Coupon has been applied'))->success();
+                        flash(translate('Kupon uygulandı'))->success();
                     }
                 } else {
-                    flash(translate('You already used this coupon!'))->warning();
+                    flash(translate('Bu kuponu zaten kullandınız!'))->warning();
                 }
             } else {
-                flash(translate('Coupon expired!'))->warning();
+                flash(translate('Kuponun süresi doldu!'))->warning();
             }
         } else {
-            flash(translate('Invalid coupon!'))->warning();
+            flash(translate('Geçersiz kupon!'))->warning();
         }
         return back();
     }

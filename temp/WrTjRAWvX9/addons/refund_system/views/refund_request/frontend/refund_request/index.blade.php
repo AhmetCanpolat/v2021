@@ -15,11 +15,11 @@
                             <thead>
                                 <tr>
                                   <th>#</th>
-                                  <th>{{ translate('Date') }}</th>
-                                  <th>{{translate('Order id')}}</th>
-                                  <th>{{translate('Product')}}</th>
-                                  <th>{{translate('Amount')}}</th>
-                                  <th>{{translate('Status')}}</th>
+                                  <th>Tarih</th>
+                                  <th>Sipariş id</th>
+                                  <th>Ürün</th>
+                                  <th>Miktar</th>
+                                  <th>Durum</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -44,9 +44,9 @@
                                           </td>
                                           <td>
                                               @if ($refund->refund_status == 1)
-                                                  <span class="badge badge-inline badge-success">{{translate('Approved')}}</span>
+                                                  <span class="badge badge-inline badge-success">Onaylandı</span>
                                               @else
-                                                  <span class="badge badge-inline badge-info">{{translate('PENDING')}}</span>
+                                                  <span class="badge badge-inline badge-info">BEKLİYOR</span>
                                               @endif
                                           </td>
                                       </tr>

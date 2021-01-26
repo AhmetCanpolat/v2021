@@ -9,7 +9,7 @@
                 <div class="aiz-user-panel">
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="mb-0 h6">{{translate('Send Refund Request')}}</h5>
+                            <h5 class="mb-0 h6">Geri Ödeme İsteği Gönderin</h5>
                         </div>
                         <div class="card-body">
                           <form class="" action="{{route('refund_request_send', $order_detail->id)}}" method="POST" enctype="multipart/form-data" id="choice_form">
@@ -18,23 +18,23 @@
                                   <div class="form-box-content p-3">
                                       <div class="row">
                                           <div class="col-md-3">
-                                              <label>{{translate('Product Name')}} <span class="text-danger">*</span></label>
+                                              <label>Ürün Adı<span class="text-danger">*</span></label>
                                           </div>
                                           <div class="col-md-9">
-                                              <input type="text" class="form-control mb-3" name="name" placeholder="{{translate('Product Name')}}" value="{{ $order_detail->product->getTranslation('name') }}" readonly>
+                                              <input type="text" class="form-control mb-3" name="name" placeholder="Ürün Adı" value="{{ $order_detail->product->getTranslation('name') }}" readonly>
                                           </div>
                                       </div>
                                       <div class="row">
                                           <div class="col-md-3">
-                                              <label>{{translate('Product Price')}} <span class="text-danger">*</span></label>
+                                              <label>Ürün fiyatı<span class="text-danger">*</span></label>
                                           </div>
                                           <div class="col-md-9">
-                                              <input type="number" class="form-control mb-3" name="name" placeholder="{{translate('Product Price')}}" value="{{ $order_detail->product->unit_price }}" readonly>
+                                              <input type="number" class="form-control mb-3" name="name" placeholder="Ürün Fiyatı" value="{{ $order_detail->product->unit_price }}" readonly>
                                           </div>
                                       </div>
                                       <div class="row">
                                           <div class="col-md-3">
-                                              <label>{{translate('Order Code')}} <span class="text-danger">*</span></label>
+                                              <label>Sipariş Kodu <span class="text-danger">*</span></label>
                                           </div>
                                           <div class="col-md-9">
                                               <input type="text" class="form-control mb-3" name="code" value="{{ $order_detail->order->code }}" readonly>
@@ -42,14 +42,14 @@
                                       </div>
                                       <div class="row">
                                           <div class="col-md-3">
-                                              <label>{{translate('Refund Reason')}} <span class="text-danger">*</span></label>
+                                              <label>İade Nedeni <span class="text-danger">*</span></label>
                                           </div>
                                           <div class="col-md-9">
                                               <textarea name="reason" rows="8" class="form-control mb-3"></textarea>
                                           </div>
                                       </div>
                                       <div class="form-group mb-0 text-right">
-                                          <button type="submit" class="btn btn-primary">{{translate('Send Request')}}</button>
+                                          <button type="submit" class="btn btn-primary">İstek gönder</button>
                                       </div>
                                   </div>
                               </div>

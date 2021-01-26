@@ -100,7 +100,7 @@ class AddressController extends Controller
             $address->delete();
             return back();
         }
-        flash(translate('Default address can not be deleted'))->warning();
+        flash(translate('Varsayılan adres silinemez'))->warning();
         return back();
     }
 

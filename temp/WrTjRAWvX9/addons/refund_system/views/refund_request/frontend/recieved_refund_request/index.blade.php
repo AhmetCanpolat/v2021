@@ -10,7 +10,7 @@
                 <div class="aiz-user-panel">
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="mb-0 h6">{{ translate('Refund Request') }}</h5>
+                            <h5 class="mb-0 h6">İade talebi</h5>
                         </div>
                         <div class="card-body">
                             <table class="table aiz-table mb-0">
@@ -54,7 +54,7 @@
                                                 @endif
                                             </td>
                                             <td>
-                                                <a href="{{ route('reason_show', $refund->id) }}"><span class="badge badge-inline badge-success">{{translate('Show')}}</span></a>
+                                                <a href="{{ route('reason_show', $refund->id) }}"><span class="badge badge-inline badge-success">Göster</span></a>
                                             </td>
                                             <td>
                                                 @if ($refund->seller_approval == 1)

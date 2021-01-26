@@ -137,7 +137,7 @@
                                 <th>Teslimat Tipi</th>
                                 <th>Fiyat</th>
                                 @if ($refund_request_addon != null && $refund_request_addon->activated == 1)
-                                    <th>Geri ödeme</th>
+                                    <th>İade</th>
                                 @endif
                             </tr>
                         </thead>

@@ -42,7 +42,7 @@ class BannerController extends Controller
             $banner->url = $request->url;
             $banner->position = $request->position;
             $banner->save();
-            flash(translate('Banner has been inserted successfully'))->success();
+            flash(translate('Banner başarıyla eklendi'))->success();
         }
         return redirect()->route('home_settings.index');
     }
@@ -86,7 +86,7 @@ class BannerController extends Controller
         }
         $banner->url = $request->url;
         $banner->save();
-        flash(translate('Banner has been updated successfully'))->success();
+        flash(translate('Banner başarıyla güncellendi'))->success();
         return redirect()->route('home_settings.index');
     }
 
@@ -129,10 +129,10 @@ class BannerController extends Controller
         $banner = Banner::findOrFail($id);
         if(Banner::destroy($id)){
             //unlink($banner->photo);
-            flash(translate('Banner has been deleted successfully'))->success();
+            flash(translate('Banner başarıyla silindi'))->success();
         }
         else{
-            flash(translate('Something went wrong'))->error();
+            flash(translate('Bir şeyler yanlış gitti'))->error();
         }
         return redirect()->route('home_settings.index');
     }

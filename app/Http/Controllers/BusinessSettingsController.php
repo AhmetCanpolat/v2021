@@ -88,7 +88,7 @@ class BusinessSettingsController extends Controller
             }
         }
 
-        flash(translate("Settings updated successfully"))->success();
+        flash(translate("Ayarlar başarıyla güncellendi"))->success();
         return back();
     }
 
@@ -114,7 +114,7 @@ class BusinessSettingsController extends Controller
             $business_settings->save();
         }
 
-        flash(translate("Settings updated successfully"))->success();
+        flash(translate("Ayarlar başarıyla güncellendi"))->success();
         return back();
     }
 
@@ -135,7 +135,7 @@ class BusinessSettingsController extends Controller
             $business_settings->save();
         }
 
-        flash(translate("Settings updated successfully"))->success();
+        flash(translate("Ayarlar başarıyla güncellendi"))->success();
         return back();
     }
 
@@ -162,7 +162,7 @@ class BusinessSettingsController extends Controller
             $business_settings->save();
         }
 
-        flash(translate("Settings updated successfully"))->success();
+        flash(translate("Ayarlar başarıyla güncellendi"))->success();
         return back();
     }
 
@@ -183,7 +183,7 @@ class BusinessSettingsController extends Controller
             $business_settings->save();
         }
 
-        flash(translate("Settings updated successfully"))->success();
+        flash(translate("Ayarlar başarıyla güncellendi"))->success();
         return back();
     }
 
@@ -198,7 +198,7 @@ class BusinessSettingsController extends Controller
                 $this->overWriteEnvFile($type, $request[$type]);
         }
 
-        flash(translate("Settings updated successfully"))->success();
+        flash(translate("Ayarlar başarıyla güncellendi"))->success();
         return back();
     }
 
@@ -253,7 +253,7 @@ class BusinessSettingsController extends Controller
         $business_settings = BusinessSetting::where('type', 'verification_form')->first();
         $business_settings->value = json_encode($form);
         if($business_settings->save()){
-            flash(translate("Verification form updated successfully"))->success();
+            flash(translate("Doğrulama formu başarıyla güncellendi"))->success();
             return back();
         }
     }
@@ -291,7 +291,7 @@ class BusinessSettingsController extends Controller
                 }
             }
         }
-        flash(translate("Settings updated successfully"))->success();
+        flash(translate("Ayarlar başarıyla güncellendi"))->success();
         return back();
     }
 
@@ -367,7 +367,7 @@ class BusinessSettingsController extends Controller
         $business_settings->value = $request->value;
         $business_settings->save();
 
-        flash(translate('Seller Commission updated successfully'))->success();
+        flash(translate('Satıcı Komisyonu başarıyla güncellendi'))->success();
         return back();
     }
 

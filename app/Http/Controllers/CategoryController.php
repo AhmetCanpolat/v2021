@@ -83,7 +83,7 @@ class CategoryController extends Controller
         $category_translation->name = $request->name;
         $category_translation->save();
 
-        flash(translate('Category has been inserted successfully'))->success();
+        flash(translate('Kategori başarıyla eklendi'))->success();
         return redirect()->route('categories.index');
     }
 
@@ -160,7 +160,7 @@ class CategoryController extends Controller
         $category_translation->name = $request->name;
         $category_translation->save();
 
-        flash(translate('Category has been updated successfully'))->success();
+        flash(translate('Kategori başarıyla güncellendi'))->success();
         return back();
     }
 
@@ -186,7 +186,7 @@ class CategoryController extends Controller
 
         CategoryUtility::delete_category($id);
 
-        flash(translate('Category has been deleted successfully'))->success();
+        flash(translate('Kategori başarıyla silindi'))->success();
         return redirect()->route('categories.index');
     }
 
