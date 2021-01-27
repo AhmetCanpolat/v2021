@@ -128,7 +128,7 @@
                     @endphp
                 </div>
                 <button class="btn btn-primary aiz-cookie-accepet">
-                    {{ translate('Ok. I Understood') }}
+                    Tamam
                 </button>
             </div>
         </div>

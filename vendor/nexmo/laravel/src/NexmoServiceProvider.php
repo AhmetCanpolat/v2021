@@ -2,7 +2,8 @@
 
 namespace Nexmo\Laravel;
 
-use Nexmo\Client;
+use Vonage\Client;
+use Nexmo\Client as NexmoClient;
 use Illuminate\Support\Str;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Contracts\Config\Repository as Config;
