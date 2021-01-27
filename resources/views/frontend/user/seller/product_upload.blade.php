@@ -49,12 +49,13 @@
                                 <div class="form-group row" id="brand">
                                     <label class="col-md-3 col-from-label">{{translate('Brand')}}</label>
                                     <div class="col-md-8">
-                                        <select class="form-control aiz-selectpicker" name="brand_id" id="brand_id"  data-live-search="true">
+                                    <input type="text" class="form-control" name="brand_id" placeholder="Marka Yazınız!" required>
+                                        <!--<select class="form-control aiz-selectpicker" name="brand_id" id="brand_id"  data-live-search="true">
                                             <option value="">{{ ('Select Brand') }}</option>
                                             @foreach (\App\Brand::all() as $brand)
                                                 <option value="{{ $brand->id }}">{{ $brand->getTranslation('name') }}</option>
                                             @endforeach
-                                        </select>
+                                        </select>-->
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -380,8 +381,20 @@
                             </div>
                         </div>
                         <div class="mar-all text-right">
-                            <button type="submit" name="button" class="btn btn-primary">{{ translate('Save Product') }}</button>
+                            <button type="submit" id="yla" name="button" class="btn btn-primary" style="display:none">{{ translate('Save Product') }}</button>
+                            <div class="btn btn-primary" onclick="yolla()">Ürün Kaydet</div>
                         </div>
+                        <script>
+                            function yolla(){
+                                if($(".file-preview").html()=="")
+                                {
+                                    AIZ.plugins.notify('danger','Galeri Görsellerinden Resim Seçimi Yapmadınız!');
+                                }
+                               else{
+                                   $("#yla").click();
+                               }
+                            }
+                        </script>
 
                         <div class="modal fade" id="categorySelectModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
          aria-hidden="true" data-backdrop="static">

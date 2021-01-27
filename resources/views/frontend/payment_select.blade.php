@@ -186,14 +186,6 @@
                         </div>
                     </div>
                     <div class="pt-3">
-                        <label class="aiz-checkbox">
-                            <input type="checkbox" required id="agree_checkbox">
-                            <span class="aiz-square-check"></span>
-                            <span>Katılıyorum</span>
-                        </label>
-                        <a href="{{ route('terms') }}">şartlar ve koşullar</a>,
-                        <a href="{{ route('returnpolicy') }}">iade politikasi</a> &
-                        <a href="{{ route('privacypolicy') }}">Gizlilik Politikası</a>
                         <button style="float: right;margin-top: -10px;" type="button" onclick="submitOrder(this)" class="btn btn-primary fw-600">Siparişi Tamamla</button>
                     </div>
 
@@ -207,9 +199,36 @@
                     </div>
                 </form>
             </div>
+
             <div class="col-lg-4 mt-4 mt-lg-0">
-                @include('frontend.partials.cart_summary')
+                        <div style="background-color: #fff;background-clip: border-box;border-radius: .25rem;width: 100%;margin-bottom: 30px;text-align: justify;" class="card">
+                            <p style="margin-left: 15%;margin-right: 15%;border-bottom-style: inset;margin-top: 14px;padding-bottom: 5px;margin-bottom: 7px;letter-spacing: 0px;line-height: 15px;">
+                <label style="display: inline;float:left;height:1em;margin-top: 0.5em; width: 30px;"> <input type="checkbox" required id="agree_checkbox"></label>
+                                <a style="color: rgb(59, 115, 228); font-size: 11px;" href="https://esosyete.com/sellerpolicy">Satış Politikası</a>,
+                                <a style="color: rgb(59, 115, 228); font-size: 11px;" href="https://esosyete.com/returnpolicy">İade Politikasi</a> &amp;
+                                <a style="color: rgb(59, 115, 228); font-size: 11px;" href="https://esosyete.com/privacypolicy">Gizlilik Politikası</a>
+                                <a href="javascript:$('#sozlesme').modal('show')" style="color: rgb(59, 115, 228); font-size: 11px;">Mesafeli Satış Sözleşmesi</a>
+                                <span style="color: rgb(51, 51, 51); font-size: 11px;">'ni okudum, onaylıyorum.</span>
+                            </p>
+                        </div>
+                        @include('frontend.partials.cart_summary')
             </div>
+            
+            <div id="sozlesme" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h2 style='margin: 0px; padding: 0px; font-size: 20px; font-weight: 400; height: 55px; line-height: 55px; text-align: center; color: rgb(51, 51, 51); font-family: "Source Sans Pro", sans-serif;'>Satış Sözleşmeleri</h2>
+                @include("frontend.sozlesme")
+            </div>
+            </div>
+        </div>
+    </div>
         </div>
     </div>
 </section>
@@ -846,7 +865,7 @@
             if($('#agree_checkbox').is(":checked")){
                 $('#checkout-form').submit();
             }else{
-                AIZ.plugins.notify('danger','Politikalarımıza Kabul ediniz');
+                AIZ.plugins.notify('danger','Sözleşmelerimizi kabul ediniz.');
             }
         }
         function submitOrder(el){
@@ -854,7 +873,7 @@
             if($('#agree_checkbox').is(":checked")){
                 $('#checkout-form').submit();
             }else{
-                AIZ.plugins.notify('danger','Politikalarımıza Kabul ediniz') }}');
+                AIZ.plugins.notify('danger','Sözleşmelerimizi kabul ediniz.');
                 $(el).prop('disabled', false);
             }
         }

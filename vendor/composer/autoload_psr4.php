@@ -114,4 +114,5 @@ return array(
     'Barryvdh\\DomPDF\\' => array($vendorDir . '/barryvdh/laravel-dompdf/src'),
     'App\\' => array($baseDir . '/app'),
     'Anand\\LaravelPaytmWallet\\' => array($vendorDir . '/anandsiddharth/laravel-paytm-wallet/src'),
+    '' => array($vendorDir . '/iyzico/iyzipay-php/src'),
 );

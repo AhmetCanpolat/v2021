@@ -51,6 +51,7 @@ final class Versions
   'guzzlehttp/promises' => '1.4.0@60d379c243457e073cff02bc323a2a86cb355631',
   'guzzlehttp/psr7' => '1.7.0@53330f47520498c0ae1f61f7e2c90f55690c06a3',
   'instamojo/instamojo-php' => '0.4@99dc50bf008be77be84f447607e416f73f319904',
+  'iyzico/iyzipay-php' => 'v2.0.48@4eaa6fe37d739055fd5bee1a6d59b3f47be07c41',
   'jakub-onderka/php-console-color' => 'v0.2@d5deaecff52a0d61ccb613bb3804088da0307191',
   'jakub-onderka/php-console-highlighter' => 'v0.4@9f7a229a69d52506914b4bc61bfdb199d90c5547',
   'laracasts/flash' => '3.2@76c2e200498795bdbeda97b682536130316e8b97',
@@ -173,7 +174,7 @@ final class Versions
   'sebastian/version' => '2.0.1@99732be0ddb3361e16ad77b68ba41efc8e979019',
   'theseer/tokenizer' => '1.2.0@75a63c33a8577608444246075ea0af0d052e452a',
   'webmozart/assert' => '1.9.1@bafc69caeb4d49c39fd0779086c03a3738cbb389',
-  'laravel/laravel' => '1.0.0+no-version-set@',
+  'laravel/laravel' => 'dev-main@e85662dcd1c35fcb68e3da5a64d01316b6e993c2',
 );
 
     private function __construct()

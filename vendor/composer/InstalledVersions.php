@@ -24,12 +24,12 @@ class InstalledVersions
 private static $installed = array (
   'root' => 
   array (
-    'pretty_version' => '1.0.0+no-version-set',
-    'version' => '1.0.0.0',
+    'pretty_version' => 'dev-main',
+    'version' => 'dev-main',
     'aliases' => 
     array (
     ),
-    'reference' => NULL,
+    'reference' => 'e85662dcd1c35fcb68e3da5a64d01316b6e993c2',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -451,6 +451,15 @@ private static $installed = array (
       ),
       'reference' => '99dc50bf008be77be84f447607e416f73f319904',
     ),
+    'iyzico/iyzipay-php' => 
+    array (
+      'pretty_version' => 'v2.0.48',
+      'version' => '2.0.48.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '4eaa6fe37d739055fd5bee1a6d59b3f47be07c41',
+    ),
     'jakub-onderka/php-console-color' => 
     array (
       'pretty_version' => 'v0.2',
@@ -526,12 +535,12 @@ private static $installed = array (
     ),
     'laravel/laravel' => 
     array (
-      'pretty_version' => '1.0.0+no-version-set',
-      'version' => '1.0.0.0',
+      'pretty_version' => 'dev-main',
+      'version' => 'dev-main',
       'aliases' => 
       array (
       ),
-      'reference' => NULL,
+      'reference' => 'e85662dcd1c35fcb68e3da5a64d01316b6e993c2',
     ),
     'laravel/passport' => 
     array (

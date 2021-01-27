@@ -210,11 +210,11 @@ class OrderController extends Controller
             return view('backend.sales.pickup_point_orders.index', compact('orders'));
         }
         else{
-            //$orders = Order::where('shipping_type', 'Pick-up Point')->get();
+            //$orders = Order::where('shipping', 'Pick-up Point')->get();
             $orders = DB::table('orders')
                         ->orderBy('code', 'desc')
                         ->join('order_details', 'orders.id', '=', 'order_details.order_id')
-                        ->where('order_details.shipping_type', 'pickup_point')
+                        ->where('order_details.shipping', 'pickup_point')
                         ->select('orders.id')
                         ->distinct();
 
@@ -339,6 +339,8 @@ class OrderController extends Controller
                     }
                 }
 
+            
+                
                 $order_detail = new OrderDetail;
                 $order_detail->order_id  =$order->id;
                 $order_detail->seller_id = $product->user_id;
@@ -346,11 +348,11 @@ class OrderController extends Controller
                 $order_detail->variation = $product_variation;
                 $order_detail->price = $cartItem['price'] * $cartItem['quantity'];
                 $order_detail->tax = $cartItem['tax'] * $cartItem['quantity'];
-                $order_detail->shipping_type = $cartItem['shipping_type'];
+                $order_detail->shipping_type = $cartItem['shipping'];
                 $order_detail->product_referral_code = $cartItem['product_referral_code'];
-
+                    
                 //Dividing Shipping Costs
-                if ($cartItem['shipping_type'] == 'home_delivery') {
+                if ($cartItem['shipping'] == 'home_delivery') {
                     $order_detail->shipping_cost = getShippingCost($key);
                 }
                 else {
@@ -359,9 +361,7 @@ class OrderController extends Controller
                 
                 $shipping += $order_detail->shipping_cost;
 
-                if ($cartItem['shipping_type'] == 'pickup_point') {
-                    $order_detail->pickup_point_id = $cartItem['pickup_point'];
-                }
+        
                 //End of storing shipping cost
 
                 $order_detail->quantity = $cartItem['quantity'];

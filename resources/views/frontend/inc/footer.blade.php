@@ -127,7 +127,7 @@
                     </ul>
                 </div>
                 @if (get_setting('vendor_system_activation') == 1)
-                    <div class="text-center text-md-left mt-4">
+                    <div class="text-center text-md-left mt-4 d-none">
                         <h4 class="fs-13 text-uppercase fw-600 border-bottom border-gray-900 pb-2 mb-4">Satıcı Olun</h4>
                         <a href="{{ route('shops.create') }}" class="btn btn-primary btn-sm shadow-md">Şimdi yap</a>
                     </div>
@@ -183,7 +183,7 @@
                         @if ( get_setting('payment_method_images') !=  null )
                             @foreach (explode(',', get_setting('payment_method_images')) as $key => $value)
                                 <li class="list-inline-item">
-                                    <img src="{{ uploaded_asset($value) }}" height="30">
+                                    <img src="{{ uploaded_asset($value) }}" height="30" style="width:100%">
                                 </li>
                             @endforeach
                         @endif

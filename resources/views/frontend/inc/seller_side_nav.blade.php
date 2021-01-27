@@ -93,7 +93,7 @@
                         </li>
                     @endif
                 @endif
-                <li>
+                <li style="display:none">
                     <a href="{{route('product_bulk_upload.index')}}" class="{{ areActiveRoutesHome(['product_bulk_upload.index'])}}">
                         <i class="la la-upload"></i>
                         <span class="category-name">
@@ -199,7 +199,7 @@
                         </span>
                     </a>
                 </li>
-                <li>
+                <li style="display:none">
                     <a href="{{ route('withdraw_requests.index') }}" class="{{ areActiveRoutesHome(['withdraw_requests.index'])}}">
                         <i class="la la-money"></i>
                         <span class="category-name">
@@ -208,7 +208,7 @@
                     </a>
                 </li>
                 @if (\App\BusinessSetting::where('type', 'wallet_system')->first()->value == 1)
-                    <li>
+                    <li style="display:none">
                         <a href="{{ route('wallet.index') }}" class="{{ areActiveRoutesHome(['wallet.index'])}}">
                             <i class="la la-dollar"></i>
                             <span class="category-name">

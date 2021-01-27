@@ -133,11 +133,25 @@
                                         </div>
                                     </div>
                                 </div>
+                                <script>
+                                    function acRenkFilitre(el)
+                                    {
+                                       var dd = $(el).toggle(1000);
+                                 
+                                          if($(".rRenk").height()<0)
+                                          {
+                                            $(".rRenkikonu").addClass("la-arrow-up").removeClass("la-arrow-down");
+                                          }
+                                          else{
+                                            $(".rRenkikonu").removeClass("la-arrow-up").addClass("la-arrow-down");
+                                          }
+                                    }
+                                </script>
                                 <div class="bg-white shadow-sm rounded mb-3">
-                                    <div class="fs-15 fw-600 p-3 border-bottom">
-                                    Renge göre filtrele
+                                    <div class="fs-15 fw-600 p-3 border-bottom" onclick="acRenkFilitre('.rRenk')">
+                                    Renge göre filtrele <span class="float-right"><i class="la la-arrow-down rRenkikonu"></i></span>
                                     </div>
-                                    <div class="p-3">
+                                    <div class="p-3 rRenk" style="display:none">
                                         <div class="aiz-radio-inline">
                                             @foreach ($all_colors as $key => $color)
                                             <label class="aiz-megabox pl-0 mr-2" data-toggle="tooltip" data-title="{{ \App\Color::where('code', $color)->first()->name }}">
@@ -156,14 +170,27 @@
                                         </div>
                                     </div>
                                 </div>
-
+                                <script>
+                                    function acFilitre(el)
+                                    {
+                                       var dd = $(".fFlitre-"+el).toggle(1000);
+                                 
+                                          if($(".fFlitre-"+el).height()<0)
+                                          {
+                                            $(".fFilitreikonu-"+el).addClass("la-arrow-up").removeClass("la-arrow-down");
+                                          }
+                                          else{
+                                            $(".fFilitreikonu-"+el).removeClass("la-arrow-up").addClass("la-arrow-down");
+                                          }
+                                    }
+                                </script>
                                 @foreach ($attributes as $key => $attribute)
                                     @if (\App\Attribute::find($attribute['id']) != null)
                                         <div class="bg-white shadow-sm rounded mb-3">
-                                            <div class="fs-15 fw-600 p-3 border-bottom">
-                                            Filtrele {{ \App\Attribute::find($attribute['id'])->getTranslation('name') }}
+                                            <div class="fs-15 fw-600 p-3 border-bottom" onclick="acFilitre('{{$key}}')">
+                                            Filtrele {{ \App\Attribute::find($attribute['id'])->getTranslation('name') }}  <span class="float-right"><i class="la la-arrow-down fFilitreikonu-{{$key}}"></i></span>
                                             </div>
-                                            <div class="p-3">
+                                            <div class="p-3 fFlitre-{{$key}}" style="display:none">
                                                 <div class="aiz-checkbox-list">
                                                     @if(array_key_exists('values', $attribute))
                                                         @foreach ($attribute['values'] as $key => $value)
@@ -231,7 +258,7 @@
                                         @if(isset($category_id))
                                             {{ \App\Category::find($category_id)->getTranslation('name') }}
                                         @elseif(isset($query))
-                                            {{ translate('Search result for ') }}"{{ $query }}"
+                                        Arama sonucu"{{ $query }}"
                                         @else
                                             {{ translate('All Products') }}
                                         @endif

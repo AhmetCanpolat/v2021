@@ -20,14 +20,32 @@
         </div>
     </div>
 </section>
+
+<script>
+    function acKategori(id){
+        if($(window).width() < 768)
+        {
+             $("#m-"+id).toggle(1000);
+        }
+       
+    }
+</script>
+<style>
+ @media only screen and (max-width: 768px)
+  {
+    .mmmK{
+        display:none;
+    }
+  }
+</style>
 <section class="mb-4">
     <div class="container">
         @foreach ($categories as $key => $category)
-            <div class="mb-3 bg-white shadow-sm rounded">
+            <div class="mb-3 bg-white shadow-sm rounded mKategori" onclick="acKategori({{$category->id}})">
                 <div class="p-3 border-bottom fs-16 fw-600">
                     <a href="{{ route('products.category', $category->slug) }}" class="text-reset">{{  $category->getTranslation('name') }}</a>
                 </div>
-                <div class="p-3 p-lg-4">
+                <div class="p-3 p-lg-4 mmmK" id="m-{{$category->id}}">
                     <div class="row">
                         @foreach (\App\Utility\CategoryUtility::get_immediate_children_ids($category->id) as $key => $first_level_id)
                         <div class="col-lg-4 col-6 text-left">

@@ -279,7 +279,7 @@
             $.post('{{ route('cart.removeFromCart') }}', {_token: AIZ.data.csrf, key:key}, function(data){
                 updateNavCart();
                 $('#cart-summary').html(data);
-                AIZ.plugins.notify('success', 'Item has been removed from cart');
+                AIZ.plugins.notify('success', 'Ürün sepetinizden kaldırıldı');
                 $('#cart_items_sidenav').html(parseInt($('#cart_items_sidenav').html())-1);
             });
         }
@@ -287,7 +287,7 @@
         function addToCompare(id){
             $.post('{{ route('compare.addToCompare') }}', {_token: AIZ.data.csrf, id:id}, function(data){
                 $('#compare').html(data);
-                AIZ.plugins.notify('success', "{{ translate('Item has been added to compare list') }}");
+                AIZ.plugins.notify('success', "{{ translate('Ürün karşılaştırma listesine eklendi') }}");
                 $('#compare_items_sidenav').html(parseInt($('#compare_items_sidenav').html())+1);
             });
         }
@@ -297,14 +297,14 @@
                 $.post('{{ route('wishlists.store') }}', {_token: AIZ.data.csrf, id:id}, function(data){
                     if(data != 0){
                         $('#wishlist').html(data);
-                        AIZ.plugins.notify('success', "{{ translate('Item has been added to wishlist') }}");
+                        AIZ.plugins.notify('success', "{{ translate('Ürün Favorilerinize Eklendi') }}");
                     }
                     else{
-                        AIZ.plugins.notify('warning', "{{ translate('Please login first') }}");
+                        AIZ.plugins.notify('warning', "{{ translate('Lütfen Önce Giriş Yapınız') }}");
                     }
                 });
             @else
-                AIZ.plugins.notify('warning', "{{ translate('Please login first') }}");
+                AIZ.plugins.notify('warning', "{{ translate('Lütfen Önce Giriş Yapınız') }}");
             @endif
         }
 
@@ -390,7 +390,7 @@
                });
             }
             else{
-                AIZ.plugins.notify('warning', 'Please choose all the options');
+                AIZ.plugins.notify('warning', 'Lütfen tüm seçenekleri seçin');
             }
         }
 
@@ -419,7 +419,7 @@
                });
             }
             else{
-                AIZ.plugins.notify('warning', 'Please choose all the options');
+                AIZ.plugins.notify('warning', 'Lütfen tüm seçenekleri seçin');
             }
         }
 

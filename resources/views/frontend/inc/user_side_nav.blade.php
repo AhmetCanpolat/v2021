@@ -67,13 +67,16 @@
                     $refund_request_addon = \App\Addon::where('unique_identifier', 'refund_request')->first();
                     $club_point_addon = \App\Addon::where('unique_identifier', 'club_point')->first();
                 @endphp
+
+                @if(Auth::user()->user_type != 'seller')
                 @if ($refund_request_addon != null && $refund_request_addon->activated == 1)
                     <li class="aiz-side-nav-item">
                         <a href="{{ route('customer_refund_request') }}" class="aiz-side-nav-link {{ areActiveRoutes(['customer_refund_request'])}}">
                             <i class="las la-backward aiz-side-nav-icon"></i>
-                            <span class="aiz-side-nav-text">{{ translate('Sent Refund Request') }}</span>
+                            <span class="aiz-side-nav-text">İade</span>
                         </a>
                     </li>
+                @endif
                 @endif
 
                 <li class="aiz-side-nav-item">
@@ -90,13 +93,13 @@
                             <span class="aiz-side-nav-text">{{ translate('Products') }}</span>
                         </a>
                     </li>
-                    <li class="aiz-side-nav-item">
+                    <li class="aiz-side-nav-item" style="display:none">
                         <a href="{{route('product_bulk_upload.index')}}" class="aiz-side-nav-link {{ areActiveRoutes(['product_bulk_upload.index'])}}">
                             <i class="las la-upload aiz-side-nav-icon"></i>
                             <span class="aiz-side-nav-text">{{ translate('Product Bulk Upload') }}</span>
                         </a>
                     </li>
-                    <li class="aiz-side-nav-item">
+                    <li class="aiz-side-nav-item" style="display:none">
                         <a href="{{ route('seller.digitalproducts') }}" class="aiz-side-nav-link {{ areActiveRoutes(['seller.digitalproducts', 'seller.digitalproducts.upload', 'seller.digitalproducts.edit'])}}">
                             <i class="lab la-sketch aiz-side-nav-icon"></i>
                             <span class="aiz-side-nav-text">{{ translate('Digital Products') }}</span>
@@ -116,7 +119,7 @@
                 @if(Auth::user()->user_type == 'seller')
                     @if (\App\Addon::where('unique_identifier', 'pos_system')->first() != null && \App\Addon::where('unique_identifier', 'pos_system')->first()->activated)
                         @if (\App\BusinessSetting::where('type', 'pos_activation_for_seller')->first() != null && \App\BusinessSetting::where('type', 'pos_activation_for_seller')->first()->value != 0)
-                            <li class="aiz-side-nav-item">
+                            <li class="aiz-side-nav-item" style="display:none">
                                 <a href="{{ route('poin-of-sales.seller_index') }}" class="aiz-side-nav-link {{ areActiveRoutes(['poin-of-sales.seller_index'])}}">
                                     <i class="las la-fax aiz-side-nav-icon"></i>
                                     <span class="aiz-side-nav-text">{{ translate('POS Manager') }}</span>
@@ -147,7 +150,7 @@
                         <li class="aiz-side-nav-item">
                             <a href="{{ route('vendor_refund_request') }}" class="aiz-side-nav-link {{ areActiveRoutes(['vendor_refund_request','reason_show'])}}">
                                 <i class="las la-backward aiz-side-nav-icon"></i>
-                                <span class="aiz-side-nav-text">{{ translate('Received Refund Request') }}</span>
+                                <span class="aiz-side-nav-text">Alınan Geri Ödeme İstekleri</span>
                             </a>
                         </li>
                     @endif
@@ -184,7 +187,7 @@
                         </a>
                     </li>
 
-                    <li class="aiz-side-nav-item">
+                    <li class="aiz-side-nav-item"  style="display:none">
                         <a href="{{ route('withdraw_requests.index') }}" class="aiz-side-nav-link {{ areActiveRoutes(['withdraw_requests.index'])}}">
                             <i class="las la-money-bill-wave-alt aiz-side-nav-icon"></i>
                             <span class="aiz-side-nav-text">{{ translate('Money Withdraw') }}</span>
@@ -261,7 +264,7 @@
             </ul>
         </div>
         @if (\App\BusinessSetting::where('type', 'vendor_system_activation')->first()->value == 1 && Auth::user()->user_type == 'customer')
-            <div>
+            <div class="d-none">
                 <a href="{{ route('shops.create') }}" class="btn btn-block btn-soft-primary rounded-0">
                     </i>{{ translate('Be A Seller') }}
                 </a>
