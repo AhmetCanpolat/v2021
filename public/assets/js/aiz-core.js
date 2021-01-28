@@ -35,7 +35,7 @@ $.fn.toggleAttr = function (attr, attr1, attr2) {
                     .find(".file-amount")
                     .html(AIZ.uploader.updateFileHtml(selected));
             } else {
-                elem.find(".file-amount").html("Choose File");
+                elem.find(".file-amount").html("Dosya Seçin");
             }
             $(elem).find(".selected-files").val(selected);
         },
@@ -537,11 +537,11 @@ $.fn.toggleAttr = function (attr, attr1, attr2) {
                                 elem.next(".file-preview").append(html);
                             }
                         } else {
-                            elem.find(".file-amount").html("Choose File");
+                            elem.find(".file-amount").html("Dosya Seçin");
                         }
                 });
             } else {
-                elem.find(".file-amount").html("Choose File");
+                elem.find(".file-amount").html("Dosya Seçin");
             }
 
             // if (AIZ.uploader.data.selectedFiles.length > 0) {
@@ -603,7 +603,7 @@ $.fn.toggleAttr = function (attr, attr1, attr2) {
             //         elem.next(".file-preview").append(html);
             //     }
             // } else {
-            //     elem.find(".file-amount").html("Choose File");
+            //     elem.find(".file-amount").html("Dosya Seçin");
             // }
         },
         editorImageGenerate: function (elem) {
@@ -818,7 +818,7 @@ $.fn.toggleAttr = function (attr, attr1, attr2) {
                                 $this.next(".file-preview").append(html);
                             }
                         } else {
-                            $this.find(".file-amount").html("Choose File");
+                            $this.find(".file-amount").html("Dosya Seçin");
                         }
                 });
             });
@@ -1429,7 +1429,7 @@ $.fn.toggleAttr = function (attr, attr1, attr2) {
                         .next(".custom-file-name")
                         .html(files.length + " Files Selected");
                 } else {
-                    $(this).next(".custom-file-name").html("Choose file");
+                    $(this).next(".custom-file-name").html("Dosya Seçin");
                 }
             });
         },

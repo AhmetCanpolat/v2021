@@ -562,7 +562,7 @@ class HomeController extends Controller
         }
 
 
-        $products = filter_products($products)->paginate(12)->appends(request()->query());
+        $products = filter_products($products)->paginate(20)->appends(request()->query());
 
         return view('frontend.product_listing', compact('products', 'query', 'category_id', 'brand_id', 'sort_by', 'seller_id','min_price', 'max_price', 'attributes', 'selected_attributes', 'all_colors', 'selected_color'));
     }

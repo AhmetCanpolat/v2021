@@ -27,7 +27,7 @@
 										<div class="col-5">
 											<div class="input-group" data-toggle="aizuploader" data-type="image">
 				                                <div class="input-group-prepend">
-				                                    <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
+				                                    <div class="input-group-text bg-soft-secondary font-weight-medium">Seçin</div>
 				                                </div>
 				                                <div class="form-control file-amount">{{ translate('Choose File') }}</div>
 												<input type="hidden" name="types[]" value="home_slider_images">
@@ -60,7 +60,7 @@
 								<div class="col-5">
 									<div class="input-group" data-toggle="aizuploader" data-type="image">
 										<div class="input-group-prepend">
-											<div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
+											<div class="input-group-text bg-soft-secondary font-weight-medium">Seçin</div>
 										</div>
 										<div class="form-control file-amount">{{ translate('Choose File') }}</div>
 										<input type="hidden" name="types[]" value="home_slider_images">
@@ -111,7 +111,7 @@
 										<div class="col-5">
 											<div class="input-group" data-toggle="aizuploader" data-type="image">
 				                                <div class="input-group-prepend">
-				                                    <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
+				                                    <div class="input-group-text bg-soft-secondary font-weight-medium">Seçin</div>
 				                                </div>
 				                                <div class="form-control file-amount">{{ translate('Choose File') }}</div>
 												<input type="hidden" name="types[]" value="home_banner1_images">
@@ -144,7 +144,7 @@
 								<div class="col-5">
 									<div class="input-group" data-toggle="aizuploader" data-type="image">
 										<div class="input-group-prepend">
-											<div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
+											<div class="input-group-text bg-soft-secondary font-weight-medium">Seçin</div>
 										</div>
 										<div class="form-control file-amount">{{ translate('Choose File') }}</div>
 										<input type="hidden" name="types[]" value="home_banner1_images">
@@ -195,7 +195,7 @@
 										<div class="col-5">
 											<div class="input-group" data-toggle="aizuploader" data-type="image">
 				                                <div class="input-group-prepend">
-				                                    <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
+				                                    <div class="input-group-text bg-soft-secondary font-weight-medium">Seçin</div>
 				                                </div>
 				                                <div class="form-control file-amount">{{ translate('Choose File') }}</div>
 												<input type="hidden" name="types[]" value="home_banner2_images">
@@ -228,7 +228,7 @@
 								<div class="col-5">
 									<div class="input-group" data-toggle="aizuploader" data-type="image">
 										<div class="input-group-prepend">
-											<div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
+											<div class="input-group-text bg-soft-secondary font-weight-medium">Seçin</div>
 										</div>
 										<div class="form-control file-amount">{{ translate('Choose File') }}</div>
 										<input type="hidden" name="types[]" value="home_banner2_images">
@@ -347,7 +347,7 @@
 										<div class="col-5">
 											<div class="input-group" data-toggle="aizuploader" data-type="image">
 				                                <div class="input-group-prepend">
-				                                    <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
+				                                    <div class="input-group-text bg-soft-secondary font-weight-medium">Seçin</div>
 				                                </div>
 				                                <div class="form-control file-amount">{{ translate('Choose File') }}</div>
 												<input type="hidden" name="types[]" value="home_banner3_images">
@@ -380,7 +380,7 @@
 								<div class="col-5">
 									<div class="input-group" data-toggle="aizuploader" data-type="image">
 										<div class="input-group-prepend">
-											<div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
+											<div class="input-group-text bg-soft-secondary font-weight-medium">Seçin</div>
 										</div>
 										<div class="form-control file-amount">{{ translate('Choose File') }}</div>
 										<input type="hidden" name="types[]" value="home_banner3_images">

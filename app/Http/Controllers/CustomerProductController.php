@@ -105,7 +105,7 @@ class CustomerProductController extends Controller
             $customer_product_translation->description  = $request->description;
             $customer_product_translation->save();
 
-            flash(translate('Product has been inserted successfully'))->success();
+            flash(translate('ÜRün Başarıyla yüklendi'))->success();
             return redirect()->route('customer_products.index');
         }
         else{

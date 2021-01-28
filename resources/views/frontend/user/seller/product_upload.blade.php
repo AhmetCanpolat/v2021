@@ -115,9 +115,9 @@
                             <div class="col-md-8">
                                 <div class="input-group" data-toggle="aizuploader" data-type="image" data-multiple="true">
                                     <div class="input-group-prepend">
-                                        <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
+                                        <div class="input-group-text bg-soft-secondary font-weight-medium">Seçin</div>
                                     </div>
-                                    <div class="form-control file-amount">{{ translate('Choose File') }}</div>
+                                    <div class="form-control file-amount">Dosya seçin</div>
                                     <input type="hidden" name="photos" class="selected-files">
                                 </div>
                                 <div class="file-preview box sm">
@@ -129,9 +129,9 @@
                             <div class="col-md-8">
                                 <div class="input-group" data-toggle="aizuploader" data-type="image">
                                     <div class="input-group-prepend">
-                                        <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
+                                        <div class="input-group-text bg-soft-secondary font-weight-medium">Seçin</div>
                                     </div>
-                                    <div class="form-control file-amount">{{ translate('Choose File') }}</div>
+                                    <div class="form-control file-amount">Dosya seçin</div>
                                     <input type="hidden" name="thumbnail_img" class="selected-files">
                                 </div>
                                 <div class="file-preview box sm">
@@ -192,7 +192,7 @@
                                         <input type="text" class="form-control" value="{{translate('Attributes')}}" disabled>
                                     </div>
                                     <div class="col-md-8">
-                                        <select name="choice_attributes[]" id="choice_attributes" class="form-control aiz-selectpicker" data-live-search="true" data-selected-text-format="count" multiple data-placeholder="{{ translate('Choose Attributes') }}">
+                                        <select name="choice_attributes[]" id="choice_attributes" class="form-control aiz-selectpicker" data-live-search="true" data-selected-text-format="count" multiple data-placeholder="Özellikleri Seçin">
                                             @foreach (\App\Attribute::all() as $key => $attribute)
                                             <option value="{{ $attribute->id }}">{{ $attribute->getTranslation('name') }}</option>
                                             @endforeach
@@ -299,7 +299,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group row">
+                                    <div class="form-group row d-none">
                                         <div class="col-md-3">
                                             <div class="card-heading">
                                                 <h5 class="mb-0 h6">{{translate('Flat Rate')}}</h5>
@@ -336,9 +336,9 @@
                                   <div class="col-md-8">
                                       <div class="input-group" data-toggle="aizuploader" data-type="document">
                                           <div class="input-group-prepend">
-                                              <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
+                                              <div class="input-group-text bg-soft-secondary font-weight-medium">Seçin</div>
                                           </div>
-                                          <div class="form-control file-amount">{{ translate('Choose File') }}</div>
+                                          <div class="form-control file-amount">Dosya seçin</div>
                                           <input type="hidden" name="pdf" class="selected-files">
                                       </div>
                                       <div class="file-preview box sm">
@@ -369,9 +369,9 @@
                                     <div class="col-md-8">
                                         <div class="input-group" data-toggle="aizuploader" data-type="image">
                                             <div class="input-group-prepend">
-                                                <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
+                                                <div class="input-group-text bg-soft-secondary font-weight-medium">Seçin</div>
                                             </div>
-                                            <div class="form-control file-amount">{{ translate('Choose File') }}</div>
+                                            <div class="form-control file-amount">Dosya seçin</div>
                                             <input type="hidden" name="meta_img" class="selected-files">
                                         </div>
                                         <div class="file-preview box sm">
@@ -388,7 +388,7 @@
                             function yolla(){
                                 if($(".file-preview").html()=="")
                                 {
-                                    AIZ.plugins.notify('danger','Galeri Görsellerinden Resim Seçimi Yapmadınız!');
+                                    AIZ.plugins.notify('danger','Ürün Görselleri Eklemediniz!');
                                 }
                                else{
                                    $("#yla").click();
@@ -676,7 +676,7 @@
                 // alert($('#category_id').val() +"-"+$('#subcategory_id').val()+"-"+$('#subsubcategory_id').val());
             }
             else{
-                alert('Please choose categories...');
+                alert('Lütfen kategorileri seçin ...');
                 // console.log(category_id);
                 // console.log(subcategory_id);
                 // console.log(subsubcategory_id);

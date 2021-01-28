@@ -281,7 +281,7 @@
                                     <div class="col-md-8">
                                         <div class="input-group" data-toggle="aizuploader" data-type="image" data-multiple="true">
                                             <div class="input-group-prepend">
-                                                <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
+                                                <div class="input-group-text bg-soft-secondary font-weight-medium">Seçin</div>
                                             </div>
                                             <div class="form-control file-amount">{{ translate('Choose File') }}</div>
                                             <input type="hidden" name="photos" value="{{ $product->photos }}" class="selected-files">
@@ -295,7 +295,7 @@
                                     <div class="col-md-8">
                                         <div class="input-group" data-toggle="aizuploader" data-type="image">
                                             <div class="input-group-prepend">
-                                                <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
+                                                <div class="input-group-text bg-soft-secondary font-weight-medium">Seçin</div>
                                             </div>
                                             <div class="form-control file-amount">{{ translate('Choose File') }}</div>
                                             <input type="hidden" name="thumbnail_img" value="{{ $product->thumbnail_img }}" class="selected-files">
@@ -435,13 +435,13 @@
                                         <input type="text" placeholder="{{translate('Unit price')}}" name="unit_price" class="form-control" value="{{$product->unit_price}}" required>
                                     </div>
                                 </div>
-                                <div class="form-group row">
+                                <div class="form-group row d-none">
                                     <label class="col-lg-3 col-from-label">{{translate('Purchase price')}}</label>
                                     <div class="col-lg-6">
                                         <input type="number" lang="en" min="0" step="0.01" placeholder="{{translate('Purchase price')}}" name="purchase_price" class="form-control" value="{{$product->purchase_price}}" required>
                                     </div>
                                 </div>
-                                <div class="form-group row">
+                                <div class="form-group row d-none">
                                     <label class="col-lg-3 col-from-label">{{translate('Tax')}}</label>
                                     <div class="col-lg-6">
                                         <input type="number" lang="en" min="0" step="0.01" placeholder="{{translate('tax')}}" name="tax" class="form-control" value="{{$product->tax}}" required>
@@ -491,7 +491,7 @@
                             </div>
                         </div>
                         @if (\App\BusinessSetting::where('type', 'shipping_type')->first()->value == 'product_wise_shipping')
-                            <div class="card">
+                            <div class="card d-none">
                                 <div class="card-header">
                                     <h5 class="mb-0 h6">{{translate('Product Shipping Cost')}}</h5>
                                 </div>
@@ -552,7 +552,7 @@
                                     <div class="col-md-8">
                                         <div class="input-group" data-toggle="aizuploader">
                                             <div class="input-group-prepend">
-                                                <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
+                                                <div class="input-group-text bg-soft-secondary font-weight-medium">Seçin</div>
                                             </div>
                                             <div class="form-control file-amount">{{ translate('Choose File') }}</div>
                                             <input type="hidden" name="pdf" value="{{ $product->pdf }}" class="selected-files">
@@ -585,7 +585,7 @@
                                     <div class="col-md-8">
                                         <div class="input-group" data-toggle="aizuploader" data-type="image" data-multiple="true">
                                             <div class="input-group-prepend">
-                                                <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
+                                                <div class="input-group-text bg-soft-secondary font-weight-medium">Seçin</div>
                                             </div>
                                             <div class="form-control file-amount">{{ translate('Choose File') }}</div>
                                             <input type="hidden" name="meta_img" value="{{ $product->meta_img }}" class="selected-files">

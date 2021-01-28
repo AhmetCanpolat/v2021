@@ -332,7 +332,7 @@ class ProductController extends Controller
         $product_translation->description = $request->description;
         $product_translation->save();
 
-        flash(translate('Product has been inserted successfully'))->success();
+        flash(translate('Ürün başarıyla eklendi'))->success();
 
         Artisan::call('view:clear');
         Artisan::call('cache:clear');
@@ -581,7 +581,7 @@ class ProductController extends Controller
         $product_translation->description   = $request->description;
         $product_translation->save();
 
-        flash(translate('Product has been updated successfully'))->success();
+        flash(translate('Ürün başarıyla güncellendi'))->success();
 
         Artisan::call('view:clear');
         Artisan::call('cache:clear');
@@ -603,7 +603,7 @@ class ProductController extends Controller
         }
         if(Product::destroy($id)){
 
-            flash(translate('Product has been deleted successfully'))->success();
+            flash(translate('Ürün başarıyla silindi'))->success();
 
             Artisan::call('view:clear');
             Artisan::call('cache:clear');
@@ -616,7 +616,7 @@ class ProductController extends Controller
             }
         }
         else{
-            flash(translate('Something went wrong'))->error();
+            flash(translate('Birşeyler Yanlış gitti'))->error();
             return back();
         }
     }
@@ -634,7 +634,7 @@ class ProductController extends Controller
         $product_new->slug = substr($product_new->slug, 0, -5).Str::random(5);
 
         if($product_new->save()){
-            flash(translate('Product has been duplicated successfully'))->success();
+            flash(translate('Ürün başarıyla kopyalandı'))->success();
             if(Auth::user()->user_type == 'admin' || Auth::user()->user_type == 'staff'){
               if($request->type == 'In House')
                 return redirect()->route('products.admin');
@@ -648,7 +648,7 @@ class ProductController extends Controller
             }
         }
         else{
-            flash(translate('Something went wrong'))->error();
+            flash(translate('Birşeyler Yanlış Gitti'))->error();
             return back();
         }
     }

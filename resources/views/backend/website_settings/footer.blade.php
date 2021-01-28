@@ -241,7 +241,7 @@
                           <label>{{ translate('Payment Methods') }}</label>
                           <div class="input-group" data-toggle="aizuploader" data-type="image" data-multiple="true">
                               <div class="input-group-prepend">
-                                  <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
+                                  <div class="input-group-text bg-soft-secondary font-weight-medium">Seçin</div>
                               </div>
                               <div class="form-control file-amount">{{ translate('Choose File') }}</div>
                               <input type="hidden" name="types[]" value="payment_method_images">

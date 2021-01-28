@@ -50,7 +50,7 @@
                                     <div class="col-lg-9">
                                         <div class="input-group" data-toggle="aizuploader" data-multiple="false">
                                             <div class="input-group-prepend">
-                                                <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
+                                                <div class="input-group-text bg-soft-secondary font-weight-medium">Seçin</div>
                                             </div>
                                             <div class="form-control file-amount">{{ translate('Choose File') }}</div>
                                             <input type="hidden" name="file" class="selected-files">
@@ -78,7 +78,7 @@
                                     <div class="col-lg-9">
                                         <div class="input-group" data-toggle="aizuploader" data-type="image" data-multiple="true">
                                             <div class="input-group-prepend">
-                                                <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
+                                                <div class="input-group-text bg-soft-secondary font-weight-medium">Seçin</div>
                                             </div>
                                             <div class="form-control file-amount">{{ translate('Choose File') }}</div>
                                             <input type="hidden" name="photos" class="selected-files">
@@ -94,7 +94,7 @@
                                     <div class="col-lg-9">
                                         <div class="input-group" data-toggle="aizuploader" data-type="image" data-multiple="false">
                                             <div class="input-group-prepend">
-                                                <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
+                                                <div class="input-group-text bg-soft-secondary font-weight-medium">Seçin</div>
                                             </div>
                                             <div class="form-control file-amount">{{ translate('Choose File') }}</div>
                                             <input type="hidden" name="thumbnail_img" class="selected-files">
@@ -128,7 +128,7 @@
                                     <div class="col-lg-9">
                                         <div class="input-group" data-toggle="aizuploader" data-type="image" data-multiple="false">
                                             <div class="input-group-prepend">
-                                                <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
+                                                <div class="input-group-text bg-soft-secondary font-weight-medium">Seçin</div>
                                             </div>
                                             <div class="form-control file-amount">{{ translate('Choose File') }}</div>
                                             <input type="hidden" name="meta_img" class="selected-files">

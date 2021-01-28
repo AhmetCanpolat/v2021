@@ -104,7 +104,7 @@
                                     <div class="col-md-10">
                                         <div class="input-group" data-toggle="aizuploader" data-type="image" data-multiple="true">
                                             <div class="input-group-prepend">
-                                                <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
+                                                <div class="input-group-text bg-soft-secondary font-weight-medium">Seçin</div>
                                             </div>
                                             <div class="form-control file-amount">{{ translate('Choose File') }}</div>
                                             <input type="hidden" name="photos" class="selected-files" value="{{ $product->photos }}">
@@ -118,7 +118,7 @@
                                     <div class="col-md-10">
                                         <div class="input-group" data-toggle="aizuploader" data-type="image">
                                             <div class="input-group-prepend">
-                                                <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
+                                                <div class="input-group-text bg-soft-secondary font-weight-medium">Seçin</div>
                                             </div>
                                             <div class="form-control file-amount">{{ translate('Choose File') }}</div>
                                             <input type="hidden" name="thumbnail_img" class="selected-files" value="{{ $product->thumbnail_img }}">
@@ -174,7 +174,7 @@
                                     <div class="col-md-10">
                                         <div class="input-group" data-toggle="aizuploader" data-type="image">
                                             <div class="input-group-prepend">
-                                                <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
+                                                <div class="input-group-text bg-soft-secondary font-weight-medium">Seçin</div>
                                             </div>
                                             <div class="form-control file-amount">{{ translate('Choose File') }}</div>
                                             <input type="hidden" name="meta_img" class="selected-files" value="{{ $product->meta_img }}">
@@ -229,7 +229,7 @@
                                     <div class="col-md-10">
                                         <div class="input-group" data-toggle="aizuploader" data-type="document">
                                             <div class="input-group-prepend">
-                                                <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
+                                                <div class="input-group-text bg-soft-secondary font-weight-medium">Seçin</div>
                                             </div>
                                             <div class="form-control file-amount">{{ translate('Choose File') }}</div>
                                             <input type="hidden" name="pdf" class="selected-files" value="{{ $product->pdf }}">
