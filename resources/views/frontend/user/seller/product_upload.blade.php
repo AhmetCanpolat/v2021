@@ -251,7 +251,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group row" id="quantity">
-                                    <label class="col-md-3 col-from-label">{{translate('Quantity')}}</label>
+                                    <label class="col-md-3 col-from-label">Stok sayısı</label>
                                     <div class="col-md-6">
                                         <input type="number" lang="en" min="0" value="0" step="1" placeholder="{{ translate('Quantity') }}" name="current_stock" class="form-control" required>
                                     </div>
