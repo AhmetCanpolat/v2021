@@ -56,15 +56,15 @@
                                     Ödeme yapın
                             </h3>
                         </div>
-                        <div class="card-body text-center">
+                        <div class="card-body">
 
                     <div class="cart-body">
                         <div class="payment-title">
                         <h1>Ödeme Bilgileri</h1>
                       </div>
                         <div class="container preload">
-                      <div class="creditcard" style="margin-top: 40px;">
-                        <div class="front">
+                      <div class="creditcard cart-center" style="margin-top: 40px;">
+                        <div class="front cart-view">
                           <div id="ccsingle"></div>
                           <svg version="1.1" id="cardfront" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 750 471" style="enable-background:new 0 0 750 471;" xml:space="preserve">
                             <g id="Front">
@@ -158,7 +158,7 @@
                         </div>
                       </div>
                         </div>
-                      <div class="form-container" style="float: right; margin-top: -33px;">
+                      <div class="form-container payment-form form-center-pay" style="float: right; margin-top: -33px;">
                              <div class="field-container">
                                <label class="label-payment" for="name">Ad Soyad</label>
                                <input id="name" maxlength="20" name="holdername" type="text">
@@ -171,7 +171,7 @@
                                </svg>
                              </div>
                              <div class="field-container">
-                               <label class="label-payment" for="expirationdate">Son Kullanma Tarihi (mm/yy)</label>
+                               <label class="label-payment" for="expirationdate">Son Kullanma Tarihi</label>
                                <input id="expirationdate" name="month-year" type="text" placeholder="10/21" pattern="[0-9]*" inputmode="numeric">
                              </div>
                              <div class="field-container">

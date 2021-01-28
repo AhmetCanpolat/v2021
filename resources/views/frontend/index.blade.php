@@ -328,7 +328,7 @@
     @endif
 
     {{-- Top 10 categories and Brands --}}
-    <section class="mb-4">
+    <section class="mb-4 d-none">
         <div class="container">
             <div class="row gutters-10">
                 @if (get_setting('top10_categories') != null)
@@ -371,7 +371,7 @@
                     </div>
                 @endif
                 @if (get_setting('top10_categories') != null)
-                    <div class="col-lg-6">
+                    <div class="col-lg-6 d-none">
                         <div class="d-flex mb-3 align-items-baseline border-bottom">
                             <h3 class="h5 fw-700 mb-0">
                                 <span class="border-bottom border-primary border-width-2 pb-3 d-inline-block">En çok tercih edilen markalar</span>

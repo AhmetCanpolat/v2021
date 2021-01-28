@@ -276,7 +276,7 @@
                             </div>
                         </div>
                         @if (\App\BusinessSetting::where('type', 'shipping_type')->first()->value == 'product_wise_shipping')
-                            <div class="card">
+                            <div class="card d-none">
                                 <div class="card-header">
                                     <h5 class="mb-0 h6">{{translate('Product Shipping Cost')}}</h5>
                                 </div>
@@ -299,7 +299,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group row d-none">
+                                    <div class="form-group row">
                                         <div class="col-md-3">
                                             <div class="card-heading">
                                                 <h5 class="mb-0 h6">{{translate('Flat Rate')}}</h5>
@@ -504,6 +504,7 @@
 
 @section('script')
     <script type="text/javascript">
+        var subsubcategory_name = "";
 
         var u3ColumnsMode = false;
         if($(window).width() < 720){

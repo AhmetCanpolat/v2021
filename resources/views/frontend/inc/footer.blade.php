@@ -1,35 +1,32 @@
-<section class="bg-white border-top mt-auto">
+<section class="bg-white border-top mt-auto footer-sup">
     <div class="container">
-        <div class="row no-gutters">
-            <div class="col-lg-3 col-md-6">
+        <div class="d-flex justify-content-around align-items-center">
+            
                 <a class="text-reset border-left text-center p-4 d-block" href="{{ route('terms') }}">
                     <i class="la la-file-text la-3x text-primary mb-2"></i>
-                    <h4 class="h6">Şartlar ve koşullar</h4>
+                    <h4 class="footer-sup-link suplink" class="h6">Kullanım Koşulları</h4>
                 </a>
-            </div>
-            <div class="col-lg-3 col-md-6">
+            
                 <a class="text-reset border-left text-center p-4 d-block" href="{{ route('returnpolicy') }}">
                     <i class="la la-mail-reply la-3x text-primary mb-2"></i>
-                    <h4 class="h6">İade politikasi</h4>
+                    <h4 class="footer-sup-link suplink" class="h6">İade politikasi</h4>
                 </a>
-            </div>
-            <div class="col-lg-3 col-md-6">
+            
                 <a class="text-reset border-left text-center p-4 d-block" href="{{ route('supportpolicy') }}">
                     <i class="la la-support la-3x text-primary mb-2"></i>
-                    <h4 class="h6">Destek Politikası</h4>
+                    <h4 class="footer-sup-link suplink" class="h6">Destek Politikası</h4>
                 </a>
-            </div>
-            <div class="col-lg-3 col-md-6">
+            
                 <a class="text-reset border-left border-right text-center p-4 d-block" href="{{ route('privacypolicy') }}">
                     <i class="las la-exclamation-circle la-3x text-primary mb-2"></i>
-                    <h4 class="h6">Gizlilik Politikası</h4>
+                    <h4 class="footer-sup-link suplink" class="h6">Gizlilik Politikası</h4>
                 </a>
-            </div>
+            
         </div>
     </div>
 </section>
 
-<section class="bg-dark py-5 text-light">
+<section class="bg-dark py-5 text-light footer-mob">
     <div class="container">
         <div class="row">
             <div class="col-lg-5 col-xl-4 text-center text-md-left">
@@ -138,7 +135,7 @@
 </section>
 
 <!-- FOOTER -->
-<footer class="pt-3 pb-7 pb-xl-3 bg-black text-light">
+<footer class="pt-3 pb-7 pb-xl-3 bg-black text-light footer-mob">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-4">

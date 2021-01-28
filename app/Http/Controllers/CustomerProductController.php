@@ -109,7 +109,7 @@ class CustomerProductController extends Controller
             return redirect()->route('customer_products.index');
         }
         else{
-            flash(translate('Something went wrong'))->error();
+            flash(translate('Birşeyler Yanlış gitti'))->error();
             return back();
         }
     }

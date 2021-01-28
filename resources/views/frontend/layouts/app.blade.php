@@ -57,6 +57,59 @@
     </script>
 
     <style>
+
+        @media screen and (max-width: 1499px) and (min-width: 1200px) {
+          .cart-view {
+            padding-right: 5rem;
+          }
+        }
+
+        @media only screen and (max-width: 1199px) {
+          .cart-center {
+            margin: 0 auto;
+          }
+        }
+
+        @media only screen and (max-width: 1199px) {
+          .form-center-pay {
+            margin-top: 0px !important;
+            float: none !important;
+            margin: auto;
+            padding-top: 17rem !important;
+          }
+        }
+
+
+        @media screen and (max-width: 1499px) and (min-width: 1200px) {
+          .payment-form {
+            padding-left: 5rem !important;
+          }
+        }
+
+       @media only screen and (max-width: 768px) {
+          .footer-mob {
+            display: none;
+          }
+        }
+
+        @media only screen and (max-width: 768px) {
+          .footer-sup-link {
+            font-size: 0.7rem;
+          }
+        }
+
+        @media only screen and (min-width: 768px) {
+          .suplink {
+            font-size: 1rem;
+          }
+        }
+
+        @media only screen and (max-width: 768px) {
+          .footer-sup {
+            padding-bottom: 60px;
+          }
+        }
+
         body{
             font-family: 'Open Sans', sans-serif;
             font-weight: 400;
