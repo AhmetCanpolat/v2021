@@ -227,9 +227,13 @@
                                                             </div>
                                                                 <div class="modal-category-list">
                                                                     <ul id="subsubcategories" class="list-unstyled" style="margin-top:10px">
+                                                                    @if($product->subsubcategory_id  != "null" && $product->subsubcategory_id  != "")
+                                                                    
                                                                         @foreach($altAltKategoriParentList as $val)
                                                                         <li onclick="confirm_subsubcategory(this, {{$val->id}})">{{$val->name}}</li>
-                                                                        @endforeach
+                                                                        @endforeach  
+
+                                                                @endif
                                                                     </ul>
                                                                 </div>
                                                             </div>
@@ -466,7 +470,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group row" id="quantity">
-                                    <label class="col-lg-3 col-from-label">{{translate('Quantity')}}</label>
+                                    <label class="col-lg-3 col-from-label">Stok sayısı</label>
                                     <div class="col-lg-6">
                                         <input type="number" lang="en" value="{{ $product->current_stock }}" step="1" placeholder="{{translate('Quantity')}}" name="current_stock" class="form-control" required>
                                     </div>
@@ -621,7 +625,10 @@ var category_id = '{{$bid}}';
        var subsubcategory_id = '{{$uid}}';
        var category_name='{{$bir}}';
        var subcategory_name='{{$iki}}';
-       var subsubcategory_name='{{$uc}}';
+       var subsubcategory_name="";
+       @if(isset($uc))
+          subsubcategory_name='{{$uc}}';
+       @endif
        $(document).ready(function () {
            $("#hKategori").html(category_name+'>'+subcategory_name+'>'+subsubcategory_name);
            // $('#subcategory_list').hide();

@@ -201,6 +201,7 @@
                                 </div>
                                 <div>
                                     <p>{{ translate('Choose the attributes of this product and then input values of each attribute') }}</p>
+                                    <p>Örnek doldurma</p><img src="{{ static_asset('assets/img/ornek-doldurma.png') }}" alt="Örnek Özellik Doldurma">
                                     <br>
                                 </div>
 
@@ -593,6 +594,8 @@
             category_id = cat_id;
             subcategory_id = null;
             subsubcategory_id = null;
+            subcategory_name=null;
+            subsubcategory_name="";
             category_name = $(el).html();
             $('#subcategories').html(null);
             $('#subsubcategory_list').hide();
@@ -612,6 +615,7 @@
             subcategory_id = subcat_id;
             subsubcategory_id = null;
             subcategory_name = $(el).html();
+            subsubcategory_name="";
             $('#subsubcategories').html(null);
             $.post('/subsubcategories/get_subsubcategories_by_subcategory',{_token:'{{ csrf_token() }}', subcategory_id:subcategory_id}, function(data){
                 for (var i = 0; i < data.length; i++) {

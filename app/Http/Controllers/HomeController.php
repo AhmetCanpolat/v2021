@@ -328,30 +328,40 @@ class HomeController extends Controller
             $anaKategori=Category::where('id',$product->category_id)->get();
             $bir=$anaKategori[0]->name;
             $bid=$anaKategori[0]->id;
-            $iki=null;
+            $iki=null;   $iid=null;
             $uc=null;
-            $iid=null;
+         
             $uid=null;
-        
+      
             if ($product->subcategory_id!=null)
             {
                 
                 $altKategori=Category::where('id',$product->subcategory_id)->get();
-    
-                $altKategoriParentList = Category::where("parent_id",$altKategori[0]->parent_id)->get();
-                $altaltKategori=Category::where('id',$product->subsubcategory_id)->get();
-    
-                
-                $altAltKategoriParentList = Category::where("parent_id",$altaltKategori[0]->parent_id)->get();
-                
-                $iki= $altKategori[0]->name;
-                $uc=$altaltKategori[0]->name;
+                $iki=$altKategori[0]->name;   
                 $iid=$altKategori[0]->id;
+                $altKategoriParentList = Category::where("parent_id",$altKategori[0]->parent_id)->get();
+                if($product->subsubcategory_id!=null)
+                {
+                        $altaltKategori=Category::where('id',$product->subsubcategory_id)->get();
+                $altAltKategoriParentList = Category::where("parent_id",$altaltKategori[0]->parent_id)->get();
                 $uid=$altaltKategori[0]->id;
+                $uc=$altaltKategori[0]->name;     
+                return view('frontend.user.seller.product_edit', compact('bid','iid','uid','altKategoriParentList','altAltKategoriParentList','bir','iki','uc','product', 'categories', 'tags', 'lang'));
+
+                }
+else{
+    return view('frontend.user.seller.product_edit', compact('bid','iid','uid','altKategoriParentList','bir','iki','product', 'categories', 'tags', 'lang'));        
+}
+
+
+                $iki= $altKategori[0]->name;
+             
+                $iid=$altKategori[0]->id;
+               
             }
     
             //dd($anaKategori[0]->name ."-".$altKategori[0]->name."-".$altaltKategori[0]->name);
-            return view('frontend.user.seller.product_edit', compact('bid','iid','uid','altKategoriParentList','altAltKategoriParentList','bir','iki','uc','product', 'categories', 'tags', 'lang'));
+       
     }
 
     public function seller_product_list(Request $request)
