@@ -364,5 +364,5 @@
         @endforeach
     </div>
     <div style='margin: 10px 20px; padding: 0px; display: block; font-size: 13px; color: rgb(151, 150, 145); text-align: center; font-family: "Source Sans Pro", sans-serif;'>Ön Bilgilendirme Koşullarını ve Mesafeli Satış Sözleşmesi'ni okudum.</div>
-    <p><button class="btn agreementbutton" style="display: block;font-family: source_sans_proregular;border: 0px;color: rgb(255, 255, 255);width: 187px;line-height: 37px;font-size: 16px;border-radius: 3px;background: 165px center no-repeat rgb(243 133 41 / 1);margin: 0px auto 28px;" type="button">Onaylıyorum</button></p>
+    <p><button type="button" data-dismiss="modal" class="btn agreementbutton" style="display: block;font-family: source_sans_proregular;border: 0px;color: rgb(255, 255, 255);width: 187px;line-height: 37px;font-size: 16px;border-radius: 3px;background: 165px center no-repeat rgb(243 133 41 / 1);margin: 0px auto 28px;" type="button">Onaylıyorum</button></p>
 

@@ -22,7 +22,7 @@
                     <div class="col">
                         <div class="text-center">
                             <i class="la-3x mb-2 opacity-50 las la-truck"></i>
-                            <h3 class="fs-14 fw-600 d-none d-lg-block opacity-50 text-capitalize">{{ translate('3. Delivery info')}}</h3>
+                            <h3 class="fs-14 fw-600 d-none d-lg-block opacity-50 text-capitalize">Satın Alınan Ürünler</h3>
                         </div>
                     </div>
                     <div class="col">
@@ -53,7 +53,6 @@
                             <div class="row gutters-5 d-none d-lg-flex border-bottom mb-3 pb-3">
                                 <div class="col-md-5 fw-600">{{ translate('Product')}}</div>
                                 <div class="col fw-600">{{ translate('Price')}}</div>
-                                <div class="col fw-600">{{ translate('Tax')}}</div>
                                 <div class="col fw-600">{{ translate('Quantity')}}</div>
                                 <div class="col fw-600">{{ translate('Total')}}</div>
                                 <div class="col-auto fw-600">{{ translate('Remove')}}</div>
@@ -88,11 +87,6 @@
                                                 <span class="opacity-60 fs-12 d-block d-lg-none">{{ translate('Price')}}</span>
                                                 <span class="fw-600 fs-16">{{ single_price($cartItem['price']) }}</span>
                                             </div>
-                                            <div class="col-lg col-4 order-2 order-lg-0 my-3 my-lg-0">
-                                                <span class="opacity-60 fs-12 d-block d-lg-none">{{ translate('Tax')}}</span>
-                                                <span class="fw-600 fs-16">{{ single_price($cartItem['tax']) }}</span>
-                                            </div>
-
                                             <div class="col-lg col-6 order-4 order-lg-0">
                                                 @if($cartItem['digital'] != 1)
                                                     <div class="row no-gutters align-items-center aiz-plus-minus mr-2 ml-0">
@@ -173,39 +167,39 @@
                 <div class="modal-body">
                     <div class="p-3">
                         <form class="form-default" role="form" action="{{ route('cart.login.submit') }}" method="POST">
-                            @csrf
-                            <div class="form-group">
-                                @if (\App\Addon::where('unique_identifier', 'otp_system')->first() != null && \App\Addon::where('unique_identifier', 'otp_system')->first()->activated)
-                                    <input type="text" class="form-control h-auto form-control-lg {{ $errors->has('email') ? ' is-invalid' : '' }}" value="{{ old('email') }}" placeholder="{{ translate('Email Or Phone')}}" name="email" id="email">
-                                @else
-                                    <input type="email" class="form-control h-auto form-control-lg {{ $errors->has('email') ? ' is-invalid' : '' }}" value="{{ old('email') }}" placeholder="{{  translate('Email') }}" name="email">
-                                @endif
-                                @if (\App\Addon::where('unique_identifier', 'otp_system')->first() != null && \App\Addon::where('unique_identifier', 'otp_system')->first()->activated)
-                                    <span class="opacity-60">{{  translate('Use country code before number') }}</span>
-                                @endif
-                            </div>
+                                        @csrf
+                                        <div class="form-group">
+                                            @if (\App\Addon::where('unique_identifier', 'otp_system')->first() != null && \App\Addon::where('unique_identifier', 'otp_system')->first()->activated)
+                                                <input type="text" class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" value="{{ old('email') }}" placeholder="{{ translate('Email Or Phone')}}" name="email" id="email">
+                                            @else
+                                                <input type="email" class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" value="{{ old('email') }}" placeholder="{{  translate('Email') }}" name="email">
+                                            @endif
+                                            @if (\App\Addon::where('unique_identifier', 'otp_system')->first() != null && \App\Addon::where('unique_identifier', 'otp_system')->first()->activated)
+                                                <span class="opacity-60">{{  translate('Use country code before number') }}</span>
+                                            @endif
+                                        </div>
 
-                            <div class="form-group">
-                                <input type="password" name="password" class="form-control h-auto form-control-lg" placeholder="{{ translate('Password')}}">
-                            </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control {{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="{{ translate('Password')}}" name="password" id="password">
+                                        </div>
 
-                            <div class="row mb-2">
-                                <div class="col-6">
-                                    <label class="aiz-checkbox">
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>
-                                        <span class=opacity-60>{{  translate('Remember Me') }}</span>
-                                        <span class="aiz-square-check"></span>
-                                    </label>
-                                </div>
-                                <div class="col-6 text-right">
-                                    <a href="{{ route('password.request') }}" class="text-reset opacity-60 fs-14">{{ translate('Forgot password?')}}</a>
-                                </div>
-                            </div>
+                                        <div class="row mb-2">
+                                            <div class="col-6">
+                                                <label class="aiz-checkbox">
+                                                    <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>
+                                                    <span class=opacity-60>{{  translate('Remember Me') }}</span>
+                                                    <span class="aiz-square-check"></span>
+                                                </label>
+                                            </div>
+                                            <div class="col-6 text-right">
+                                                <a href="{{ route('password.request') }}" class="text-reset opacity-60 fs-14">{{ translate('Forgot password?')}}</a>
+                                            </div>
+                                        </div>
 
-                            <div class="mb-5">
-                                <button type="submit" class="btn btn-primary btn-block fw-600">{{  translate('Login') }}</button>
-                            </div>
-                        </form>
+                                        <div class="mb-5">
+                                            <button type="submit" class="btn btn-primary btn-block fw-600">{{  translate('Login') }}</button>
+                                        </div>
+                                    </form>
 
                     </div>
                     <div class="text-center mb-3">

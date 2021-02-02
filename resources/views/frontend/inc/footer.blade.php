@@ -49,7 +49,7 @@
                             <div class="form-group mb-0">
                                 <input type="email" class="form-control" placeholder="E-posta adresiniz" name="email" required>
                             </div>
-                            <button type="submit" class="btn btn-primary">Subscribe</button>
+                            <button type="submit" class="btn btn-primary">Abone Ol</button>
                         </form>
                     </div>
                 </div>

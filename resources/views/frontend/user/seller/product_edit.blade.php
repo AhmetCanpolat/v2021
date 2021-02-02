@@ -618,7 +618,7 @@
 @endsection
 
 @section('script')
-    <script type="text/javascript">
+<script type="text/javascript">
 
 var category_id = '{{$bid}}';
        var subcategory_id = '{{$iid}}';
@@ -654,8 +654,6 @@ var category_id = '{{$bid}}';
         }
             function closeModal(){
                 $("#filters").html("");
-                addFilterInput();
-                console.log();
 
                 if(category_id > 0 && subcategory_id > 0){
                     $('#category_id').val(category_id);
@@ -678,6 +676,8 @@ var category_id = '{{$bid}}';
             category_id = cat_id;
             subcategory_id = null;
             subsubcategory_id = null;
+            subcategory_name = "";
+            subsubcategory_name = "";
             category_name = $(el).html();
             $('#subcategories').html(null);
             $('#subsubcategory_list').hide();
@@ -698,6 +698,7 @@ var category_id = '{{$bid}}';
             subcategory_id = subcat_id;
             subsubcategory_id = null;
             subcategory_name = $(el).html();
+            subsubcategory_name = "";
             $('#subsubcategories').html(null);
             $.post('/subsubcategories/get_subsubcategories_by_subcategory',{_token:'{{ csrf_token() }}', subcategory_id:subcategory_id}, function(data){
 

@@ -318,7 +318,7 @@ class OrderController extends Controller
                 if($product_variation != null){
                     $product_stock = $product->stocks->where('variant', $product_variation)->first();
                     if($product->digital != 1 &&  $cartItem['quantity'] > $product_stock->qty){
-                        flash(translate('The requested quantity is not available for ').$product->getTranslation('name'))->warning();
+                        flash(translate('Ürün İstenilen miktar için mevcut değil ').$product->getTranslation('name'))->warning();
                         $order->delete();
                         return redirect()->route('cart')->send();
                     }
@@ -329,7 +329,7 @@ class OrderController extends Controller
                 }
                 else {
                     if ($product->digital != 1 && $cartItem['quantity'] > $product->current_stock) {
-                        flash(translate('The requested quantity is not available for ').$product->getTranslation('name'))->warning();
+                        flash(translate('Ürün İstenilen miktar için mevcut değil ').$product->getTranslation('name'))->warning();
                         $order->delete();
                         return redirect()->route('cart')->send();
                     }
@@ -386,7 +386,7 @@ class OrderController extends Controller
             $order->save();
 
             $array['view'] = 'emails.invoice';
-            $array['subject'] = translate('Your order has been placed').' - '.$order->code;
+            $array['subject'] = translate('Esosyete Sipariş Faturası').' - '.$order->code;
             $array['from'] = env('MAIL_USERNAME');
             $array['order'] = $order;
 
@@ -483,10 +483,10 @@ class OrderController extends Controller
                 $orderDetail->delete();
             }
             $order->delete();
-            flash(translate('Order has been deleted successfully'))->success();
+            flash(translate('Sipariş başarıyla silindi'))->success();
         }
         else{
-            flash(translate('Something went wrong'))->error();
+            flash(translate('Bir şeyler yanlış gitti'))->error();
         }
         return back();
     }

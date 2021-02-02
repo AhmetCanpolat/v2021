@@ -86,8 +86,8 @@
                                     <td>{{ translate('Flat shipping rate')}}</td>
                                 </tr>
                                 <tr>
-                                    <td class="w-50 fw-600">{{ translate('Payment method')}}:</td>
-                                    <td>{{ ucfirst(str_replace('_', ' ', $order->payment_type)) }}</td>
+                                    <td class="w-50 fw-600">Ödeme Şekli:</td>
+                                    <td>Kart ile</td>
                                 </tr>
                             </table>
                         </div>
@@ -141,7 +141,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                <td>{{ $orderDetail->product->getTranslation('name') }} ({{ $orderDetail->variation }})</td>
+                                <td>{{ $orderDetail->product->getTranslation('name') }} {{ $orderDetail->variation }}</td>
                                     <td>{{ $orderDetail->quantity }}</td>
                                     <td>{{ $orderDetail->product->user->name }}</td>
                                 </tr>

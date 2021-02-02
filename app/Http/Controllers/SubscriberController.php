@@ -41,10 +41,10 @@ class SubscriberController extends Controller
             $subscriber = new Subscriber;
             $subscriber->email = $request->email;
             $subscriber->save();
-            flash(translate('You have subscribed successfully'))->success();
+            flash(translate('Başarıyla abone oldunuz'))->success();
         }
         else{
-            flash(translate('You are  already a subscriber'))->success();
+            flash(translate('Zaten abonesininiz'))->success();
         }
         return back();
     }
@@ -92,7 +92,7 @@ class SubscriberController extends Controller
     public function destroy($id)
     {
         Subscriber::destroy($id);
-        flash(translate('Subscriber has been deleted successfully'))->success();
+        flash(translate('Abone başarıyla silindi'))->success();
         return redirect()->route('subscribers.index');
     }
 }

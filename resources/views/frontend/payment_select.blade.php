@@ -24,7 +24,7 @@
                     <div class="col done">
                         <div class="text-center text-success">
                             <i class="la-3x mb-2 las la-truck"></i>
-                            <h3 class="fs-14 fw-600 d-none d-lg-block text-capitalize">Teslimat Adres Bilgileri</h3>
+                            <h3 class="fs-14 fw-600 d-none d-lg-block text-capitalize">Satın Alınan Ürünler</h3>
                         </div>
                     </div>
                     <div class="col active">
@@ -65,7 +65,7 @@
                         <div class="container preload">
                       <div class="creditcard cart-center" style="margin-top: 40px;">
                         <div class="front cart-view">
-                          <div id="ccsingle"></div>
+                          <div class="cart-info-logo" id="ccsingle"></div>
                           <svg version="1.1" id="cardfront" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 750 471" style="enable-background:new 0 0 750 471;" xml:space="preserve">
                             <g id="Front">
                               <g id="CardBackground">

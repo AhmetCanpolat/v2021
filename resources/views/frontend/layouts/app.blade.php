@@ -11,7 +11,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="index, follow">
-    <meta name="description" content="@yield('meta_description', get_setting('meta_description') )" />
+    <meta name="description" content="@yield('meta_description', get_setting('meta_description') )"/>
     <meta name="keywords" content="@yield('meta_keywords', get_setting('meta_keywords') )">
 
     @yield('meta')
@@ -63,12 +63,32 @@
             padding-right: 5rem;
           }
         }
+		
+		@media screen and (max-width: 1499px) and (min-width: 1200px) {
+          .cart-info-logo {
+            margin-right: 75px;
+          }
+        }
 
         @media only screen and (max-width: 1199px) {
           .cart-center {
             margin: 0 auto;
           }
         }
+		
+		@media only screen and (min-width: 768px) {
+          .back-button-mob {
+            display: none;
+          }
+        }
+		
+		@media only screen and (max-width: 768px) {
+          .mob-logo-center {
+            margin-right: auto!important;
+    		padding-left: 4rem;
+          }
+        }
+	
 
         @media only screen and (max-width: 1199px) {
           .form-center-pay {
@@ -210,8 +230,7 @@
     <!-- SCRIPTS -->
     <script src="{{ static_asset('assets/js/vendors.js') }}"></script>
     <script src="{{ static_asset('assets/js/aiz-core.js') }}"></script>
-
-
+	<script>function goBack() {window.history.back();}</script>
 
     @if (get_setting('facebook_chat') == 1)
         <script type="text/javascript">
@@ -305,7 +324,7 @@
                     if(data == '0'){
                         // $('.typed-search-box').addClass('d-none');
                         $('#search-content').html(null);
-                        $('.typed-search-box .search-nothing').removeClass('d-none').html('Sorry, nothing found for <strong>"'+searchKey+'"</strong>');
+                        $('.typed-search-box .search-nothing').removeClass('d-none').html('<strong>"'+searchKey+'"</strong> İle ilgili sonuç bulunamadı');
                         $('.search-preloader').addClass('d-none');
 
                     }

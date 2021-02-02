@@ -22,7 +22,7 @@
                     <div class="col active">
                         <div class="text-center text-primary">
                             <i class="la-3x mb-2 las la-truck"></i>
-                            <h3 class="fs-14 fw-600 d-none d-lg-block text-capitalize">Teslimat Adres Bilgileri</h3>
+                            <h3 class="fs-14 fw-600 d-none d-lg-block text-capitalize">Satın alınan ürünler</h3>
                         </div>
                     </div>
                     <div class="col">
@@ -61,18 +61,19 @@
                                             @php
                                                  $products = \App\Product::where('id', $val['id'])->get();
                                              @endphp
+										
                                         <li class="list-group-item">
                                             <div class="d-flex">
                                                 <span class="mr-2">
                                                     <img
-                                                        src="dsasd"
+                                                        src="{{ uploaded_asset($products[0]->thumbnail_img) }}"
                                                         class="img-fit size-60px rounded"
                                                         alt="{{   $products[0]->name  }}"
                                                     >
                                                 </span>
                                                 <span class="fs-14 opacity-60">{{  $products[0]->name }}</span>
                                             </div>
-                                            <div class="d-flex">
+                                            <div class="d-none">
                                                {{$val['price']}}
                                             </div>
                                         </li>

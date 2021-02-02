@@ -1816,7 +1816,7 @@
                     }
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-4": {
                     "Laracon21\\Colorcodeconverter\\": "src"
@@ -1881,7 +1881,7 @@
                     }
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-4": {
                     "Laracon21\\Combinations\\": "src"
@@ -1946,7 +1946,7 @@
                     }
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-4": {
                     "Laracon21\\Timezones\\": "src"
@@ -3285,7 +3285,7 @@
                     }
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-4": {
                     "MehediIitdu\\CoreComponentRepository\\": "src"

@@ -367,7 +367,7 @@
                                                 <img src="{{ static_asset('assets/img/refund-sticker.jpg') }}" height="36">
                                             @endif
                                         </a>
-                                        <a href="{{ route('returnpolicy') }}" class="ml-2" target="_blank">View Policy</a>
+                                        <a href="{{ route('returnpolicy') }}" class="ml-2" target="_blank">İade Sürecini Gör</a>
                                     </div>
                                 </div>
                             @endif

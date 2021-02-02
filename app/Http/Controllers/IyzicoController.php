@@ -55,7 +55,7 @@ class IyzicoController extends Controller
                         $request->setPaidPrice(round($order->grand_total));
                         $request->setBasketId(rand(000000, 999999));
                         $request->setLocale(\Iyzipay\Model\Locale::TR);
-                        $request->setConversationId(Session::get('id'));
+                        $request->setConversationId("123456789");
                         $request->setCurrency(\Iyzipay\Model\Currency::TL);
                         $request->setInstallment(1);
                         $request->setPaymentChannel(\Iyzipay\Model\PaymentChannel::WEB);
@@ -96,7 +96,13 @@ class IyzicoController extends Controller
                         $shippingAddress->setAddress(Session::get('shipping_info')["address"]);
                         $shippingAddress->setZipCode(Session::get('shipping_info')["postal_code"]);
                         $request->setShippingAddress($shippingAddress);
-
+						
+						//$request = new \Iyzipay\Request\RetrieveInstallmentInfoRequest();
+						//$request->setLocale(\Iyzipay\Model\Locale::TR);
+						//$request->setConversationId("123456789");
+						//$request->setBinNumber($Cardnumber);
+						//$request->setPrice(round(($order->grand_total)));
+						//$installmentInfo = \Iyzipay\Model\InstallmentInfo::retrieve($request, $options);
 
                         $billingAddress = new \Iyzipay\Model\Address();
                         $billingAddress->setContactName(Session::get('shipping_info')["name"]);

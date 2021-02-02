@@ -52,15 +52,15 @@ class ForgotPasswordController extends Controller
 
                 $array['view'] = 'emails.verification';
                 $array['from'] = env('MAIL_USERNAME');
-                $array['subject'] = translate('Password Reset');
-                $array['content'] = 'Verification Code is '.$user->verification_code;
+                $array['subject'] = translate('Şifre sıfırlama');
+                $array['content'] = 'Doğrulama Kodu '.$user->verification_code;
 
                 Mail::to($user->email)->queue(new SecondEmailVerifyMailManager($array));
 
                 return view('auth.passwords.reset');
             }
             else {
-                flash(translate('No account exists with this email'))->error();
+                flash(translate('Bu e-postaya sahip bir hesap yok'))->error();
                 return back();
             }
         }
@@ -69,11 +69,11 @@ class ForgotPasswordController extends Controller
             if ($user != null) {
                 $user->verification_code = rand(100000,999999);
                 $user->save();
-                sendSMS($user->phone, env('APP_NAME'), $user->verification_code.' is your verification code');
+                sendSMS($user->phone, env('APP_NAME'), $user->verification_code.' doğrulama kodunuz');
                 return view('otp_systems.frontend.auth.passwords.reset_with_phone');
             }
             else {
-                flash(translate('No account exists with this phone number'))->error();
+                flash(translate('Bu telefon numarasına sahip bir hesap yok'))->error();
                 return back();
             }
         }

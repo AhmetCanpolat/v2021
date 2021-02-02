@@ -5,26 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5a72f7fd-5148-443b-b004-55762d7282bf" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AddonController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AddonController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AddressController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AddressController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AizUploadController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AizUploadController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AttributeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AttributeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BannerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BannerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BrandController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BrandController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BusinessSettingsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BusinessSettingsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SubCategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SubCategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SubSubCategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SubSubCategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/user/seller/order_details_seller.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/user/seller/order_details_seller.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/user/seller/product_edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/user/seller/product_edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/user/seller/product_upload.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/user/seller/product_upload.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp/WrTjRAWvX9/addons/refund_system/views/refund_request/frontend/recieved_refund_request/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/temp/WrTjRAWvX9/addons/refund_system/views/refund_request/frontend/recieved_refund_request/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp/WrTjRAWvX9/addons/refund_system/views/refund_request/frontend/refund_request/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/temp/WrTjRAWvX9/addons/refund_system/views/refund_request/frontend/refund_request/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp/WrTjRAWvX9/addons/refund_system/views/refund_request/frontend/refund_request/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/temp/WrTjRAWvX9/addons/refund_system/views/refund_request/frontend/refund_request/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp/WrTjRAWvX9/addons/refund_system/views/refund_request/frontend/refund_request/reason.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/temp/WrTjRAWvX9/addons/refund_system/views/refund_request/frontend/refund_request/reason.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Helpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Helpers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/inc/admin_nav.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/inc/admin_nav.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/product/digital_products/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/product/digital_products/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/emails/invoice.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/emails/invoice.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/delivery_info.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/delivery_info.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/payment_select.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/payment_select.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/shipping_info.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/shipping_info.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/user/seller/digitalproducts/products.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/user/seller/digitalproducts/products.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mehedi-iitdu/core-component-repository" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mehedi-iitdu/core-component-repository" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,6 +185,12 @@
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php70" />
       <path value="$PROJECT_DIR$/vendor/netshell/paypal" />
       <path value="$PROJECT_DIR$/resources/views/frontend/payment" />
+      <path value="$PROJECT_DIR$/vendor/laracon21/combinations" />
+      <path value="$PROJECT_DIR$/vendor/laracon21/colorcodeconverter" />
+      <path value="$PROJECT_DIR$/vendor/laracon21/timezones" />
+      <path value="$PROJECT_DIR$/vendor/paypal/paypal-checkout-sdk" />
+      <path value="$PROJECT_DIR$/vendor/paypal/paypalhttp" />
+      <path value="$PROJECT_DIR$/vendor/ezyang/htmlpurifier" />
     </include_path>
   </component>
   <component name="ProjectId" id="1mvAYTJqkY59NyYo5kZL6SqmXeO" />
@@ -259,6 +255,7 @@
       <workItem from="1611306197799" duration="15496000" />
       <workItem from="1611577370097" duration="1983000" />
       <workItem from="1611644096009" duration="18000" />
+      <workItem from="1612170155309" duration="342000" />
     </task>
     <servers />
   </component>

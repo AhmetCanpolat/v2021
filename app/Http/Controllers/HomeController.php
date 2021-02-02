@@ -64,7 +64,7 @@ class HomeController extends Controller
                 }
             }
             else {
-                flash(translate('Invalid email or password!'))->warning();
+                flash(translate('Geçersiz e-posta veya şifre!'))->warning();
             }
         }
         return back();
@@ -144,11 +144,11 @@ class HomeController extends Controller
         $user->avatar_original = $request->photo;
 
         if($user->save()){
-            flash(translate('Your Profile has been updated successfully!'))->success();
+            flash(translate('Profiliniz başarıyla güncellendi!'))->success();
             return back();
         }
 
-        flash(translate('Sorry! Something went wrong.'))->error();
+        flash(translate('Üzgünüz birşeyler yanlış gitti'))->error();
         return back();
     }
 
@@ -156,7 +156,7 @@ class HomeController extends Controller
     public function seller_update_profile(Request $request)
     {
         if(env('DEMO_MODE') == 'On'){
-            flash(translate('Sorry! the action is not permitted in demo '))->error();
+            flash(translate('Sistem kapalı durumda'))->error();
             return back();
         }
 
@@ -320,6 +320,9 @@ class HomeController extends Controller
     {
         $product = Product::findOrFail($id);
         $lang = $request->lang;
+        $parrent = $product->parrent_id;
+        $subsubcat = $product->subsubcategory_id;
+        $subsubname=Category::where('id', $subsubcat)->get();
         $tags = json_decode($product->tags);
         $categories = Category::where('parent_id', 0)
             ->where('digital', 0)
@@ -339,18 +342,18 @@ class HomeController extends Controller
                 $altKategori=Category::where('id',$product->subcategory_id)->get();
                 $iki=$altKategori[0]->name;   
                 $iid=$altKategori[0]->id;
-                $altKategoriParentList = Category::where("parent_id",$altKategori[0]->parent_id)->get();
+                $altKategoriParentList = Category::where("parent_id",$parrent)->get();
                 if($product->subsubcategory_id!=null)
                 {
-                        $altaltKategori=Category::where('id',$product->subsubcategory_id)->get();
-                $altAltKategoriParentList = Category::where("parent_id",$altaltKategori[0]->parent_id)->get();
-                $uid=$altaltKategori[0]->id;
-                $uc=$altaltKategori[0]->name;     
+
+                $altaltKategori=Category::where('id',$product->subsubcategory_id)->get();
+                $altAltKategoriParentList = Category::where("parent_id",$parrent)->get();
+                $uid=$subsubcat;
+                $uc=$subsubname[0]->name;
                 return view('frontend.user.seller.product_edit', compact('bid','iid','uid','altKategoriParentList','altAltKategoriParentList','bir','iki','uc','product', 'categories', 'tags', 'lang'));
 
-                }
-else{
-    return view('frontend.user.seller.product_edit', compact('bid','iid','uid','altKategoriParentList','bir','iki','product', 'categories', 'tags', 'lang'));        
+                }else{
+                return view('frontend.user.seller.product_edit', compact('bid','iid','uid','altKategoriParentList','bir','iki','product', 'categories', 'tags', 'lang'));        
 }
 
 
@@ -822,12 +825,12 @@ else{
 
                 auth()->login($user, true);
 
-                flash(translate('Email Changed successfully'))->success();
+                flash(translate('E-posta başarıyla değiştirildi'))->success();
                 return redirect()->route('dashboard');
             }
         }
 
-        flash(translate('Email was not verified. Please resend your mail!'))->error();
+        flash(translate('E-posta doğrulanmadı. Lütfen postanızı tekrar gönderin!'))->error();
         return redirect()->route('dashboard');
 
     }
@@ -841,7 +844,7 @@ else{
                 event(new PasswordReset($user));
                 auth()->login($user, true);
 
-                flash(translate('Password updated successfully'))->success();
+                flash(translate('şifre başarıyla güncellendi'))->success();
 
                 if(auth()->user()->user_type == 'admin' || auth()->user()->user_type == 'staff')
                 {
@@ -850,12 +853,12 @@ else{
                 return redirect()->route('home');
             }
             else {
-                flash("Password and confirm password didn't match")->warning();
+                flash("Şifre ve onay şifresi eşleşmedi")->warning();
                 return back();
             }
         }
         else {
-            flash("Verification code mismatch")->error();
+            flash("Doğrulama kodu uyuşmadı")->error();
             return back();
         }
     }

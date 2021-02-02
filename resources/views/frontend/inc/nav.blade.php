@@ -91,7 +91,8 @@
             <div class="d-flex align-items-center">
 
                 <div class="col-auto col-xl-3 pl-0 pr-3 d-flex align-items-center">
-                    <a class="d-block py-20px mr-3 ml-0" href="{{ route('home') }}">
+					<a class="back-button-mob" onclick="goBack()"><i class="la la-undo" style="font-size: 1.4rem;"></i></a>
+					<a class="d-block py-20px mr-3 ml-0 mob-logo-center" href="{{ route('home') }}">
                         @php
                             $header_logo = get_setting('header_logo');
                         @endphp
@@ -101,7 +102,6 @@
                             <img src="{{ static_asset('assets/img/logo.png') }}" alt="{{ env('APP_NAME') }}" class="mw-100 h-30px h-md-40px" height="40">
                         @endif
                     </a>
-
                     @if(Route::currentRouteName() != 'home')
                         <div class="d-none d-xl-block align-self-stretch category-menu-icon-box ml-auto mr-0">
                             <div class="h-100 d-flex align-items-center" id="category-menu-icon">
@@ -112,6 +112,7 @@
                         </div>
                     @endif
                 </div>
+				
                 <div class="d-lg-none ml-auto mr-0">
                     <a class="p-2 d-block text-reset" href="javascript:void(0);" data-toggle="class-toggle" data-target=".front-header-search">
                         <i class="las la-search la-flip-horizontal la-2x"></i>
